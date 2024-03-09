@@ -1,2 +1,2 @@
 # 4DExplorer
-Git Workouts
+Git Workouts Example
