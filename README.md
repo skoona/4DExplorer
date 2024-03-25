@@ -1,14 +1,69 @@
 # 4DExplorer
 Git Workouts Example
-Adding a new line
 
-# Prepare for rebase
-Adding a new line
+## Project updated to a simple 4D Contacts application
+To initialize your local copy you will need to create directories that are being gitIgnored
 
-### Test Two
-#### Test Third Commit
+### Create Directories
+- Data
+- When you first launch it will ask `create/open`
+- choos open, and point to Data diretory
 
-### These are Kirk's changes
-Could be some really good stuff here!
-    This is more material added in my Branch 2
-### this is a great read me.
+### Launch App
+- Using 4D v19 or 4D v20 client open Project file
+- Main menu `Tools` -&gt; `Reload Database`
+- App is ready to use
+
+## TODO
+I am working on a branch to add a 4D syntax check to the codebase, so a syntax check can be done from the command line.
+
+### Interactions
+- feel free to improve the app in any way you see fit.  (In your own branch)
+
+### Workflow
+1. Start with an updated and current local repo! (UPDATE LOCAL)
+    - cd &lt;application-dir&gt;
+    - git fetch origin -u
+    - git checkout main
+    - git pull origin main
+    - git checkout development
+    - git pull origin development
+
+2. Begin your new feature
+    - git checkout development
+    - git checkout -b &lt;new-feature-branch&gt;
+    - ** Make changes and Commit **
+        - make sure Project\Sources\catalog.4DCatalog is not included unless you intended it.
+        - git status
+        - git commit -am "doing something good"
+    - ** Make changes and Commit **
+    - ** Make changes and Commit **
+    - ** Feature is now complete
+    - git push origin &lt;new-feature-branch&gt;
+
+3. Add more to &lt;new-feature-branch&gt;
+    - do UPDATE LOCAL
+    - git checkout &lt;new-feature-branch&gt;
+    - git pull origin &lt;new-feature-branch&gt;
+    - ** Make changes and Commit **
+    - ** Make changes and Commit **
+    - ** Make changes and Commit **
+    - ** Feature is now complete
+    - git push origin &lt;new-feature-branch&gt;
+
+4. Merge &lt;new-feature-branch&gt; into development
+    - do UPDATE LOCAL
+    - git checkout development
+        - git rebase --squash &lt;new-feature-branch&gt;
+        * or 
+        - git merge --squash &lt;new-feature-branch&gt;
+    - git commit -am "Completed &lt;new-feature-branch&gt;
+    - git branch -D &lt;new-feature=branch&gt;
+    - git push origin development
+
+- In the future
+    - git push origin \<feature-branch> will just sit there until we create a `pull request (PR)`
+    - Each (git push origin \<feature-branch>) to a PR will cause a SyntaxCheck
+    - A PR will set there until a code-review (CR) is OK'ed
+    - Once the CR is approved, then a merge-squash-delete (see #4 above) will be performed and the PR will be closed.
+
