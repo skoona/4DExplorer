@@ -1,0 +1,89 @@
+{
+	"IdentifierTypes": {
+		"lineHeight": 18,
+		"editable": true,
+		"items": [
+			{
+				"text": "email",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "home phone",
+				"ref": 4,
+				"editable": true
+			},
+			{
+				"text": "iPhone",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "mobile",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "social ID",
+				"ref": 6,
+				"editable": true
+			},
+			{
+				"text": "URL",
+				"ref": 7,
+				"editable": true
+			},
+			{
+				"text": "work phone",
+				"ref": 5,
+				"editable": true
+			}
+		]
+	},
+	"EventTypes": {
+		"lineHeight": 18,
+		"editable": true,
+		"items": [
+			{
+				"text": "Observation",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "Favorite Song",
+				"ref": 8,
+				"editable": false
+			},
+			{
+				"text": "In Person",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "Social media",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "Video call",
+				"ref": 4,
+				"editable": true
+			},
+			{
+				"text": "Voice call",
+				"ref": 5,
+				"editable": true
+			},
+			{
+				"text": "Comment",
+				"ref": 6,
+				"editable": true
+			},
+			{
+				"text": "Important",
+				"ref": 7,
+				"editable": true
+			}
+		]
+	}
+}
