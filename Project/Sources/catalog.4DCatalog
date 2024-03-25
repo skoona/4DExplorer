@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="Contacts" uuid="770D0E1E2C3B4D2F93802B4405AFBC0A" collation_locale="en">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Person" uuid="FF6976E235AC4133AF50D9A010ED225E" id="1">
+		<field name="ID" uuid="F6652E2BFA6E48CE8429544FFBAEB017" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="names" uuid="D7298CC0508D4D66B867E3675AF8C0F2" type="10" limiting_length="255" never_null="true" id="2"/>
+		<field name="street" uuid="E829A5D82BDB4CAAAAC35998B01E84DB" type="10" limiting_length="255" never_null="true" id="3"/>
+		<field name="city" uuid="080C874EE89B4F03942E60FE3B1BC50F" type="10" limiting_length="255" never_null="true" id="4"/>
+		<field name="state" uuid="5F39C49CBD9E4EF499895CBAC6974CDA" type="10" limiting_length="255" never_null="true" id="5"/>
+		<field name="zipCode" uuid="0C40A225A9454434913E9C73156845AE" type="5" never_null="true" id="6"/>
+		<field name="picture" uuid="BC12AC843DAE4E41BE24AA54FF82B917" type="12" never_null="true" id="7"/>
+		<primary_key field_name="ID" field_uuid="F6652E2BFA6E48CE8429544FFBAEB017"/>
+		<table_extra input_form="MainPrintForm" output_form="Output">
+			<editor_table_info displayable_fields_count="10">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="41.47265625" top="39.9296875" width="122.86328125" height="258.21484375"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Identifers" uuid="827CCD99489A4692AAA3DAF22E65A872" id="2">
+		<field name="ID" uuid="E52D4824622843328DD99164FF14222A" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="ID_Person" uuid="3694621E40844F5882B654712F4F730D" type="4" never_null="true" id="2"/>
+		<field name="key" uuid="F15646FA1F394FBBADCF7E623FA38A4A" type="10" limiting_length="255" never_null="true" id="3"/>
+		<field name="value" uuid="966CDB3FE1804B8A95CC3B8F53F0187C" type="10" limiting_length="255" never_null="true" id="4"/>
+		<field name="primary" uuid="4817D9F81FC94BBD9B7506B017FCD210" type="1" never_null="true" id="5"/>
+		<primary_key field_name="ID" field_uuid="E52D4824622843328DD99164FF14222A"/>
+		<table_extra input_form="Input" output_form="Output">
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="273.83984375" top="0.078125" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Event" uuid="849E1FD4CCED422BA726677EE2D90B36" id="3">
+		<field name="ID" uuid="A6459D57706A492C8CD4B4ABD5C8BBEE" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="ID_Person" uuid="0128CC1CB73C434B9605C4F21C58C764" type="4" never_null="true" id="2"/>
+		<field name="type" uuid="D706BBE720EB431F90A4EAEE9A86F6C7" type="10" limiting_length="255" never_null="true" id="3"/>
+		<field name="date" uuid="3C6351F9570F42BC973559197F03D73E" type="8" never_null="true" id="4"/>
+		<field name="content" uuid="44668DBB04234420AB8A8FB9931E6120" type="10" never_null="true" id="5"/>
+		<primary_key field_name="ID" field_uuid="A6459D57706A492C8CD4B4ABD5C8BBEE"/>
+		<table_extra input_form="Input" output_form="Output">
+			<editor_table_info displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="269.16796875" top="184.79296875" width="120" height="217.8125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="SETUP" uuid="753B12760DA047AF86DC25FBAD4A23E5" id="4" leave_tag_on_delete="true" prevent_journaling="true">
+		<field name="MOD_NAME" uuid="A17493C77C5F4255A6A49B646BB64DB8" type="10" id="1"/>
+		<field name="MOD_PARAM" uuid="79A6B1D6A44F4E8FA5E0064810207EFD" type="10" id="2"/>
+		<field name="MOD_VALUE" uuid="7660D53E6C38445BB32E312D9AE32680" type="10" id="3"/>
+		<field name="MOD_REF" uuid="C56C162F55F448F9ADFB1749A0692043" type="4" id="4"/>
+	</table>
+	<table name="VCS" uuid="B74EE3EE2D114F30A9C8AE598AE51B63" id="5" leave_tag_on_delete="true" prevent_journaling="true">
+		<field name="VCS_APPLICATION" uuid="834A7287BA9D4385994A6073CCC6C53D" type="10" id="1"/>
+		<field name="VCS_PATH" uuid="2E1677E4FCF34CC2A6322FEA3E6BCB1C" type="10" id="2"/>
+		<field name="VCS_CODE" uuid="D1B10A201FB744F191B305328A9A07E7" type="10" id="3"/>
+		<field name="VCS_DATE" uuid="8A8568D5E18442B99415F6B2179BA19B" type="8" id="4"/>
+		<field name="VCS_TIME" uuid="C2619790D7F2494C86838E8AD9E332AF" type="4" id="5"/>
+		<field name="VCS_TIMESTAMP" uuid="5F657E28DB504620BC3BD4DEBA7CA7E7" type="10" id="6"/>
+	</table>
+	<table name="EXPORTS" uuid="533AC83F42D0423885CE47563AC39565" id="6" leave_tag_on_delete="true" prevent_journaling="true">
+		<field name="EXP_APPLICATION" uuid="CA193CE0868A48D89B4F451704FCAFE2" type="10" id="1"/>
+		<field name="EXP_CODE" uuid="A262EE17AC5F4A7FBEB06FF040A22BA3" type="10" id="2"/>
+		<field name="EXP_DATE" uuid="97E62385CA65456C9A9AD42D5E72E64E" type="8" id="3"/>
+	</table>
+	<relation uuid="78B830E059254292949A112EFBA0894F" name_Nto1="person" name_1toN="identifiers" auto_load_Nto1="true" auto_load_1toN="true" foreign_key="false" state="1" integrity="delete">
+		<related_field kind="source">
+			<field_ref uuid="3694621E40844F5882B654712F4F730D" name="ID_Person">
+				<table_ref uuid="827CCD99489A4692AAA3DAF22E65A872" name="Identifers"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="F6652E2BFA6E48CE8429544FFBAEB017" name="ID">
+				<table_ref uuid="FF6976E235AC4133AF50D9A010ED225E" name="Person"/>
+			</field_ref>
+		</related_field>
+		<relation_extra entry_wildchar="false" entry_create="false" choice_field="1" entry_autofill="false">
+			<editor_relation_info via_point_x="-1" via_point_y="-1" prefers_left="true" smartlink="true">
+				<color red="255" green="255" blue="255" alpha="0"/>
+			</editor_relation_info>
+		</relation_extra>
+	</relation>
+	<relation uuid="C43F3EF19C0A44BC8B6E3066D6E00BC0" name_Nto1="person" name_1toN="events" auto_load_Nto1="true" auto_load_1toN="true" foreign_key="false" state="1" integrity="delete">
+		<related_field kind="source">
+			<field_ref uuid="0128CC1CB73C434B9605C4F21C58C764" name="ID_Person">
+				<table_ref uuid="849E1FD4CCED422BA726677EE2D90B36" name="Event"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="F6652E2BFA6E48CE8429544FFBAEB017" name="ID">
+				<table_ref uuid="FF6976E235AC4133AF50D9A010ED225E" name="Person"/>
+			</field_ref>
+		</related_field>
+		<relation_extra entry_wildchar="false" entry_create="false" choice_field="1" entry_autofill="false">
+			<editor_relation_info via_point_x="-1" via_point_y="-1" prefers_left="true" smartlink="true">
+				<color red="255" green="255" blue="255" alpha="0"/>
+			</editor_relation_info>
+		</relation_extra>
+	</relation>
+	<index kind="regular" unique_keys="true" uuid="5A7DDFFE9D644AC58303EDA10E7FDD4B" type="7">
+		<field_ref uuid="F6652E2BFA6E48CE8429544FFBAEB017" name="ID">
+			<table_ref uuid="FF6976E235AC4133AF50D9A010ED225E" name="Person"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="E235138E600A4DA890CA8598C1406904" type="7">
+		<field_ref uuid="A6459D57706A492C8CD4B4ABD5C8BBEE" name="ID">
+			<table_ref uuid="849E1FD4CCED422BA726677EE2D90B36" name="Event"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="F507BC8C0B494D17BC96722848DBB9A2" type="7">
+		<field_ref uuid="E52D4824622843328DD99164FF14222A" name="ID">
+			<table_ref uuid="827CCD99489A4692AAA3DAF22E65A872" name="Identifers"/>
+		</field_ref>
+	</index>
+	<base_extra package_name="Contacts" structure_file_name="Contacts" data_file_path=":Contacts.4DD">
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>

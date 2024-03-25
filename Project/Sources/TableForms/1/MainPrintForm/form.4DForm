@@ -1,0 +1,371 @@
+{
+	"destination": "detailPrinter",
+	"windowTitle": "Contact Manager Listing",
+	"rightMargin": 15,
+	"bottomMargin": 20,
+	"menuBar": "ContactManagerMenu",
+	"markerBody": 644,
+	"markerBreak": 644,
+	"markerFooter": 654,
+	"events": [
+		"onLoad",
+		"onValidate",
+		"onClick",
+		"onHeader",
+		"onPrintingBreak",
+		"onPrintingFooter",
+		"onDisplayDetail",
+		"onOutsideCall",
+		"onDoubleClick",
+		"onDrop",
+		"onMenuSelect",
+		"onPluginArea",
+		"onDataChange",
+		"onDragOver",
+		"onPrintingDetail",
+		"onOpenDetail",
+		"onCloseDetail",
+		"onTimer",
+		"onAfterKeystroke",
+		"onLoadRecord",
+		"onAfterEdit",
+		"onBeginDragOver",
+		"onBoundVariableChange",
+		"onPageChange"
+	],
+	"pages": [
+		null,
+		{
+			"objects": {
+				"vDate": {
+					"type": "input",
+					"top": 13,
+					"left": 461,
+					"width": 100,
+					"height": 12,
+					"sizingX": "move",
+					"stroke": "#000000",
+					"textAlign": "center",
+					"fontFamily": "System Font Regular",
+					"fontSize": 9,
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onHeader",
+						"onPrintingBreak"
+					]
+				},
+				"Text1": {
+					"type": "text",
+					"top": 10,
+					"left": 15,
+					"width": 200,
+					"height": 17,
+					"sizingX": "grow",
+					"stroke": "#000000"
+				},
+				"Rectangle9": {
+					"type": "rectangle",
+					"top": 31,
+					"left": 27,
+					"width": 515,
+					"height": 191,
+					"fill": "transparent",
+					"stroke": "transparent"
+				},
+				"Text2": {
+					"type": "text",
+					"top": 124,
+					"left": 212,
+					"width": 65,
+					"height": 17,
+					"text": "city : "
+				},
+				"Text3": {
+					"type": "text",
+					"top": 81,
+					"left": 212,
+					"width": 65,
+					"height": 17,
+					"text": "ID : "
+				},
+				"Text6": {
+					"type": "text",
+					"top": 150,
+					"left": 212,
+					"width": 65,
+					"height": 17,
+					"text": "state : "
+				},
+				"Text7": {
+					"type": "text",
+					"top": 99,
+					"left": 212,
+					"width": 65,
+					"height": 17,
+					"text": "street : "
+				},
+				"Text8": {
+					"type": "text",
+					"top": 174,
+					"left": 212,
+					"width": 65,
+					"height": 17,
+					"text": "zipCode : "
+				},
+				"[Person]city": {
+					"type": "input",
+					"top": 124,
+					"left": 282,
+					"width": 253,
+					"height": 17,
+					"dataSource": "[Person:1]city:4",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					]
+				},
+				"[Person]ID": {
+					"type": "input",
+					"top": 81,
+					"left": 282,
+					"width": 64,
+					"height": 17,
+					"dataSource": "[Person:1]ID:1",
+					"dataSourceTypeHint": "integer",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					]
+				},
+				"[Person]names": {
+					"type": "input",
+					"top": 44,
+					"left": 212,
+					"width": 308,
+					"height": 18,
+					"dataSource": "[Person:1]names:2",
+					"fontFamily": "System Font Regular",
+					"fontSize": 14,
+					"fontWeight": "bold",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					]
+				},
+				"[Person]picture": {
+					"type": "input",
+					"top": 44,
+					"left": 36,
+					"width": 153,
+					"height": 160,
+					"dataSource": "[Person:1]picture:7",
+					"dataSourceTypeHint": "picture",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"pictureFormat": "proportionalCenter",
+					"dragging": "custom",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					]
+				},
+				"[Person]state": {
+					"type": "input",
+					"top": 150,
+					"left": 282,
+					"width": 253,
+					"height": 17,
+					"dataSource": "[Person:1]state:5",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					]
+				},
+				"[Person]street": {
+					"type": "input",
+					"top": 99,
+					"left": 282,
+					"width": 253,
+					"height": 17,
+					"dataSource": "[Person:1]street:3",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					]
+				},
+				"[Person]zipCode": {
+					"type": "input",
+					"top": 174,
+					"left": 282,
+					"width": 72,
+					"height": 17,
+					"dataSource": "[Person:1]zipCode:6",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"events": [
+						"onLoad",
+						"onValidate",
+						"onClick",
+						"onHeader",
+						"onPrintingBreak",
+						"onPrintingFooter",
+						"onDisplayDetail",
+						"onDataChange",
+						"onPrintingDetail"
+					]
+				},
+				"Subform": {
+					"type": "subform",
+					"top": 240,
+					"left": 27,
+					"width": 500,
+					"height": 147,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSourceTypeHint": "text",
+					"table": 2,
+					"listForm": "Output",
+					"scrollbarHorizontal": "visible",
+					"scrollbarVertical": "visible",
+					"doubleClickInRowAction": "editSubrecord",
+					"selectionMode": "multiple",
+					"borderStyle": "sunken",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Subform1": {
+					"type": "subform",
+					"top": 421,
+					"left": 27,
+					"width": 500,
+					"height": 147,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSourceTypeHint": "text",
+					"table": 3,
+					"listForm": "Output",
+					"scrollbarHorizontal": "visible",
+					"scrollbarVertical": "visible",
+					"doubleClickInRowAction": "editSubrecord",
+					"selectionMode": "multiple",
+					"borderStyle": "sunken",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		}
+	],
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {},
+			"View 2": {
+				"objects": [
+					"vDate",
+					"Text1"
+				]
+			},
+			"View 3": {},
+			"View 4": {},
+			"View 5": {},
+			"View 6": {},
+			"View 7": {},
+			"View 8": {},
+			"View 9": {}
+		}
+	}
+}
