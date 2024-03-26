@@ -15,7 +15,7 @@ To initialize your local copy you will need to create directories that are being
 - App is ready to use
 
 ## TODO
-I am working on a branch to add a 4D syntax check to the codebase, so a syntax check can be done from the command line.
+There are a couple of classes which when invoked from the command line will perform a Syntax Check and/or Compile to 4DZ; leaving results in json files in the project folder.  See: ./Command.sh for command line example.
 
 ### Interactions
 - feel free to improve the app in any way you see fit.  (In your own branch)
@@ -57,13 +57,13 @@ I am working on a branch to add a 4D syntax check to the codebase, so a syntax c
         - git rebase --squash &lt;new-feature-branch&gt;
         * or 
         - git merge --squash &lt;new-feature-branch&gt;
-    - git commit -am "Completed &lt;new-feature-branch&gt;
+	- git commit       // save the opened commit message
     - git branch -D &lt;new-feature=branch&gt;
     - git push origin development
 
 - In the future
     - git push origin \<feature-branch> will just sit there until we create a `pull request (PR)`
     - Each (git push origin \<feature-branch>) to a PR will cause a SyntaxCheck
-    - A PR will set there until a code-review (CR) is OK'ed
-    - Once the CR is approved, then a merge-squash-delete (see #4 above) will be performed and the PR will be closed.
+    - A PR will set there until a code-review (CR) is OK'ed and the SyntaxCheck passes.
+    - Once the CR is approved, then a merge-squash-delete (see #4 above) will be performed (by GitHub) and the PR will be closed.
 
