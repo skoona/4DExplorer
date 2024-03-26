@@ -1,40 +1,46 @@
 //%attributes = {}
 // error_logger
 
-C_OBJECT:C1216($error; $file)
-C_COLLECTION:C1488($_callChain)
-C_TEXT:C284($timestamp_t)
+C_OBJECT:C1216($oError; $oFile)
+C_COLLECTION:C1488($cCallChain; $cErrorStack)
+C_LONGINT:C283(gError)  // establish error feedback
+C_COLLECTION:C1488(cErrors)
 
-// get last error stack into a collection 
-$errorStack:=New collection:C1472
-ARRAY TEXT:C222($errors_at; 0)
-ARRAY LONGINT:C221($codes_al; 0)
-ARRAY TEXT:C222($comps_at; 0)
-GET LAST ERROR STACK:C1015($codes_al; $comps_at; $errors_at)
-ARRAY TO COLLECTION:C1563($errorStack; $codes_al; "code"; $comps_at; "component"; $errors_at; "error")
+C_TEXT:C284($tTimestamp)
+ARRAY LONGINT:C221($alCodes; 0)
+ARRAY TEXT:C222($atComps; 0)
+ARRAY TEXT:C222($atErrors; 0)
 
-// get call chain into a collection 
-$_callChain:=Get call chain:C1662
+$cErrorStack:=New collection:C1472
+$cCallChain:=Get call chain:C1662
+$tTimestamp:=Timestamp:C1445
+If (cErrors=Null:C1517)
+	cErrors:=New shared collection:C1527
+End if 
 
-// get current timestamp 
-$timestamp_t:=Timestamp:C1445
+GET LAST ERROR STACK:C1015($alCodes; $atComps; $atErrors)
+ARRAY TO COLLECTION:C1563($cErrorStack; $alCodes; "code"; $atComps; "component"; $atErrors; "error")
 
 // put it all together 
-$error:=New object:C1471
-$error.timestamp:=$timestamp_t
-$error.user_4d:=Current user:C182
-$error.user_system:=Current system user:C484
-$error.machine:=Current machine:C483
-$error.method:=Error method
-$error.error:=Error
-$error.line:=Error line
-$error.formula:=Error formula
-$error.deep:=$_callChain.length
-$error.callChain:=$_callChain
-$error.errorStack:=$errorStack
+$oError:=New object:C1471()
+$oError.timestamp:=$tTimestamp
+$oError.user_4d:=Current user:C182
+$oError.user_system:=Current system user:C484
+$oError.machine:=Current machine:C483
+$oError.method:=Error method
+$oError.error:=Error
+$oError.line:=Error line
+$oError.formula:=Error formula
+$oError.deep:=$cCallChain.length
+$oError.callChain:=$cCallChain
+$oError.errorStack:=$cErrorStack
 
 // Store the error in a file located in the database logs folder
-$timestamp_t:=Replace string:C233($timestamp_t; ":"; "-")
-$file:=Folder:C1567(fk logs folder:K87:17; *).folder("error").file("error_"+$timestamp_t+".json")
-$file.setText(JSON Stringify:C1217($error))
+$tTimestamp:=Replace string:C233($tTimestamp; ":"; "-")
+$oFile:=Folder:C1567(fk logs folder:K87:17; *).folder("error").file("error_"+$tTimestamp+".json")
+$oFile.setText(JSON Stringify:C1217($oError))
 
+// Try to save error info
+Use (cErrors)
+	cErrors.push(JSON Stringify:C1217($oError))
+End use 

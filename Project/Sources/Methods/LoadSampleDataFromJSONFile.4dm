@@ -1,5 +1,5 @@
 //%attributes = {}
-// LoadSampleData
+// LoadSampleDataFromJSONFile
 // 
 // Parses a sample data file in the following format
 //  Applies the results to the Database structure

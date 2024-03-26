@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="6">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="8">
 	<com.4d>
 		<deployment>
 			<options/>
@@ -6,7 +6,7 @@
 		<server>
 			<network>
 				<client_server use_encryption="false"/>
-				<options publication_name="Contacts"/>
+				<options publication_name="Contacts" publish_at_startup="false"/>
 			</network>
 		</server>
 		<web>
@@ -19,12 +19,14 @@
 		</web>
 		<database>
 			<misc standard_xpath="false"/>
+			<data_storage allow_data_read_only="false"/>
 		</database>
 		<compiler>
-			<options compilation_path="2" error_file="true" symbol_file="true"/>
+			<options compilation_path="2" error_file="true" symbol_file="true" syntax_file="true"/>
 		</compiler>
 		<interface>
 			<developper display_toolbar="false"/>
+			<user display_list="false"/>
 		</interface>
 		<general startup_environnement="1"/>
 	</com.4d>
