@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   CheckSyntax:
-    name: Check Syntax on ${{ $GITHUB_CONTEXT.ref_name }}
+    name: Check Syntax on ${{ github.ref_name }}
     runs-on: macOS-latest
     permissions: write-all    
     steps:
@@ -21,12 +21,12 @@ jobs:
         timeout-minutes: 15
         run: |
           curl https://resources-download.4d.com/release/20.x/20.3/101192/mac/tool4d_mac_x86.tar.xz -o tool4d.tar.xz -sL
-          tar xvzf tool4d.tar.xz
+          tar xzf tool4d.tar.xz
 
       - name: "Run Project syntax check"
         timeout-minutes: 15
         run: |
-        ./tool4d.app/Contents/MacOS/tool4d --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --skip-onstartup --create-data --startup-method=GH_SyntaxCheck_P 
+          ./tool4d.app/Contents/MacOS/tool4d --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --skip-onstartup --create-data --startup-method=GH_SyntaxCheck_P 
 
       - uses: actions/upload-artifact@v3
         name: Upload Artifacts
