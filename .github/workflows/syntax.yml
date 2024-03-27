@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   CheckSyntax:
-    name: Check Syntax on 
+    name: Check Syntax on ${{ $GITHUB_CONTEXT.ref_name }}
     runs-on: macOS-latest
     permissions: write-all    
     steps:
