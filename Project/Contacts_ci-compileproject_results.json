@@ -1,1 +1,13 @@
-{"command":{"success":true,"errors":[],"packaging":{"success":true,"statusText":"success"},"action":"compileproject","action_timestamp":"2024-03-27T10:27:35"},"durationMS":213}
+{
+    "command": {
+        "success": true,
+        "errors": [],
+        "packaging": {
+            "success": true,
+            "statusText": "success"
+        },
+        "action": "compileproject",
+        "action_timestamp": "2024-03-27T10:27:35"
+    },
+    "durationMS": 213
+}
