@@ -10,7 +10,7 @@ var $userParam : Text
 $realVal:=Get database parameter(User param value; $userParam)
 
 Case of 
-	: (($userParam="tool4d")
+	: ($userParam="tool4d")
 		LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - OnStartup ByPassed \n"; Information message)
 		
 	: (($userParam="checksyntax") | ($userParam="compileproject"))
