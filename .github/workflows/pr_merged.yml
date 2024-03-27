@@ -1,9 +1,9 @@
 name: Merged PRs
 on:
-    pull_request:
-      types:
-        - closed
-        
+  pull_request:
+    types:
+    - closed
+
 # https://github.com/marketplace/actions/merge-pull-requests-automerge-action  
 jobs:
   merged:
