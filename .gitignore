@@ -14,25 +14,19 @@
 *.journal
 *.4DIndx
 *.Match
-*.orig
-TableData.txt
-backupHistory.json
-WriteAheadLog.json
 
 #--------------------------------
 # Runtime Files
 #--------------------------------
 Components/*
 Plugins/*
-ProcessListJSON.txt
-UsersGroups.4UG
 symphony_ci-*.json
-Libraries/
 
 #--------------------------------
 # Ignore derived data
 #--------------------------------
 Project/DerivedData/
+Libraries/
 
 #--------------------------------
 # Ignore logs
@@ -45,8 +39,6 @@ Logs/
 #--------------------------------
 userPreferences.*/
 Settings/*
-Resources/indexScanner.json
-Resources/Constants_Sweetwater.xlf
 
 #!buildApp.4DSettings
 
@@ -69,9 +61,6 @@ Project/Trash/
 #--------------------------------
 **/*.quarantine
 **/*com.apple.metadata*
-ca-bundle.pem
-__AKP_Test_Methods.md
-__AKP_Test_Methods.4dm
 
 *_log.json
 
