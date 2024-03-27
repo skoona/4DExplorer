@@ -32,7 +32,7 @@ jobs:
         name: Upload Artifacts
         with:
           name: Syntax Results
-          path: Project/Contacts_ci-*_results.json
+          path: Project/Contacts_ci-checksyntax_results.json
           
       - name: "Pass or Fail"
         run: |
