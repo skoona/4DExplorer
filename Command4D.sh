@@ -25,8 +25,8 @@ echo "Action requested: " $ACTION
 
 # open --stdout=fourDout.log -a $FOURD --args --project $PROJECT --user-param $ACTION --create-data
 # $FOURD --project=$PROJECT --user-param=$ACTION --create-data --headless
-# $TOOL4D --opening-mode=interpreted --project=$PROJECT --user-param=$ACTION --dataless
-$FOURDCLIENT --project=$PROJECT --user-param=$ACTION --dataless --headless
+$TOOL4D  --project=$PROJECT --user-param="tool4d"  --dataless --startup-method=GH_SyntaxCheck_P 
+# $FOURDCLIENT --project=$PROJECT --user-param=$ACTION --dataless --headless
 
 echo fourDout.log
 
