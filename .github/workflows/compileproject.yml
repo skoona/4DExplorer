@@ -1,6 +1,6 @@
 name: Compile Project
 on:
-  pull_request:
+  push:
     branches:
       - 'development'
       - 'main'
