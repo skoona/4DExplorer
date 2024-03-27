@@ -36,7 +36,7 @@ jobs:
           
       - name: "Pass or Fail"
         run: |
-          if [[ ${{ fromJson(env.PACKAGE_JSON).command.success }} == true ]]; then exit 0; else exit 1; fi
+          [[ ${{ fromJson(env.PACKAGE_JSON).command.success }} == true ]] || { exit 1; }
 
           
 

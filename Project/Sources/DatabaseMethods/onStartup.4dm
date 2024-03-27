@@ -12,7 +12,7 @@ $realVal:=Get database parameter:C643(User param value:K37:94; $userParam)
 Case of 
 		
 	: (($userParam="checksyntax") | ($userParam="compileproject"))
-		LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - Evaluating UserParam: "+$userParam+"\n"; Information message:K38:1)
+		LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - Evaluating UserParam: "+$userParam+"\n"; Information message:K38:1)
 		$pid:=New process:C317("GH_UserParamHandler"; 0; "GitHub Handler"; $userParam; False:C215; *)
 		
 	Else 
