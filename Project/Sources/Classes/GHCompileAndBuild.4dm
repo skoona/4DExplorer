@@ -9,7 +9,7 @@ Class constructor($command : Text)
 	
 	
 Function execute()->$status : Object
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - Compile and Build Project...\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - Compile and Build Project...\n"; Information message:K38:1)
 	
 	If (Folder:C1567("/PROJECT").file(This:C1470.getProjectName()+"_ci-compileproject_results.json").exists)
 		Folder:C1567("/PROJECT").file(This:C1470.getProjectName()+"_ci-compileproject_results.json").delete()
@@ -20,7 +20,7 @@ Function execute()->$status : Object
 	$status.action:=This:C1470.getCommand()
 	$status.action_timestamp:=String:C10(Current date:C33; ISO date:K1:8; Current time:C178)
 	
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - End Compile and Build, status: "+JSON Stringify:C1217($status)+"\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - End Compile and Build, status: "+JSON Stringify:C1217($status)+"\n"; Information message:K38:1)
 	
 Function compileAndBuild()->$status : Object
 	$status:=New object:C1471()
@@ -29,14 +29,14 @@ Function compileAndBuild()->$status : Object
 		MESSAGES OFF:C175  // no progress bar
 	End if 
 	
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - Begin Compile Project...\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - Begin Compile Project...\n"; Information message:K38:1)
 	
 	// compiles the opened project using the options defined in the Structure Settings
 	$status:=Compile project:C1760()
 	
 	$status.packaging:=This:C1470.package()
 	
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - End Compile, status: "+JSON Stringify:C1217($status)+"\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - End Compile, status: "+JSON Stringify:C1217($status)+"\n"; Information message:K38:1)
 	
 Function package()->$return : Object
 	var $buildDir; $structureFolder; $packageDir : 4D:C1709.Folder
@@ -44,7 +44,7 @@ Function package()->$return : Object
 	var $deletePaths : Collection
 	var $zipStructure : Object
 	
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - Begin Packaging Project...\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - Begin Packaging Project...\n"; Information message:K38:1)
 	
 	// Package for 4DZ
 	$packageDir:=Folder:C1567(Folder:C1567("/PACKAGE").platformPath; fk platform path:K87:2)
@@ -96,5 +96,5 @@ Function package()->$return : Object
 		$structureFolder.folder("Project").delete(Delete with contents:K24:24)
 	End if 
 	
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - End packaging, status: "+JSON Stringify:C1217($return)+"\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - End packaging, status: "+JSON Stringify:C1217($return)+"\n"; Information message:K38:1)
 	
