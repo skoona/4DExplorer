@@ -22,7 +22,7 @@ jobs:
         run: |
           curl https://resources-download.4d.com/release/20.x/20.3/101192/win/tool4d_win.tar.xz -o tool4d.tar.xz           
           dir "C:\Program Files\Git\usr\bin"
-          "C:\Program Files\Git\usr\bin\tar.exe" xvJf tool4d.tar.xz -C tool4d
+          C:\"Program Files"\Git\usr\bin\tar.exe xvJf tool4d.tar.xz -C tool4d
 
       - name: "Run Project syntax check"
         timeout-minutes: 15
