@@ -13,7 +13,7 @@ concurrency:
 jobs:
   CheckSyntax:
     name: Check Syntax on Windows
-    runs-on: windows-latest
+    runs-on: windows-2019
     permissions: write-all    
     steps:
       - uses: actions/checkout@v3
