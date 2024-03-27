@@ -5,7 +5,7 @@ on:
       - 'development'
       - 'main'
       - 'release/**'
-      
+
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
@@ -24,7 +24,7 @@ jobs:
 
       - name: Compile and Build 4DZ Package
         run: |
-          ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --create-data --startup-method=GH_SyntaxCheck_P 
+          ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GH_SyntaxCheck_P 
 
       - uses: actions/upload-artifact@v3
         name: Upload Artifacts
