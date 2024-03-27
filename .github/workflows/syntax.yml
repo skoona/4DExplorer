@@ -17,19 +17,23 @@ jobs:
         run: |
           curl https://resources-download.4d.com/release/20.x/20.3/101192/mac/tool4d_mac_x86.tar.xz -o tool4d.tar.xz -sL 
           tar xzf tool4d.tar.xz
+
       - name: "Run Project syntax check"
         run: |
-          ./tool4d.app/Contents/MacOS/tool4d --project ${{ github.workspace }}/Project/Contacts.4DProject --user-param "checksyntax" --create-data
+          ./tool4d.app/Contents/MacOS/tool4d --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --create-data
           cat Project/Contacts_ci-checksyntax_results.json | jq
+
       - name: "Verify job"
         run: |
           echo "PACKAGE_JSON=$(jq -c . < Project/Contacts_ci-checksyntax_results.json)" >> $GITHUB_ENV
           echo "Sytax Check Verified?\n $(jq . < Project/Contacts_ci-checksyntax_results.json)\n"
+
       - uses: actions/upload-artifact@v3
         name: Upload Artifacts
         with:
           name: Syntax Results
           path: Project/Contacts_ci-*_results.json
+          
       - name: "Pass or Fail"
         run: |
           if [[ ${{ fromJson(env.PACKAGE_JSON).command.success }} == true ]]; then exit 0; else exit 1; fi
