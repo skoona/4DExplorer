@@ -8,6 +8,6 @@ jobs:
   approved:
     name: PR Approved
     if: github.event.review.state == 'APPROVED'
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - run: echo "This PR was approved and can be merged"
