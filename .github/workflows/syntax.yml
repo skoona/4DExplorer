@@ -20,7 +20,7 @@ jobs:
 
       - name: "Run Project syntax check"
         run: |
-          ./tool4d.app/Contents/MacOS/tool4d --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --create-data
+          ./tool4d.app/Contents/MacOS/tool4d  --opening-mode="interpreted"  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --dataless
           cat Project/Contacts_ci-checksyntax_results.json | jq
 
       - name: "Verify job"
