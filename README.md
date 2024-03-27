@@ -20,6 +20,7 @@ There are a couple of classes which when invoked from the command line will perf
 
 ### Interactions
 - feel free to improve the app in any way you see fit.  (In your own branch)
+- Automation on creation of pull_request to Development from feature branch.
 
 ### Workflow
 1. Start with an updated and current local repo! (UPDATE LOCAL)
