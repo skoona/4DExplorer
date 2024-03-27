@@ -20,14 +20,16 @@ jobs:
         run: |
           ./tool4d.app/Contents/MacOS/tool4d --project ${{ github.workspace }}/Project/Contacts.4DProject --dataless --user-param "checksyntax"
           cat Project/Contacts_ci-checksyntax_results.json | jq
-      - uses: actions/upload-artifact@v3
-        with:
-            name: Syntax Results
-            path: Project/Contacts_ci-*_results.json
       - name: "Verify job"
         run: |
           echo "PACKAGE_JSON=$(jq -c . < Project/Contacts_ci-checksyntax_results.json)" >> $GITHUB_ENV
-          echo "Sytax Checkk Verified?\n $(jq . < Project/Contacts_ci-checksyntax_results.json)\n"
+          echo "Sytax Check Verified?\n $(jq . < Project/Contacts_ci-checksyntax_results.json)\n"
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Syntax Results
+          path: Project/Contacts_ci-*_results.json
+      - name: "Pass or Fail"
+        run: |
           if [[ ${{ fromJson(env.PACKAGE_JSON).command.success }} == true ]]; then exit 0; else exit 1; fi
 
           
