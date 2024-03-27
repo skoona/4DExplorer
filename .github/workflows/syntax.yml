@@ -18,7 +18,7 @@ jobs:
           curl https://resources-download.4d.com/release/20.x/20.3/101192/mac/tool4d_mac_x86.tar.xz -o tool4d.tar.xz -sL && tar xvzf tool4d.tar.xz
       - name: "Run Project syntax check"
         run: |
-          ./tool4d.app/Contents/MacOS/tool4d --project ${{ github.workspace }}/Project/Contacts.4DProject --user-param "checksyntax"
+          ./tool4d.app/Contents/MacOS/tool4d --project ${{ github.workspace }}/Project/Contacts.4DProject --user-param "checksyntax" --create-data
           cat Project/Contacts_ci-checksyntax_results.json | jq
       - name: "Verify job"
         run: |
