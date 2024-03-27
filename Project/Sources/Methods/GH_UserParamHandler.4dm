@@ -8,7 +8,7 @@ var $command : cs.GHCommand
 var $result; $status : Object
 var $startTime : Integer
 
-LOG EVENT(Into system standard outputs; Timestamp+" - user-param: "+$userParam+"\n"; Information message)
+LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - user-param: "+$userParam+"\n"; Information message)
 
 $startTime:=Milliseconds
 $status:=New object

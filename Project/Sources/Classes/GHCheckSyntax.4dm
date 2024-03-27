@@ -19,7 +19,7 @@ Function execute()->$status : Object
 	$status.action_timestamp:=String:C10(Current date:C33; ISO date:K1:8; Current time:C178)
 	
 Function checkSyntax($checkSyntaxOptions : Object)->$status : Object
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - Checking Syntax...\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - Checking Syntax...\n"; Information message:K38:1)
 	
 	// writes a log to: PACKAGE/Data/Logs/Symphony_errors.xml
 	// keys: <ErrorList><Method>[<Error>]
@@ -29,5 +29,5 @@ Function checkSyntax($checkSyntaxOptions : Object)->$status : Object
 		$status.artifact:=Folder:C1567("/LOGS").file("Symphony_errors.xml").getText()
 	End if 
 	
-	LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - "+JSON Stringify:C1217($status)+"\n"; Information message:K38:1)
+	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - "+JSON Stringify:C1217($status)+"\n"; Information message:K38:1)
 	
