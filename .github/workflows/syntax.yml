@@ -20,13 +20,11 @@ jobs:
 
       - name: "Run Project syntax check"
         run: |
-          ./tool4d.app/Contents/MacOS/tool4d  --opening-mode="interpreted"  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --dataless
-          cat Project/Contacts_ci-checksyntax_results.json | jq
+          ./tool4d.app/Contents/MacOS/tool4d  --opening-mode="interpreted" --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --dataless
 
       - name: "Verify job"
         run: |
-          echo "PACKAGE_JSON=$(jq -c . < Project/Contacts_ci-checksyntax_results.json)" >> $GITHUB_ENV
-          echo "Sytax Check Verified?\n $(jq . < Project/Contacts_ci-checksyntax_results.json)\n"
+          echo "Sytax Check Verified?\n $(jq .command.success Project/Contacts_ci-checksyntax_results.json)\n"
 
       - uses: actions/upload-artifact@v3
         name: Upload Artifacts
@@ -36,7 +34,7 @@ jobs:
           
       - name: "Pass or Fail"
         run: |
-          [[ ${{ fromJson(env.PACKAGE_JSON).command.success }} == true ]] || { exit 1; }
+          [[ $(jq .command.success Project/Contacts_ci-checksyntax_results.json) == true ]] || { exit 1; }
 
           
 
