@@ -1,28 +1,29 @@
 // Person Edit Icon
+var $winRef : Real
 
 
 Case of 
-	: (Form event code:C388=On Clicked:K2:4)
+	: (Form event code=On Clicked)
 		
-		If (Form:C1466.currentPersonPosition#0)
+		If (Form.currentPersonPosition#0)
 			
-			FORM SET INPUT:C55([Person:1]; "Input")
+			FORM SET INPUT([Person]; "Input")
 			
-			QUERY:C277([Person:1]; [Person:1]ID:1=Form:C1466.currentPersonItem.ID)
+			QUERY([Person]; [Person]ID=Form.currentPersonItem.ID)
 			If (ok=1)
-				$winRef:=Open form window:C675([Person:1]; "Input"; Modal form dialog box:K39:7)
+				$winRef:=Open form window([Person]; "Input"; Modal form dialog box)
 				
-				MODIFY RECORD:C57([Person:1])
+				MODIFY RECORD([Person])
 				
 				If (ok=1)
 					
 					// Reload Changed Record
-					Form:C1466.currentPersonItem.reload()
-					LISTBOX SELECT ROW:C912(*; "es_NamesLB"; Form:C1466.currentPersonPosition)
+					Form.currentPersonItem.reload()
+					LISTBOX SELECT ROW(*; "es_NamesLB"; Form.currentPersonPosition)
 					
 				End if 
 				
-				CLOSE WINDOW:C154($winRef)
+				CLOSE WINDOW($winRef)
 				
 			End if 
 			

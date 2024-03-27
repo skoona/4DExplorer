@@ -1,17 +1,21 @@
-ARRAY TEXT:C222(at_persons; 0)
-ARRAY LONGINT:C221(al_id_persons; 0)
+var $person : cs.PersonEntity
+var $persons : cs.PersonSelection
+var $position : Integer
+
+ARRAY TEXT(at_persons; 0)
+ARRAY LONGINT(al_id_persons; 0)
 
 Case of 
-	: (FORM Event:C1606.code=On Load:K2:1)
-		$persons:=ds:C1482.Person.all().orderBy("names")
+	: (FORM Event.code=On Load)
+		$persons:=ds.Person.all().orderBy("names")
 		
 		For each ($person; $persons)
-			APPEND TO ARRAY:C911(at_persons; $person.names)
-			APPEND TO ARRAY:C911(al_id_persons; $person.ID)
+			APPEND TO ARRAY(at_persons; $person.names)
+			APPEND TO ARRAY(al_id_persons; $person.ID)
 			
 		End for each 
 		
-		$position:=Find in array:C230(al_id_persons; [Identifers:2]ID_Person:2)
+		$position:=Find in array(al_id_persons; [Identifers]ID_Person)
 		If ($position=-1)
 			at_persons:=0
 		Else 
@@ -19,14 +23,14 @@ Case of
 		End if 
 		
 		
-	: (FORM Event:C1606.code=On Data Change:K2:15)
+	: (FORM Event.code=On Data Change)
 		
 		$position:=at_persons
-		[Identifers:2]ID_Person:2:=al_id_persons{$position}
+		[Identifers]ID_Person:=al_id_persons{$position}
 		
-	: (FORM Event:C1606.code=On Unload:K2:2)
+	: (FORM Event.code=On Unload)
 		
-		CLEAR VARIABLE:C89(at_persons)
-		CLEAR VARIABLE:C89(al_id_persons)
+		CLEAR VARIABLE(at_persons)
+		CLEAR VARIABLE(al_id_persons)
 		
 End case 

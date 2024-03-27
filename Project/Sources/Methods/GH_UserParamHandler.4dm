@@ -3,31 +3,31 @@
 
 #DECLARE($userParam : Text; $testing : Boolean)
 
-var $commandFactory : cs:C1710.GHCommandFactory
-var $command : cs:C1710.GHCommand
-var $result : Object
+var $commandFactory : cs.GHCommandFactory
+var $command : cs.GHCommand
+var $result; $status : Object
 var $startTime : Integer
 
-LOG EVENT:C667(Into system standard outputs:K38:9; Timestamp:C1445+" - user-param: "+$userParam+"\n"; Information message:K38:1)
+LOG EVENT(Into system standard outputs; Timestamp+" - user-param: "+$userParam+"\n"; Information message)
 
-$startTime:=Milliseconds:C459
-$status:=New object:C1471
-$result:=New object:C1471
+$startTime:=Milliseconds
+$status:=New object
+$result:=New object
 
-$commandFactory:=cs:C1710.GHCommandFactory.new()
+$commandFactory:=cs.GHCommandFactory.new()
 $command:=$commandFactory.getCommand($userParam)
 
-If ($command#Null:C1517)
+If ($command#Null)
 	$status.command:=$command.execute()
 	
-	$status.durationMS:=Milliseconds:C459-$startTime
+	$status.durationMS:=Milliseconds-$startTime
 	
-	Folder:C1567("/PROJECT").file($command.getProjectName()+"_ci-"+$userParam+"_results.json").setText(JSON Stringify:C1217($status))
+	Folder("/PROJECT").file($command.getProjectName()+"_ci-"+$userParam+"_results.json").setText(JSON Stringify($status))
 End if 
 
-if($testing)
-	return
-End if
+If ($testing)
+	return 
+End if 
 
 QUIT 4D
 

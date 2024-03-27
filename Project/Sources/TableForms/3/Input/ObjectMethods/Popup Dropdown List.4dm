@@ -1,31 +1,34 @@
 
+var $person : cs.PersonEntity
+var $persons : cs.PersonSelection
+var $position; $index : Integer
 
 Case of 
-	: (FORM Event:C1606.code=On Load:K2:1)
-		C_LONGINT:C283($index; $position)
+	: (FORM Event.code=On Load)
+		C_LONGINT($index; $position)
 		
-		ARRAY TEXT:C222(at_persons; 0)
-		ARRAY LONGINT:C221(al_id_persons; 0)
+		ARRAY TEXT(at_persons; 0)
+		ARRAY LONGINT(al_id_persons; 0)
 		
 		
-		If (Form:C1466.directAssignment)
-			[Event:3]ID_Person:2:=Form:C1466.personID
+		If (Form.directAssignment)
+			[Event]ID_Person:=Form.personID
 		End if 
 		
 		
-		If ([Event:3]ID_Person:2#0)
-			$persons:=ds:C1482.Person.query("ID = :1"; [Event:3]ID_Person:2)
+		If ([Event]ID_Person#0)
+			$persons:=ds.Person.query("ID = :1"; [Event]ID_Person)
 		Else 
-			$persons:=ds:C1482.Person.all().orderBy("names")
+			$persons:=ds.Person.all().orderBy("names")
 			
 		End if 
 		
 		For each ($person; $persons)
 			$index:=$index+1
-			APPEND TO ARRAY:C911(at_persons; $person.names)
-			APPEND TO ARRAY:C911(al_id_persons; $person.ID)
+			APPEND TO ARRAY(at_persons; $person.names)
+			APPEND TO ARRAY(al_id_persons; $person.ID)
 			
-			If ($person.ID=[Event:3]ID_Person:2)
+			If ($person.ID=[Event]ID_Person)
 				$position:=$index
 			End if 
 			
@@ -34,15 +37,15 @@ Case of
 		at_persons:=$position
 		
 		
-	: (FORM Event:C1606.code=On Data Change:K2:15)
-		C_LONGINT:C283($pos)
+	: (FORM Event.code=On Data Change)
+		C_LONGINT($pos)
 		
 		$pos:=at_persons
-		[Event:3]ID_Person:2:=al_id_persons{$pos}
+		[Event]ID_Person:=al_id_persons{$pos}
 		
-	: (FORM Event:C1606.code=On Unload:K2:2)
+	: (FORM Event.code=On Unload)
 		
-		CLEAR VARIABLE:C89(at_persons)
-		CLEAR VARIABLE:C89(al_id_persons)
+		CLEAR VARIABLE(at_persons)
+		CLEAR VARIABLE(al_id_persons)
 		
 End case 

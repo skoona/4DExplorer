@@ -6,10 +6,10 @@
 # 
 
 
-# PROJECT=/Users/jscott/Documents/gProjects/4DExplorer/Project/Contacts.4DProject
-PROJECT=/Users/jamesscott/iDocuments/gProjects/4DExplorer/Project/Contacts.4DProject
-# FOURD=/Volumes/Development4D/4Dv20.2/4D.app
-FOURD=/Applications/4Dv20.2/4D.app
+PROJECT=/Users/jscott/Documents/gProjects/4DExplorer/Project/Contacts.4DProject
+# PROJECT=/Users/jamesscott/iDocuments/gProjects/4DExplorer/Project/Contacts.4DProject
+FOURD=/Volumes/Development4D/4Dv20.2/4D.app
+# FOURD=/Applications/4Dv20.2/4D.app
 TOOL4D=/Volumes/Development4D/tool4d.app/Contents/MacOS/tool4d
 
 ACTION=${1:-checksyntax}

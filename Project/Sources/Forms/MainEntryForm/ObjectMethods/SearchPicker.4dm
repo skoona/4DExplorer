@@ -1,20 +1,22 @@
 //Searchpicker sample code
 
+var $selectedPerson : 4D.Entity
+var $selectionPosition : Integer
+var $prior : 4D.EntitySelection
+var $Customise : Boolean
+var $ObjectName; vSearch : Text
+
 Case of 
 		
-	: (Form event code:C388=On Load:K2:1)
+	: (Form event code=On Load)
 		
 		// Init the var itself
 		// this can be done anywhere else in your code
-		C_TEXT:C284(vSearch)
-		
 		// the let's customise the SearchPicker (if needed)
 		
-		C_BOOLEAN:C305($Customise)
-		$Customise:=True:C214
+		$Customise:=True
 		
-		C_TEXT:C284($ObjectName)
-		$ObjectName:=OBJECT Get name:C1087(Object current:K67:2)
+		$ObjectName:=OBJECT Get name(Object current)
 		
 		// The exemple below shows how to set a label (ex : "name") inside the search zone
 		
@@ -24,36 +26,34 @@ Case of
 			
 		End if 
 		
-	: (Form event code:C388=On Data Change:K2:15)
-		
-		C_OBJECT:C1216($prior)
+	: (Form event code=On Data Change)
 		
 		If (vSearch="")
-			If (Form:C1466.currentPersonItem#Null:C1517)
-				$selectedPerson:=Form:C1466.currentPersonItem
-				$prior:=Form:C1466.searchResults
-				Form:C1466.searchResults:=Form:C1466.persons
+			If (Form.currentPersonItem#Null)
+				$selectedPerson:=Form.currentPersonItem
+				$prior:=Form.searchResults
+				Form.searchResults:=Form.persons
 				
-				$selectionPosition:=$selectedPerson.indexOf(Form:C1466.persons)+1
-				OBJECT SET SCROLL POSITION:C906(*; "es_NamesLB"; $selectionPosition)
-				LISTBOX SELECT ROW:C912(*; "es_NamesLB"; $selectionPosition; lk replace selection:K53:1)
-				Form:C1466.currentPersonItem:=$selectedPerson
-				ToggleActions(True:C214)
+				$selectionPosition:=$selectedPerson.indexOf(Form.persons)+1
+				OBJECT SET SCROLL POSITION(*; "es_NamesLB"; $selectionPosition)
+				LISTBOX SELECT ROW(*; "es_NamesLB"; $selectionPosition; lk replace selection)
+				Form.currentPersonItem:=$selectedPerson
+				ToggleActions(True)
 				
 			Else 
-				$prior:=Form:C1466.searchResults
-				Form:C1466.searchResults:=Form:C1466.persons
-				ToggleActions(False:C215)
+				$prior:=Form.searchResults
+				Form.searchResults:=Form.persons
+				ToggleActions(False)
 				
 			End if 
 			
 		Else 
-			$prior:=Form:C1466.searchResults
-			Form:C1466.searchResults:=Form:C1466.persons.query("names  = :1"; "@"+vSearch+"@")
-			ToggleActions(False:C215)
+			$prior:=Form.searchResults
+			Form.searchResults:=Form.persons.query("names  = :1"; "@"+vSearch+"@")
+			ToggleActions(False)
 			
 		End if 
 		
-		CLEAR VARIABLE:C89($prior)
+		CLEAR VARIABLE($prior)
 		
 End case 

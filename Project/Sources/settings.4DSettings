@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="8">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="9">
 	<com.4d>
 		<deployment>
 			<options/>
@@ -22,7 +22,7 @@
 			<data_storage allow_data_read_only="false"/>
 		</database>
 		<compiler>
-			<options compilation_path="2" error_file="true" symbol_file="true" syntax_file="true"/>
+			<options compilation_path="3" error_file="true" symbol_file="true" syntax_file="true"/>
 		</compiler>
 		<interface>
 			<developper display_toolbar="false"/>
