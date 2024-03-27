@@ -12,17 +12,19 @@ concurrency:
 
 jobs:
   CheckSyntax:
-    name: Check Syntax on Windows Server 2019
+    name: Check Syntax on Windows
     runs-on: windows-latest
-    permissions: write-all
+    permissions: write-all    
     steps:
       - uses: actions/checkout@v3
       - name: "Download latest tool4d release and expand"
+        timeout-minutes: 15
         run: |
           curl -sL https://resources-download.4d.com/release/20.x/20.3/101192/win/tool4d_win.tar.xz -o tool4d.tar.xz           
           tar xvzf tool4d.tar.xz
 
       - name: "Run Project syntax check"
+        timeout-minutes: 15
         run: |
           ./tool4d/tool4d.exe --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --skip-onstartup --create-data --startup-method=GH_SyntaxCheck_P 
 
