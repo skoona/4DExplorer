@@ -19,3 +19,8 @@ jobs:
       - name: "Run Project syntax check"
         run: |
           ./tool4d.app/Contents/MacOS/tool4d --project ${{ github.workspace }}/Project/Contacts.4DProject --dataless --user-param "checksyntax"
+          cat Project/Contacts_ci-checksyntax_results.json | jq
+      - uses: actions/upload-artifact@v3
+        with:
+            name: Syntax Results
+            path: Project/Contacts_ci-*_results.json
