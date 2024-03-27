@@ -13,7 +13,7 @@ concurrency:
 jobs:
   CheckSyntax:
     name: Check Syntax on Windows Server 2019
-    runs-on: windows-2019
+    runs-on: windows-latest
     permissions: write-all
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
 
       - name: "Run Project syntax check"
         run: |
-          ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --skip-onstartup --create-data --startup-method=GH_SyntaxCheck_P 
+          ./tool4d/tool4d.exe --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --skip-onstartup --create-data --startup-method=GH_SyntaxCheck_P 
 
       - uses: actions/upload-artifact@v3
         name: Upload Artifacts
