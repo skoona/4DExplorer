@@ -22,10 +22,6 @@ jobs:
         run: |
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --skip-onstartup --create-data --startup-method=GH_SyntaxCheck_P 
 
-      - name: "Verify job"
-        run: |
-          echo "Sytax Check Verified?\n $(jq .command.success Project/Contacts_ci-checksyntax_results.json)\n"
-
       - uses: actions/upload-artifact@v3
         name: Upload Artifacts
         with:
