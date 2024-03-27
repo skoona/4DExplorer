@@ -25,10 +25,10 @@ jobs:
             name: Syntax Results
             path: Project/Contacts_ci-*_results.json
       - name: "Verify job"
-      run: |
+        run: |
           echo "PACKAGE_JSON=$(jq -c . < Project/Contacts_ci-checksyntax_results.json)" >> $GITHUB_ENV
           echo "Sytax Checkk Verified?\n $(jq . < Project/Contacts_ci-checksyntax_results.json)\n"
           if [[ ${{ fromJson(env.PACKAGE_JSON).command.success }} == true ]]; then exit 0; else exit 1; fi
-          
+
           
 
