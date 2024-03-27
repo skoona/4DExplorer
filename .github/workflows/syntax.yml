@@ -25,6 +25,7 @@ jobs:
           echo "PACKAGE_JSON=$(jq -c . < Project/Contacts_ci-checksyntax_results.json)" >> $GITHUB_ENV
           echo "Sytax Check Verified?\n $(jq . < Project/Contacts_ci-checksyntax_results.json)\n"
       - uses: actions/upload-artifact@v3
+        name: Upload Artifacts
         with:
           name: Syntax Results
           path: Project/Contacts_ci-*_results.json
