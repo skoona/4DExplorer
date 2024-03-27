@@ -1,28 +1,29 @@
 // Events Add Icon
 
+var $winRef : Real
 
 Case of 
-	: (Form event code:C388=On Clicked:K2:4)
+	: (Form event code=On Clicked)
 		
-		If (Form:C1466.currentPersonPosition#0)
+		If (Form.currentPersonPosition#0)
 			
-			FORM SET INPUT:C55([Event:3]; "Input")
+			FORM SET INPUT([Event]; "Input")
 			
-			$winRef:=Open form window:C675([Event:3]; "Input"; Modal form dialog box:K39:7)
+			$winRef:=Open form window([Event]; "Input"; Modal form dialog box)
 			
-			CREATE RECORD:C68([Event:3])
-			[Event:3]ID_Person:2:=Form:C1466.currentPersonItem.ID
-			DIALOG:C40([Event:3]; "Input")
+			CREATE RECORD([Event])
+			[Event]ID_Person:=Form.currentPersonItem.ID
+			DIALOG([Event]; "Input")
 			
 			If (ok=1)
-				SAVE RECORD:C53([Event:3])
-				RELATE MANY:C262([Person:1])
+				SAVE RECORD([Event])
+				RELATE MANY([Person])
 				
-				LISTBOX SELECT ROW:C912(*; "es_NamesLB"; Form:C1466.currentPersonPosition)
+				LISTBOX SELECT ROW(*; "es_NamesLB"; Form.currentPersonPosition)
 				
 			End if 
 			
-			CLOSE WINDOW:C154($winRef)
+			CLOSE WINDOW($winRef)
 			
 		End if 
 		

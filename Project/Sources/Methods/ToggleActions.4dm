@@ -4,24 +4,25 @@
 
 
 // personEditPB
-C_BOOLEAN:C305($1)
-C_POINTER:C301($actionButtons)
+#DECLARE($currentState : Boolean)
+var $actionButtons : Pointer
+var $index : Integer
 
-$actionButtons:=Form:C1466.actionButtonsObjectsArray
-If ($actionButtons#Null:C1517)
+$actionButtons:=Form.actionButtonsObjectsArray
+If ($actionButtons#Null)
 	
-	$currentState:=OBJECT Get visible:C1075(*; $actionButtons->{1})
+	$currentState:=OBJECT Get visible(*; $actionButtons->{1})
 	
-	If (Count parameters:C259=0)
-		$currentState:=Choose:C955($currentState; False:C215; True:C214)
+	If (Count parameters=0)
+		$currentState:=Choose($currentState; False; True)
 		
 	Else 
 		$currentState:=$1
 		
 	End if 
 	
-	For ($index; 1; Size of array:C274($actionButtons->))
-		OBJECT SET VISIBLE:C603(*; $actionButtons->{$index}; $currentState)
+	For ($index; 1; Size of array($actionButtons->))
+		OBJECT SET VISIBLE(*; $actionButtons->{$index}; $currentState)
 		
 	End for 
 	

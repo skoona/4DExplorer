@@ -1,28 +1,30 @@
 // Identifers Edit Icon
 
+var $winRef : Real
+
 
 Case of 
-	: (Form event code:C388=On Clicked:K2:4)
+	: (Form event code=On Clicked)
 		
-		If (Form:C1466.currentIdentifiersItemPosition#0)
+		If (Form.currentIdentifiersItemPosition#0)
 			
-			SET QUERY DESTINATION:C396(Into current selection:K19:1)
-			FORM SET INPUT:C55([Identifers:2]; "Input")
+			SET QUERY DESTINATION(Into current selection)
+			FORM SET INPUT([Identifers]; "Input")
 			
-			QUERY:C277([Identifers:2]; [Identifers:2]ID:1=Form:C1466.currentIdentifiersItem.ID)
+			QUERY([Identifers]; [Identifers]ID=Form.currentIdentifiersItem.ID)
 			If (ok=1)
 				
-				$winRef:=Open form window:C675([Identifers:2]; "Input"; Modal form dialog box:K39:7)
-				MODIFY RECORD:C57([Identifers:2])
+				$winRef:=Open form window([Identifers]; "Input"; Modal form dialog box)
+				MODIFY RECORD([Identifers])
 				
 				If (ok=1)
 					
-					Form:C1466.currentIdentifiersItem.reload()
-					LISTBOX SELECT ROW:C912(*; "es_NamesLB"; Form:C1466.currentPersonPosition)
+					Form.currentIdentifiersItem.reload()
+					LISTBOX SELECT ROW(*; "es_NamesLB"; Form.currentPersonPosition)
 					
 				End if 
 				
-				CLOSE WINDOW:C154($winRef)
+				CLOSE WINDOW($winRef)
 				
 			End if 
 			
