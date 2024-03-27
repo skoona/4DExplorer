@@ -9,7 +9,7 @@ jobs:
   merged:
     name: PR Merged
     if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - run: echo The PR was merged
   
