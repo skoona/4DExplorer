@@ -25,10 +25,10 @@ ACTION=${1:-checksyntax}
 
 echo "Action requested: " $ACTION
 
-# open --stdout=fourDout.log -a $FOURD --args --project $PROJECT -user-param $ACTION --dataless --skip-onstartup --startup-method=GH_SyntaxCheck_P 
-# $FOURD --project=$PROJECT --user-param=$ACTION --create-data --headless --skip-onstartup --dataless --startup-method=GH_SyntaxCheck_P 
-$TOOL4D  --opening-mode=interpreted --project=$PROJECT --user-param=$ACTION --skip-onstartup --dataless --startup-method=GH_SyntaxCheck_P 
-# $FOURDCLIENT --project=$PROJECT --user-param=$ACTION --dataless --headless --skip-onstartup --dataless --startup-method=GH_SyntaxCheck_P 
+# open --stdout=fourDout.log -a $FOURD --args --project $PROJECT -user-param $ACTION --dataless --skip-onstartup --startup-method=GHPipeline_EntryPoint_P 
+# $FOURD --project=$PROJECT --user-param=$ACTION --create-data --headless --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
+$TOOL4D  --opening-mode=interpreted --project=$PROJECT --user-param=$ACTION --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
+# $FOURDCLIENT --project=$PROJECT --user-param=$ACTION --dataless --headless --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
 
 [[ -f fourDout.log ]] && {
     echo fourDout.log
