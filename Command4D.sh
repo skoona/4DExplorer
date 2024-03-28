@@ -14,7 +14,7 @@ FOURD=/Volumes/Development4D/4Dv20.2/4D.app
 # FOURD=/Applications/4Dv20.2/4D.app/Contents/MacOS/4D
 FOURDCLIENT=/Applications/4Dv20.2/4D.app/Contents/MacOS/4D
 
-TOOL4D=/Volumes/Development4D/tool4d.app/Contents/MacOS/tool4d
+TOOL4D=/Volumes/Development4D/4Dv20R3/tool4d.app/Contents/MacOS/tool4d
 # TOOL4D=/Applications/tool4d.app/Contents/MacOS/tool4d
 
 ACTION=${1:-checksyntax}
