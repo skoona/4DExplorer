@@ -22,6 +22,8 @@ jobs:
     permissions: write-all    
     needs: PrepTool4D
     steps:
+      - uses: actions/checkout@v3     
+
       - name: Restore Cache for tool4d app
         id: restore-tool4d-cache
         uses: actions/cache@v3
