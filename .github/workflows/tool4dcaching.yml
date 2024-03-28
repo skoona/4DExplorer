@@ -2,10 +2,6 @@ name: Tool4D Caching
 on:
   workflow_call:
 
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
 
   CacheTool4D:
