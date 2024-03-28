@@ -12,15 +12,15 @@ concurrency:
   cancel-in-progress: true
             
 jobs:
-  PrepTool4D:
-    name: Prepare Tool4D
-    uses: ./.github/workflows/tool4dcaching.yml
+  # PrepTool4D:
+  #   name: Prepare Tool4D
+  #   uses: ./.github/workflows/tool4dcaching.yml
     
   CompileAndBuild:
     name: Compile to 4DZ
     runs-on: macOS-latest
     permissions: write-all    
-    needs: PrepTool4D
+    # needs: PrepTool4D
     steps:
       - uses: actions/checkout@v4.1.2
 
