@@ -46,7 +46,7 @@ jobs:
         with:
           name: Compile Results
           path: |
-            Compiled Database/*
+            Compiled Database/
             Project/Contacts_ci-compileproject_results.json
 
           
