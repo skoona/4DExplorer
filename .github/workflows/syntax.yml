@@ -19,6 +19,7 @@ jobs:
     name: Check Syntax on ${{ github.ref }}
     runs-on: macOS-latest
     permissions: write-all        
+    needs: PrepTool4D
     steps:     
       - uses: actions/checkout@v3     
       - name: "Run Project syntax check"

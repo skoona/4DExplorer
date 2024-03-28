@@ -19,6 +19,7 @@ jobs:
     name: Compile to 4DZ
     runs-on: macOS-latest
     permissions: write-all    
+    needs: PrepTool4D
     steps:
       - uses: actions/checkout@v3     
       - name: Compile and Build 4DZ Package for ${{ github.ref }}

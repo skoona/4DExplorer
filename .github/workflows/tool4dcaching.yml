@@ -9,7 +9,7 @@ concurrency:
 jobs:
 
   CacheTool4D:
-    name: Check Syntax on ${{ github.ref_name }}
+    name: Check Syntax on ${{ github.ref }}
     runs-on: macOS-latest
     permissions: write-all    
     steps:
