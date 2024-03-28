@@ -13,8 +13,8 @@ concurrency:
             
 jobs:
   
-  Tool4DCasheBuild:
-    name: Restore tool4d cache
+  CompileAndBuild:
+    name: Compile to 4DZ
     runs-on: macOS-latest
     permissions: write-all    
     steps:
@@ -52,12 +52,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-  CompileAndBuild:
-    name: Compile to 4DZ
-    runs-on: macOS-latest
-    permissions: write-all
-    needs: Tool4DCasheBuild
-    steps:
       - uses: actions/checkout@v3     
       - name: Compile and Build 4DZ Package
         run: |

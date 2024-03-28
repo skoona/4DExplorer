@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Tool4DCasheBuild:
-    name: Restore tool4d cache
+  CheckSyntax:
+    name: Check Syntax on ${{ github.ref_name }}
     runs-on: macOS-latest
     permissions: write-all    
     steps:
@@ -51,11 +51,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-  CheckSyntax:
-    name: Check Syntax on ${{ github.ref_name }}
-    runs-on: macOS-latest
-    permissions: write-all    
-    steps:
       - uses: actions/checkout@v3
       - name: "Run Project syntax check"
         timeout-minutes: 15
