@@ -40,13 +40,13 @@ There are a couple of classes which when invoked from the command line will perf
         - git commit -am "doing something good"
     - ** Make changes and Commit **
     - ** Make changes and Commit **
-    - ** Feature is now complete
+    - ** Feature is now complete - or your done for now
     - git push origin &lt;new-feature-branch&gt;
 
 3. Add more to &lt;new-feature-branch&gt;
     - do UPDATE LOCAL
     - git checkout &lt;new-feature-branch&gt;
-    - git pull origin &lt;new-feature-branch&gt;
+    - git pull origin &lt;new-feature-branch&gt;  -- in case other updated it
     - ** Make changes and Commit **
     - ** Make changes and Commit **
     - ** Make changes and Commit **
