@@ -12,15 +12,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  CheckSyntax:
-    name: Check Syntax on ${{ github.ref_name }}
+  Tool4DCasheBuild:
+    name: Restore tool4d cache
     runs-on: macOS-latest
     permissions: write-all    
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Cache tool4d app
-        id: tool4d-cache
+      - name: Restore Cache for tool4d app
+        id: restore-tool4d-cache
         uses: actions/cache@v3
         env:
           cache-name: tool4d-cache
@@ -40,6 +38,26 @@ jobs:
           curl https://resources-download.4d.com/release/20.x/20.3/latest/mac/tool4d_mac_x86.tar.xz -o tool4d.tar.xz -sL
           tar xzf tool4d.tar.xz
 
+      - name: Create Cache tool4d app
+        id: create-tool4d-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: tool4d-cache
+        with:
+          path:  ./tool4d.app
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+  CheckSyntax:
+    name: Check Syntax on ${{ github.ref_name }}
+    runs-on: macOS-latest
+    permissions: write-all    
+    steps:
+      - uses: actions/checkout@v3
+      
       - name: "Run Project syntax check"
         timeout-minutes: 15
         run: |

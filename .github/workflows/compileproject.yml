@@ -12,15 +12,13 @@ concurrency:
   cancel-in-progress: true
             
 jobs:
-  CompileAndBuild:
-    name: Compile to 4DZ
+  Tool4DCasheBuild:
+    name: Restore tool4d cache
     runs-on: macOS-latest
-    permissions: write-all
+    permissions: write-all    
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Cache tool4d app
-        id: tool4d-cache
+      - name: Restore Cache for tool4d app
+        id: restore-tool4d-cache
         uses: actions/cache@v3
         env:
           cache-name: tool4d-cache
@@ -31,7 +29,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-          
+      
       - if: ${{ steps.tool4d-cache.outputs.cache-hit != 'true' }}
         name:  Download latest tool4d release and expand
         continue-on-error: true
@@ -39,7 +37,28 @@ jobs:
         run: |
           curl https://resources-download.4d.com/release/20.x/20.3/latest/mac/tool4d_mac_x86.tar.xz -o tool4d.tar.xz -sL
           tar xzf tool4d.tar.xz
-      
+
+      - name: Create Cache tool4d app
+        id: create-tool4d-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: tool4d-cache
+        with:
+          path:  ./tool4d.app
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+  
+
+  CompileAndBuild:
+    name: Compile to 4DZ
+    runs-on: macOS-latest
+    permissions: write-all
+    needs: Tool4DCasheBuild
+    steps:
+      - uses: actions/checkout@v3     
       - name: Compile and Build 4DZ Package
         run: |
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
