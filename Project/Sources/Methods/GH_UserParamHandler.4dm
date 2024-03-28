@@ -1,7 +1,7 @@
 //%attributes = {}
 // GH_UserParamHandler
 
-#DECLARE($userParam : Text; $testing : Boolean)
+#DECLARE($userParam : Text; $skipExit : Boolean)
 
 var $commandFactory : cs.GHCommandFactory
 var $command : cs.GHCommand
@@ -27,7 +27,7 @@ End if
 
 LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Processing Complete for User Param: "+$userParam+"\n"; Information message)
 
-If ($testing)
+If ($skipExit)
 	return 
 End if 
 
