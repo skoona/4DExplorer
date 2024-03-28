@@ -17,6 +17,8 @@ jobs:
     runs-on: macOS-latest
     permissions: write-all    
     steps:
+      - uses: actions/checkout@v3     
+
       - name: Restore Cache for tool4d app
         id: restore-tool4d-cache
         uses: actions/cache@v3
@@ -52,7 +54,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - uses: actions/checkout@v3
       - name: "Run Project syntax check"
         timeout-minutes: 15
         run: |
