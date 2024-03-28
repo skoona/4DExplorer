@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  CheckSyntax:
-    name: Check Syntax on ${{ github.ref_name }}
+  Tool4DCasheBuild:
+    name: Restore tool4d cache
     runs-on: macOS-latest
     permissions: write-all    
     steps:
