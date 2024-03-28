@@ -22,6 +22,19 @@ jobs:
     permissions: write-all    
     needs: PrepTool4D
     steps:
+      - name: Restore Cache for tool4d app
+        id: restore-tool4d-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: tool4d-cache
+        with:
+          path:  ./tool4d.app
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
       - uses: actions/checkout@v3     
       - name: Compile and Build 4DZ Package for ${{ github.ref }}
         run: |
