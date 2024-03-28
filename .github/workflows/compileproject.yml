@@ -13,6 +13,7 @@ concurrency:
             
 jobs:
   PrepTool4D:
+    name: Prepare Tool4D
     uses: ./.github/workflows/tool4dcaching.yml
     
   CompileAndBuild:
