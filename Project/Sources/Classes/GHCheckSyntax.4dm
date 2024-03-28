@@ -5,29 +5,30 @@
 Class extends GHCommand
 
 Class constructor($command : Text)
-	Super:C1705(New object:C1471("command"; $command))
+	Super(New object("command"; $command))
 	
 Function execute()->$status : Object
 	var $options : Object
 	
-	$options:=New object:C1471()
-	$options.targets:=New collection:C1472
+	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Checking Syntax...\n"; Information message)
 	
-	$status:=This:C1470.checkSyntax($options)
+	$options:=New object()
+	$options.targets:=New collection
 	
-	$status.action:=This:C1470.getCommand()
-	$status.action_timestamp:=String:C10(Current date:C33; ISO date:K1:8; Current time:C178)
+	$status:=This.checkSyntax($options)
+	
+	$status.action:=This.getCommand()
+	$status.action_timestamp:=String(Current date; ISO date; Current time)
+	
+	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - End Syntax Check, status: "+String($status.success)+"\n"; Information message)
 	
 Function checkSyntax($checkSyntaxOptions : Object)->$status : Object
-	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - Checking Syntax...\n"; Information message:K38:1)
 	
-	// writes a log to: PACKAGE/Data/Logs/Symphony_errors.xml
+	// writes a log to: PACKAGE/Data/Logs/<projectname>_errors.xml
 	// keys: <ErrorList><Method>[<Error>]
-	$status:=Compile project:C1760($checkSyntaxOptions)
+	$status:=Compile project($checkSyntaxOptions)
 	
-	If (Folder:C1567("/LOGS").file("Symphony_errors.xml").exists)
-		$status.artifact:=Folder:C1567("/LOGS").file("Symphony_errors.xml").getText()
+	If (Folder("/LOGS").file(This.getProjectName()+"_errors.xml").exists)
+		$status.artifact:=Folder("/LOGS").file(This.getProjectName()+"_errors.xml").getText()
 	End if 
-	
-	LOG EVENT:C667(Into system standard outputs:K38:9; "::notice "+Timestamp:C1445+" - "+JSON Stringify:C1217($status)+"\n"; Information message:K38:1)
 	
