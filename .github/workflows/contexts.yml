@@ -1,5 +1,8 @@
 name: Context testing
-on: push
+on: 
+  push: 
+    branches:
+      - development
 
 jobs:
   dump_contexts_to_log:

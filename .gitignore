@@ -18,6 +18,7 @@
 #--------------------------------
 # Runtime Files
 #--------------------------------
+Compiled Database/*
 Components/*
 Plugins/*
 symphony_ci-*.json
