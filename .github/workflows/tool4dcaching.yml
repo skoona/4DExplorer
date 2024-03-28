@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Restore Cache for tool4d app
         id: restore-tool4d-cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4.0.2
         env:
           cache-name: tool4d-cache
         with:
@@ -33,7 +33,7 @@ jobs:
       - if: ${{ steps.restore-tool4d-cache.outputs.cache-hit != 'true' }}
         name: Create Cache for tool4d app
         id: create-tool4d-cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4.0.2
         env:
           cache-name: tool4d-cache
         with:
