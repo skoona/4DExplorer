@@ -4,10 +4,11 @@
         "errors": [],
         "packaging": {
             "success": true,
-            "statusText": "success"
+            "statusText": "success",
+            "package": "/Users/jamesscott/iDocuments/gProjects/Compiled Database/"
         },
         "action": "compileproject",
-        "action_timestamp": "2024-03-27T10:27:35"
+        "action_timestamp": "2024-03-28T12:08:05"
     },
-    "durationMS": 213
+    "durationMS": 101
 }

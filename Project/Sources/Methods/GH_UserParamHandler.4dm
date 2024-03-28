@@ -8,7 +8,7 @@ var $command : cs.GHCommand
 var $result; $status : Object
 var $startTime : Integer
 
-LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - user-param: "+$userParam+"\n"; Information message)
+LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Processing Started for User Param: "+$userParam+"\n"; Information message)
 
 $startTime:=Milliseconds
 $status:=New object
@@ -24,6 +24,8 @@ If ($command#Null)
 	
 	Folder("/PROJECT").file($command.getProjectName()+"_ci-"+$userParam+"_results.json").setText(JSON Stringify($status))
 End if 
+
+LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Processing Complete for User Param: "+$userParam+"\n"; Information message)
 
 If ($testing)
 	return 
