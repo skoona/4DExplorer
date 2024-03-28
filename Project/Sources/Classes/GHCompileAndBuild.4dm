@@ -48,7 +48,7 @@ Function package()->$status : Object
 	
 	// Package for 4DZ
 	$packageDir:=Folder(Folder("/PACKAGE").platformPath; fk platform path)
-	$buildDir:=$packageDir.parent.folder("Compiled Database/")
+	$buildDir:=$packageDir.folder("Compiled Database/")
 	If ($buildDir.exists)
 		$buildDir.delete(Delete with contents)
 	End if 
