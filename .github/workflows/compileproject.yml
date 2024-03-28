@@ -37,7 +37,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - uses: actions/checkout@v3     
       - name: Compile and Build 4DZ Package for ${{ github.ref }}
         run: |
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
