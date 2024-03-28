@@ -39,4 +39,3 @@ jobs:
           [[ $(jq .command.success Project/Contacts_ci-checksyntax_results.json) == true ]] || { exit 1; }
 
           
-
