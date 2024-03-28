@@ -18,8 +18,6 @@ jobs:
     runs-on: macOS-latest
     permissions: write-all    
     steps:
-      - uses: actions/checkout@v3     
-
       - name: Restore Cache for tool4d app
         id: restore-tool4d-cache
         uses: actions/cache@v3
@@ -41,6 +39,7 @@ jobs:
           curl https://resources-download.4d.com/release/20.x/20.3/latest/mac/tool4d_mac_x86.tar.xz -o tool4d.tar.xz -sL
           tar xzf tool4d.tar.xz
 
+      - uses: actions/checkout@v3     
       - name: Compile and Build 4DZ Package
         run: |
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
