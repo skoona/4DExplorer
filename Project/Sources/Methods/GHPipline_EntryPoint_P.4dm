@@ -7,11 +7,14 @@ $TOOL4D  --opening-mode=interpreted --project=$PROJECT --user-param=$ACTION --sk
 
 var $realVal : Real
 var $userParam : Text
+var $callerType : Boolean
 
 ON ERR CALL("error_logger"; ek global)
 
 $realVal:=Get database parameter(User param value; $userParam)
 
+$callerType:=(Application type = 6 ? True : False)
+
 LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Executing method: GH_SyntaxCheck_P("+$userParam+") \n"; Information message)
 
-GH_UserParamHandler($userParam; True)
+GH_UserParamHandler($userParam; $callerType)
