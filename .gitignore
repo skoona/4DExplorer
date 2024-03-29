@@ -21,7 +21,7 @@
 Compiled Database/*
 Components/*
 Plugins/*
-symphony_ci-*.json
+Project/*_ci-*.json
 
 #--------------------------------
 # Ignore derived data
