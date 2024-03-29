@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: true
             
 jobs:
-  Tool4DCasheBuild:
-    name: Restore tool4d cache
+  CompileAndBuild:
+    name: Compile to 4DZ
     runs-on: macOS-latest
     permissions: write-all    
     steps:
