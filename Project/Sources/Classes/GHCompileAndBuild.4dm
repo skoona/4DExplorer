@@ -33,8 +33,11 @@ Function compileAndBuild()->$status : Object
 	
 	// compiles the opened project using the options defined in the Structure Settings
 	$status:=Compile project()
-	
-	$status.packaging:=This.package()
+	If ($status.success)
+		$status.packaging:=This.package()
+	Else 
+		$status.packaging:=New collection()
+	End if 
 	
 	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - End Compile, status: "+String($status.success)+"\n"; Information message)
 	
@@ -98,4 +101,5 @@ Function package()->$status : Object
 	End if 
 	
 	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - End packaging, status: "+JSON Stringify($status)+"\n"; Information message)
+	
 	
