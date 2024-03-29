@@ -1,4 +1,4 @@
-name: Delete old workflow runs
+name: Scheduled Delete old workflow runs at 2 PM
 on:
   schedule:
     - cron: '0 14 * * *'
