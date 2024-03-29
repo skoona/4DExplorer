@@ -5,11 +5,9 @@ var $position; $index : Integer
 
 Case of 
 	: (FORM Event.code=On Load)
-		C_LONGINT($index; $position)
 		
 		ARRAY TEXT(at_persons; 0)
 		ARRAY LONGINT(al_id_persons; 0)
-		
 		
 		If (Form.directAssignment)
 			[Event]ID_Person:=Form.personID
@@ -36,12 +34,10 @@ Case of
 		
 		at_persons:=$position
 		
-		
 	: (FORM Event.code=On Data Change)
-		C_LONGINT($pos)
 		
-		$pos:=at_persons
-		[Event]ID_Person:=al_id_persons{$pos}
+		$index:=at_persons
+		[Event]ID_Person:=al_id_persons{$index}
 		
 	: (FORM Event.code=On Unload)
 		
