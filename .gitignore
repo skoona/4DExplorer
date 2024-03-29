@@ -19,7 +19,6 @@
 # Runtime Files
 #--------------------------------
 Compiled Database/*
-Components/*
 Plugins/*
 Project/*_ci-*.json
 

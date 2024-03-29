@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>SpreadJS Designer</title>
+	<link href="./SpreadJS/css/gc.spread.sheets.excel2013white.css" rel="stylesheet" type="text/css" />
+	<link href="./ui/ribbon/lib/css/gc.spread.sheets.designer.min.css" rel="stylesheet" type="text/css">
+	<link href="./ui/ribbon/custom.css" rel="stylesheet" type="text/css">
+</head>
+
+<body unselectable="on">
+	<div class="loading-placeholder background-mask-layer"></div>
+	<span class="loading-placeholder loading-pic"></span>
+	<div id="gc-designer-container"></div>
+
+	<!-- run minified source -->
+	<script src="./scripts/getTimezoneOffset.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.all.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.charts.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.shapes.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.slicers.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.print.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.barcode.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.pdf.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.pivot.pivottables.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.tablesheet.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.ganttsheet.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.formulapanel.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.excelio.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.sheets.io.min.js"></script>
+	<script src="./SpreadJS/scripts/gc.spread.calcengine.languagepackages.min.js"></script>
+	<!-- -->
+
+	<!-- Load localized resource file -->
+	<script type="application/javascript"
+		src="./___LOCALIZATION___.lproj/gc.spread.sheets.resources.___LOCALIZATION___.min.js"></script>
+	<script type="application/javascript"
+		src="./___LOCALIZATION___.lproj/designer_localization_resources.___LOCALIZATION___.js"></script>
+	<script type="application/javascript" src="./___LOCALIZATION___.lproj/contextMenu.js"></script>
+	<script>
+		var vp_localizedFolder = '___LOCALIZATION___.lproj';
+		let vp_fonts = ___FONTS___;
+
+		(function () {
+			// call the language package to translate the command names
+			let lang = vp_localizedFolder.substring(0, 2);
+			if ((lang != '') && (lang != 'en')) {
+				GC.Spread.CalcEngine.LanguagePackages.languagePackages(lang);
+			}
+
+			if (vp_localizedFolder === 'ja.lproj') {
+				GC.Spread.Common.CultureManager.culture("ja-jp");
+			} else if (vp_localizedFolder === 'fr.lproj') {
+				GC.Spread.Common.CultureManager.culture("fr-FR");
+			} else if (vp_localizedFolder === 'de.lproj') {
+				GC.Spread.Common.CultureManager.culture("de-DE");
+			} else if (vp_localizedFolder === 'es.lproj') {
+				GC.Spread.Common.CultureManager.culture("es-ES");
+			} else if (vp_localizedFolder === 'cs.lproj') {
+				GC.Spread.Common.CultureManager.culture("cs-CZ");
+			} else if (vp_localizedFolder === 'pt.lproj') {
+				GC.Spread.Common.CultureManager.culture("pt-PT");
+			}
+		})();
+		//# sourceURL=init_language.js
+	</script>
+
+	<script src="./scripts/custom-designer-functions.js"></script>
+
+	<!-- -------------- -->
+	<!-- run minified -->
+	<script
+		src="./ui/ribbon/lib/scripts/gc.spread.sheets.designer.resource.___DESIGNER_LOCALIZATION___.min.js"></script>
+	<script>
+		var vp_insertFunctionDialogTemplate = null;
+		(function () {
+			// we must inject the system fonts now after initializing designer resources 
+			// and before initializing designer code, if we did it later then the font list is not upddated in the ribbon
+			if (vp_fonts.length > 0) {
+				let ff_fonts = {};
+				let font_list = {};
+
+				for (let i = 0; i < vp_fonts.length; i++) {
+					var value = vp_fonts[i].replace(/"/g, '');
+					ff_fonts["ff" + (i + 1)] = { name: vp_fonts[i], text: value };
+					font_list[vp_fonts[i]] = vp_fonts[i];
+				}
+
+				GC.Spread.Sheets.Designer.DR.res.fontPicker.fontFamilies = font_list; // {Arial:"Arial",Times:"Times",...}
+				GC.Spread.Sheets.Designer.DR.res.ribbon.fontFamilies = ff_fonts; // {ff1:{name:'Arial',text:'Arial'},ff2...}
+			}
+			let custom = vp_designerResources.ribbon.formulas.custom;
+			GC.Spread.Sheets.Designer.DR.res.insertFunctionDialog.functionCategorys += ("," + custom);
+
+			if (vp_designerResources.insertFunctionDialog != null) {
+				GC.Spread.Sheets.Designer.DR.res.insertFunctionDialog.title = vp_designerResources.insertFunctionDialog.title;
+				GC.Spread.Sheets.Designer.DR.res.insertFunctionDialog.functionCategory = vp_designerResources.insertFunctionDialog.functionCategory;
+				GC.Spread.Sheets.Designer.DR.res.insertFunctionDialog.functionList = vp_designerResources.insertFunctionDialog.functionList;
+				GC.Spread.Sheets.Designer.DR.res.insertFunctionDialog.formula = vp_designerResources.insertFunctionDialog.formula;
+			}
+
+			GC.Spread.Sheets.Designer.DR.res.ribbon.formulas.custom = custom;
+		})();
+		//# sourceURL=init_fonts.js
+	</script>
+	<script src="./ui/ribbon/lib/scripts/gc.spread.sheets.designer.all.min.js"></script>
+
+	<script>
+		(function () {
+			function mergeResources(res1, res2) {
+
+				for (var propertyName in res1) {
+					if(res2[propertyName] != null) {
+						if (    (typeof (res1[propertyName]) == "object")
+						     && (typeof (res2[propertyName]) == "object") )
+							mergeResources(res1[propertyName], res2[propertyName]);
+						else
+							res1[propertyName] = res2[propertyName];
+					}
+				}
+			}
+
+			let res = GC.Spread.Sheets.Designer.getResources();
+			mergeResources(res, vp_designerResources);
+			GC.Spread.Sheets.Designer.setResources(res);
+		})();
+		//# sourceURL=init_resources.js
+	</script>
+
+	<!-- -------------- -->
+
+	<!-- View Pro specific -->
+	<script src="./scripts/init.js"></script>
+	<script src="./scripts/utils.js"></script>
+	<script src="./scripts/custom-types.js"></script>
+	<script src="./scripts/custom-function-helpers.js"></script>
+	<script src="./scripts/custom-functions.js"></script>
+
+	<script src="./4dviewpro.js"></script>
+
+	<!-- View Pro Commands -->
+	<script src="./scripts/commands/values.js"></script>
+	<script src="./scripts/commands/file.js"></script>
+	<script src="./scripts/commands/print.js"></script>
+	<script src="./scripts/commands/style.js"></script>
+	<script src="./scripts/commands/names.js"></script>
+	<script src="./scripts/commands/sheets.js"></script>
+	<script src="./scripts/commands/events.js"></script>
+	<script src="./scripts/commands/utilities.js"></script>
+	<script src="./scripts/commands/spans.js"></script>
+	<script src="./scripts/commands/rows-and-columns.js"></script>
+	<script src="./scripts/commands/clipboard.js"></script>
+	<script src="./scripts/commands/data-context.js"></script>
+	<script src="./scripts/commands/workbook.js"></script>
+	<script src="./scripts/commands/tables.js"></script>
+
+	<script type="text/javascript">
+		var spread = null;
+		var designer = null;
+
+		window.onload = function () {
+
+			//Apply License
+			GC.Spread.Sheets.LicenseKey = "726569186466893#B0lL3JWZhFWT7gTO8hTdoFUTzsUOLZWRohValRGNC34Q9ZXerNDUXR4SSdjeysWaKNFd48maFNWOKNXNLlFdQhHeNhFdHB7crAjRnhkeDl4VCB5cr8EdKlXetVTb7hHMalFUEV4LIVmRFRFd6UlViZzdIVTd5NneIZmZ6p4asRmYJtkUTplUyElQ79GMjdHbh3UQO3keCVTTvRDcUFFdutkVPpkcxk5VPBlWpNkcSJjcVxWSLJEc7N4UnBVYypGSDx6ZkNDdEhmQyAHTzZ7U5lGayhUaSJnU4kTZiRTZDJiOiMlIsISN8QTOEVTNyIiOigkIsADM9czNzgTN0IicfJye#4Xfd5nIFVUSWJiOiMkIsICNx8idgAyUKBCZhVmcwNlI0IiTis7W0ICZyBlIsICNzcTN6ADIyIjMxAjMwIjI0ICdyNkIsIyUBNFIERjI0ISYONkIsIyM9gjN6QjN8ETO6UjNycjI0ICZJJCL3V6csFmZ0IiczRmI1pjIs9WQisnOiQkIsISP3E4N9ATVpJTbp3URQZzRuhTS8clb59mNtdEVxVVaHR6dPljUi5EMJJzbthFNnxmd7ZGMJlWMrtyR7AFWiRGanx6UzUEZzEzKxgHcElTWhhTZ5lkM85mRa5GM9xWdW54aihVSm3meXRWYOdDUwJzYHhDZr9WargSTgx";
+			GC.Spread.Sheets.Designer.LicenseKey = "851559255358462#B0rTDTQvJTQYljRU3kVCVTT5JDMlJ5U5VjVaBlV7UDMyYDVYZkZpp7LHhTThtUQXtWRshHatVneCJWVRtyYU54U6o7dxglZuRjY6Emaxd6c84GcSl5YLJmSzkVMqhjRxUmZ68kZkdTZyRUd5lzaLBTZ9syb8ElQlplUywkWB3ma7p7Txo5SzhkQ5NlSqNWdMlVWHdnMx34RPN6KKJEUnRkQ5B7QuFUanJmVBNTNt5GSnJ7dT9WMnJ5UUNHcKNVUmRzVOFzZ8UUa6dTUjNEWHNnTYNkSUFXc8knNRJiOiMlIsIiNwIEOEVUMyIiOigkIsEzM8MTN6UTO0IicfJye&Qf35VfiklNFdjI0IyQiwiI4EjL6BibvRGZB5icl96ZpNXZE5yUKRWYlJHcTJiOi8kI1tlOiQmcQJCLikDMwAzNwAiMyITMwIDMyIiOiQncDJCLiMVQTBCR4IiOiEmTDJCLiIjN4gTNzUTNykTN5ETN8IiOiQWSisnOiQkIsISP3cXdrtCUvoEc4xUOzZ4M4UDVXR7RzImb4JTe6oVNDJkVv2WcVhDMwgHUGRWRVl4cYJWeVhGMTJDWiZ4YOJ4YsZzT5MmbWFTbZVHRlRWMtF5K7cGc58UZwIHOmlEU6FnR6tkTPpnbSVFa0lWexUHVFhFNLBHRs5kUVZlermE";
+
+			let config = GC.Spread.Sheets.Designer.DefaultConfig;
+
+			config.contextMenu = config.contextMenu.concat([
+				"separator",
+				"DesignerInsertPageBreak",
+				"DesignerInsertColPageBreak",
+				"DesignerInsertRowPageBreak",
+				"DesignerRemovePageBreak",
+				"DesignerRemoveColPageBreak",
+				"DesignerRemoveRowPageBreak"
+			]);
+
+			designer = new GC.Spread.Sheets.Designer.Designer(document.getElementById("gc-designer-container"), config);
+			spread = designer.Spread;
+		}
+		//# sourceURL=designerInit.js
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--Translation file.
+This file is distributed under the same license as the product package.-->
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+
+  <file datatype="x-STR#" original="x-undefined" source-language="en-US" target-language="en">
+    <header>
+      <prop-group name="Xliff-Editor.4dbase">
+        <prop prop-type="version">2.0</prop>
+      </prop-group>
+    </header>
+    <body>
+      <group resname="ERRORS">
+        <trans-unit id="14" resname="ERR_4DVP_0">
+          <source>4D View Pro commands are only available with a 64-bit version of 4D.</source>
+          <target>4D View Pro commands are only available with a 64-bit version of 4D.</target>
+        </trans-unit>
+        <trans-unit id="10" resname="ERR_4DVP_1">
+          <source>Invalid 4D View Pro object.</source>
+          <target>Invalid 4D View Pro object.</target>
+        </trans-unit>
+        <trans-unit id="13" resname="ERR_4DVP_2">
+          <source>Internal error [{message}].</source>
+          <target>Internal error [{message}].</target>
+        </trans-unit>
+        <trans-unit id="15" resname="ERR_4DVP_4">
+          <source>The file "{name}" is not a valid 4D View Pro file.</source>
+          <target>The file "{name}" is not a valid 4D View Pro file.</target>
+        </trans-unit>
+        <trans-unit id="16" resname="ERR_4DVP_8">
+          <source>Cannot create file "{name}".</source>
+          <target>Cannot create file "{name}".</target>
+        </trans-unit>
+        <trans-unit id="17" resname="ERR_4DVP_5">
+          <source>The area "{object}" is not yet available.
+The command "{command}" cannot be applied.</source>
+          <target>The area "{object}" is not yet available.
+The command "{command}" cannot be applied.</target>
+        </trans-unit>
+        <trans-unit id="18" resname="ERR_4DVP_7">
+          <source>Cannot import file "{name}".</source>
+          <target>Cannot import file "{name}".</target>
+        </trans-unit>
+        <trans-unit id="19" resname="ERR_4DVP_9">
+          <source>Property "area" is missing.</source>
+          <target>Property "area" is missing.</target>
+        </trans-unit>
+        <trans-unit id="20" resname="ERR_4DVP_10">
+          <source>Ranges should have same "area" property.</source>
+          <target>Ranges should have same "area" property.</target>
+        </trans-unit>
+        <trans-unit id="21" resname="ERR_4DVP_11">
+          <source>Ranges are missing.</source>
+          <target>Ranges are missing.</target>
+        </trans-unit>
+        <trans-unit id="22" resname="ERR_4DVP_12">
+          <source>No object found in "ranges" collection.</source>
+          <target>No object found in "ranges" collection.</target>
+        </trans-unit>
+        <trans-unit id="23" resname="ERR_4DVP_13">
+          <source>Column must be greater or equal than zero.</source>
+          <target>Column must be greater or equal than zero.</target>
+        </trans-unit>
+        <trans-unit id="24" resname="ERR_4DVP_14">
+          <source>Row must be greater or equal than zero.</source>
+          <target>Row must be greater or equal than zero.</target>
+        </trans-unit>
+         <trans-unit id="25" resname="ERR_4DVP_15">
+          <source>Column count must be greater than zero.</source>
+          <target>Column count must be greater than zero.</target>
+        </trans-unit>
+        <trans-unit id="26" resname="ERR_4DVP_16">
+          <source>Row count must be greater than zero.</source>
+          <target>Row count must be greater than zero.</target>
+        </trans-unit>
+        <trans-unit id="27" resname="ERR_4DVP_17">
+          <source>Sheet must be greater or equal than -2.</source>
+          <target>Sheet must be greater or equal than -2.</target>
+        </trans-unit>
+        <trans-unit id="28" resname="ERR_4DVP_18">
+          <source>Name should not be an empty string.</source>
+          <target>Name should not be an empty string.</target>
+        </trans-unit>
+        <trans-unit id="29" resname="ERR_4DVP_19">
+          <source>Sheet index should not be greater than or equal to the number of sheets.</source>
+          <target>Sheet index should not be greater than or equal to the number of sheets.</target>
+        </trans-unit>
+        <trans-unit id="30" resname="ERR_4DVP_20">
+          <source>4D View document is corrupted and cannot be converted.</source>
+          <target>4D View document is corrupted and cannot be converted.</target>
+        </trans-unit>
+        <trans-unit id="31" resname="ERR_4DVP_21">
+          <source>Sheet index should be a numeric value.</source>
+          <target>Sheet index should be a numeric value.</target>
+        </trans-unit>
+        <trans-unit id="32" resname="ERR_4DVP_22">
+          <source>Range is mandatory to export a csv file.</source>
+          <target>Range is mandatory to export a csv file.</target>
+        </trans-unit>
+      </group>
+      <group resname="Convert">
+        <trans-unit id="8" resname="Convert_sheet">
+          <source>Sheet1</source>
+          <target>Sheet1</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+
+</xliff>

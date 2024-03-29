@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+   <!--Translation file.
+This file is distributed under the same license as the product package.-->
+
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+   <file datatype="x-STR#" original="x-undefined" source-language="en-US" target-language="fr">
+      <header>
+         <prop-group name="Xliff-Editor.4dbase">
+            <prop prop-type="version">1.0</prop>
+         </prop-group>
+      </header>
+      <body>
+         <!-- From STR# 12261, Localized.rsrc in 4D View resources-->
+         <group resname="numeric formats">
+            <trans-unit id="1" resname="FORMAT_4DVIEW_NUMERIC_1">
+               <source>###0</source>
+               <target>###0</target>
+            </trans-unit>
+            <trans-unit id="2" resname="FORMAT_4DVIEW_NUMERIC_2">
+               <source>#####0</source>
+               <target>#####0</target>
+            </trans-unit>
+            <trans-unit id="3" resname="FORMAT_4DVIEW_NUMERIC_3">
+               <source>###,##0.00</source>
+               <target>###,##0.00</target>
+            </trans-unit>
+            <trans-unit id="4" resname="FORMAT_4DVIEW_NUMERIC_4">
+               <source>$ ###,##0.00</source>
+               <target>###,##0.00 €</target>
+            </trans-unit>
+            <trans-unit id="5" resname="FORMAT_4DVIEW_NUMERIC_5">
+               <source>$ ###,###,##0.00</source>
+               <target>###,###,##0.00 €</target>
+            </trans-unit>
+            <trans-unit id="6" resname="FORMAT_4DVIEW_NUMERIC_6">
+               <source>###,###,##0</source>
+               <target>###,###,##0</target>
+            </trans-unit>
+            <trans-unit id="7" resname="FORMAT_4DVIEW_NUMERIC_7">
+               <source>##0.00 "%"</source>
+               <target>##0.00 "%"</target>
+            </trans-unit>
+            <trans-unit id="8" resname="FORMAT_4DVIEW_NUMERIC_8">
+               <source>0000</source>
+               <target>0000</target>
+            </trans-unit>
+            <trans-unit id="9" resname="FORMAT_4DVIEW_NUMERIC_9">
+               <source>00000000</source>
+               <target>00000000</target>
+            </trans-unit>
+            <trans-unit id="10" resname="FORMAT_4DVIEW_NUMERIC_10">
+               <source>00 00 00 00</source>
+               <target>00 00 00 00</target>
+            </trans-unit>
+            <trans-unit id="11" resname="FORMAT_4DVIEW_NUMERIC_11">
+               <source>###,##0;(###,##0)</source>
+               <target>###,##0;(###,##0)</target>
+            </trans-unit>
+            <trans-unit id="12" resname="FORMAT_4DVIEW_NUMERIC_12">
+               <source>$ ###,##0.00;$ (###,##0.00)</source>
+               <target>###,##0.00 €;(###,##0.00) €</target>
+            </trans-unit>
+            <trans-unit id="13" resname="FORMAT_4DVIEW_NUMERIC_13">
+               <source>^^^,^^0.00</source>
+               <target>^^^,^^0.00</target>
+            </trans-unit>
+            <trans-unit id="14" resname="FORMAT_4DVIEW_NUMERIC_14">
+               <source>$ ^^^,^^0.00</source>
+               <target>^^^,^^0.00 €</target>
+            </trans-unit>
+            <trans-unit id="15" resname="FORMAT_4DVIEW_NUMERIC_15">
+               <source>^^^^^^^0</source>
+               <target>^^^^^^^0</target>
+            </trans-unit>
+            <trans-unit id="16" resname="FORMAT_4DVIEW_NUMERIC_16">
+               <source>^^^,^^0</source>
+               <target>^^^,^^0</target>
+            </trans-unit>
+            <trans-unit id="17" resname="FORMAT_4DVIEW_NUMERIC_17">
+               <source>"Positive";"Negative";"Zero"</source>
+               <target>"Positif";"Négatif";"Nul"</target>
+            </trans-unit>
+            <trans-unit id="18" resname="FORMAT_4DVIEW_NUMERIC_18">
+               <source>##_##_##_##</source>
+               <target>##_##_##_##</target>
+            </trans-unit>
+         </group>
+
+         <group resname="date + time conjonctions, from STR# 12263 in localized.rsrc">
+           <trans-unit id="1" resname="FORMAT_4D_VIEW_CONJONCTION_1">
+               <source> at </source>
+               <target> à </target>
+            </trans-unit>
+            <trans-unit id="2" resname="FORMAT_4D_VIEW_CONJONCTION_2">
+               <source> at </source>
+               <target> à </target>
+            </trans-unit>
+            <trans-unit id="3" resname="FORMAT_4D_VIEW_CONJONCTION_3">
+               <source> at </source>
+               <target> à </target>
+            </trans-unit>
+            <trans-unit id="4" resname="FORMAT_4D_VIEW_CONJONCTION_4">
+               <source> at </source>
+               <target> à </target>
+            </trans-unit>
+            <trans-unit id="5" resname="FORMAT_4D_VIEW_CONJONCTION_5">
+               <source> et </source>
+               <target> et </target>
+            </trans-unit>
+         </group>
+
+         <group resname="date formats">
+            <!-- copy from 4DAppCommonEN.xlf in 4D resources -->
+            <trans-unit id="105" resname="WeekDay1">
+               <source>Sunday</source>
+               <target>Dimanche</target>
+            </trans-unit>
+            <trans-unit id="106" resname="WeekDay2">
+               <source>Monday</source>
+               <target>Lundi</target>
+            </trans-unit>
+            <trans-unit id="107" resname="WeekDay3">
+               <source>Tuesday</source>
+               <target>Mardi</target>
+            </trans-unit>
+            <trans-unit id="108" resname="WeekDay4">
+               <source>Wednesday</source>
+               <target>Mercredi</target>
+            </trans-unit>
+            <trans-unit id="109" resname="WeekDay5">
+               <source>Thursday</source>
+               <target>Jeudi</target>
+            </trans-unit>
+            <trans-unit id="110" resname="WeekDay6">
+               <source>Friday</source>
+               <target>Vendredi</target>
+            </trans-unit>
+            <trans-unit id="111" resname="WeekDay7">
+               <source>Saturday</source>
+               <target>Samedy</target>
+            </trans-unit>
+            <trans-unit id="112" resname="Month1">
+               <source>January</source>
+               <target>janvier</target>
+            </trans-unit>
+            <trans-unit id="113" resname="Month2">
+               <source>February</source>
+               <target>février</target>
+            </trans-unit>
+            <trans-unit id="114" resname="Month3">
+               <source>March</source>
+               <target>mars</target>
+            </trans-unit>
+            <trans-unit id="115" resname="Month4">
+               <source>April</source>
+               <target>avril</target>
+            </trans-unit>
+            <trans-unit id="116" resname="Month5">
+               <source>May</source>
+               <target>mai</target>
+            </trans-unit>
+            <trans-unit id="117" resname="Month6">
+               <source>June</source>
+               <target>juin</target>
+            </trans-unit>
+            <trans-unit id="118" resname="Month7">
+               <source>July</source>
+               <target>juillet</target>
+            </trans-unit>
+            <trans-unit id="119" resname="Month8">
+               <source>August</source>
+               <target>août</target>
+            </trans-unit>
+            <trans-unit id="120" resname="Month9">
+               <source>September</source>
+               <target>septembre</target>
+            </trans-unit>
+            <trans-unit id="121" resname="Month10">
+               <source>October</source>
+               <target>octobre</target>
+            </trans-unit>
+            <trans-unit id="122" resname="Month11">
+               <source>November</source>
+               <target>novembre</target>
+            </trans-unit>
+            <trans-unit id="123" resname="Month12">
+               <source>December</source>
+               <target>décembre</target>
+            </trans-unit>
+         </group>
+         <group resname="hours minutes seconds">
+             <trans-unit id="1" resname="hours">
+               <source>hours</source>
+               <target>heures</target>
+            </trans-unit>
+             <trans-unit id="2" resname="minutes">
+               <source>minutes</source>
+               <target>minutes</target>
+            </trans-unit>
+             <trans-unit id="3" resname="seconds">
+               <source>secondes</source>
+               <target>secondes</target>
+            </trans-unit>
+         </group>
+         <group resname="regional parameters">
+             <trans-unit id="200" resname="SHORT_TIME_PATTERN">
+               <source>HH:mm</source>
+               <target>HH:mm</target>
+            </trans-unit>
+             <trans-unit id="203" resname="LONG_TIME_PATTERN">
+               <source>HH:mm:ss</source>
+               <target>HH:mm:ss</target>
+            </trans-unit>
+             <trans-unit id="201" resname="MONTH_DAY_PATTERN">
+               <source>MMMM dd</source>
+               <target>dd MMMM</target>
+            </trans-unit>
+             <trans-unit id="202" resname="YEAR_MONTH_PATTERN">
+               <source>MMMM yyyy</source>
+               <target>MMMM yyyy</target>
+            </trans-unit>
+         </group>
+      </body>
+   </file>
+</xliff>
