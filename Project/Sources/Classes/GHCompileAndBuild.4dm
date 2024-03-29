@@ -97,7 +97,7 @@ Function package()->$status : Object
 	
 	If ($status.success)
 		$structureFolder.folder("Project").delete(Delete with contents)
-		$status.package:=$packageDir.parent.folder("Compiled Database/").path
+		$status.package:=$structureFolder.path
 	End if 
 	
 	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - End packaging, status: "+JSON Stringify($status)+"\n"; Information message)
