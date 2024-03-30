@@ -61,6 +61,7 @@ There are a couple of classes which when invoked from the command line will perf
         - git merge --squash &lt;new-feature-branch&gt;
 	- git commit       // save the opened commit message
     - git branch -D &lt;new-feature=branch&gt;
+    - git push origin :&lt;new-feature=branch&gt;
     - git push origin development
 
 - In the future
@@ -115,6 +116,23 @@ There are a couple of classes which when invoked from the command line will perf
     - Delete Remote Branch
         - git push origin :&lt;branch-name&gt;
         - [or] git push origin --delete :&lt;branch-name&gt;
+
+## Project Helpers
+```bash
+alias gs='git status '
+alias gbr='git branch -a'
+alias gcd='git checkout development '
+alias gcm='git checkout main '
+alias gdp='git pull origin development '
+alias gmp='git pull origin main '
+alias gmm='git merge main '
+alias gmd='git merge development '
+alias gdpp='git push origin development --tags '
+alias gmpp='git push origin main --tags '
+alias gfp='git fetch origin -u --prune '
+alias gupdate="gfp && gcm && gmp && gcd && gdp "
+
+```
 
 ## Project Layout
 ```text
