@@ -14,7 +14,7 @@ concurrency:
 jobs:
     
   CheckSyntax:
-    name: Check Syntax on ${{ github.ref }}
+    name: Check Syntax
     runs-on: macOS-latest
     permissions: write-all        
     steps:     
