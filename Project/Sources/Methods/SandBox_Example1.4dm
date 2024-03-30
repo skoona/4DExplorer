@@ -2,5 +2,5 @@
 Alert("Compared to what.")
 Alert("Compared to All.")
 
-Alert("Compared to Fail."
+Alert("Compared to Succeed.")
 
