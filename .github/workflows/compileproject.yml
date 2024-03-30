@@ -1,11 +1,11 @@
 name: Compile Project
 on:
+  workflow_dispatch:
   push:
     branches:
-      - 'development'
-      - 'main'
-      - 'release/**'
-  workflow_dispatch:
+      - development
+      - main
+      - release/**
 
 concurrency:
   group: ${{ github.ref }}
