@@ -1,13 +1,13 @@
 // Event Delete Icon
 
+var  $result; $current : Object
+
 
 Case of 
 	: (Form event code:C388=On Clicked:K2:4)
 		
 		If (Form:C1466.currentEventsItemPosition#0)
-			
-			C_OBJECT:C1216($result; $current)
-			
+					
 			$current:=Form:C1466.currentEventsItem
 			$result:=$current.drop()
 			If ($result.success)
