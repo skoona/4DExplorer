@@ -67,13 +67,6 @@ jobs:
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
 
-      - name: Archive Release
-        uses: thedoctor0/zip-release@0.7.5
-        with:
-          type: 'zip'
-          path: Compile-Results
-          filename: 'Contacts-R${{ github.run_number }}.zip'
-
       - name: Checkout
         uses: actions/checkout@v4.1.2
 
@@ -87,10 +80,15 @@ jobs:
           fromTag: "v2.1.0"
           toTag: "v110"
 
-      # - name: Create Release
-      #   uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
-      #   with:
-      #     body: ${{steps.github_release.outputs.changelog}}
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.5
+        with:
+          type: 'zip'
+          filename: 'Contacts-R${{ github.run_number }}.zip'
+          path: | 
+            Compile-Results
+            CHANGELOG.md
+
       - name: Verify Files
         run: |
           ls -la
@@ -107,7 +105,7 @@ jobs:
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          body_path: RELEASE_NOTES.md
+          body:  ${{steps.extract-release-notes.outputs.release_notes}}
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v${{ github.run_number }}
           name: Release V${{ github.run_number }}
