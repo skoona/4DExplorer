@@ -47,7 +47,7 @@ jobs:
       - uses: actions/upload-artifact@v4.3.1
         name: Upload Artifacts
         with:
-          name: Compile Results
+          name: Compile-Results
           path: |
             Compiled Database/
             Project/Contacts_ci-compileproject_results.json
@@ -69,7 +69,7 @@ jobs:
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v2
         with:
-          name: Compile Results
+          name: Compile-Results
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v1
         with:
