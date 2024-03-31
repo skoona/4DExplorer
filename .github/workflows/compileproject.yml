@@ -71,7 +71,7 @@ jobs:
         uses: softprops/action-gh-release@v2.0.4
         with:
           files: |
-            'Compile-Results/Compiled Database/'
-            'Compile-Results/Project/Contacts_ci-compileproject_results.json'
+            Compile-Results/Compiled Database/
+            Compile-Results/Project/Contacts_ci-compileproject_results.json
           tag_name: v${{ github.run_number }}
           name: Release V${{ github.run_number }}
