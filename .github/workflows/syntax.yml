@@ -1,7 +1,6 @@
 name: Check Syntax
 on:
   workflow_dispatch:
-  pull_request:
   push:
 
 concurrency:

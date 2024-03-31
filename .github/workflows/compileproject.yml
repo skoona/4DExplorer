@@ -50,7 +50,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          outputFile: CHANGELOG.md
+          outputFile: ${{ github.workspace }}/CHANGELOG.md
           fromTag: "v2.1.0"
           toTag: "v110"
     
@@ -58,8 +58,8 @@ jobs:
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
         with:
-          changelog_file: CHANGELOG.md 
-          release_notes_file: RELEASE_NOTES.md
+          changelog_file: ${{ github.workspace }}/CHANGELOG.md 
+          release_notes_file: ${{ github.workspace }}/RELEASE_NOTES.md
   
       - name: Verify Files
         run: |
