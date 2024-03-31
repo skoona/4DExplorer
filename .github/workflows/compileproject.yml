@@ -65,6 +65,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
     steps:      
+      - uses: actions/checkout@master
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
 
@@ -76,12 +77,14 @@ jobs:
           filename: 'Contacts-R${{ github.run_number }}.zip'
 
       - name: Create Release Notes
-        uses: docker://decathlon/release-notes-generator-action:2.0.1
+        uses: actions/checkout@master
+        uses: docker://decathlon/release-notes-generator-action:2.0.1        
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FILENAME: ProvidedFilename
           OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
+          CONTAINER: ${{ github.container }}
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
