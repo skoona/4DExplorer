@@ -86,7 +86,7 @@ jobs:
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          body: temp_release_notes
+          body_path: temp_release_notes
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v${{ github.run_number }}
           name: Release V${{ github.run_number }}
