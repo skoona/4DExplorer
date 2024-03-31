@@ -80,6 +80,18 @@ jobs:
           fromTag: "v2.1.0"
           toTag: "v110"
 
+      - name: Verify Files
+        run: |
+          ls -la
+          cat CHANGELOG.md
+  
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
+        with:
+          changelog_file: CHANGELOG.md 
+          release_notes_file: RELEASE_NOTES.md
+  
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
         with:
@@ -88,18 +100,7 @@ jobs:
           path: | 
             Compile-Results
             CHANGELOG.md
-
-      - name: Verify Files
-        run: |
-          ls -la
-          cat CHANGELOG.md
-
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: CHANGELOG.md 
-          release_notes_file: RELEASE_NOTES.md
+            RELEASE_NOTES.md
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
