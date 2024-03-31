@@ -59,3 +59,20 @@ jobs:
 
           
 
+  release-content:
+    name: 'Create Project Release'
+    runs-on: ubuntu-latest
+    needs: [ CompileAndBuild ]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    steps:      
+      - name: 'Download Build Artifacts'
+        uses: actions/download-artifact@v2
+        with:
+          name: Compile Results
+      - name: 'Create Project Release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./**
+          tag_name: v${{ github.run_number }}
+          name: Release V${{ github.run_number }}
