@@ -92,7 +92,7 @@ jobs:
       - name: Verify Files
         run: |
           ls -la
-          cat ${{steps.github_release.outputs.changelog}}
+          cat CHANGELOG.md  # ${{steps.github_release.outputs.changelog}}
 
       - name: Extract release notes
         id: extract-release-notes
