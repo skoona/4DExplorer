@@ -56,9 +56,7 @@ jobs:
       - name: "Pass or Fail"
         run: |
           [[ $(jq .command.success Project/Contacts_ci-compileproject_results.json) == true ]] || { exit 1; }
-
-          
-
+        
   release-content:
     name: 'Create Project Release'
     runs-on: ubuntu-latest
