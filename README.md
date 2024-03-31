@@ -25,7 +25,7 @@ There are a couple of classes which when invoked from the command line will perf
 ### Workflow
 1. Start with an updated and current local repo! (UPDATE LOCAL)
     - cd &lt;application-dir&gt;
-    - git fetch origin -u
+    - git fetch origin -u --prune
     - git checkout main
     - git pull origin main
     - git checkout development
