@@ -77,7 +77,6 @@ jobs:
           filename: 'Contacts-R${{ github.run_number }}.zip'
 
       - name: Create Release Notes
-        uses: actions/checkout@master
         uses: docker://decathlon/release-notes-generator-action:2.0.1        
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
