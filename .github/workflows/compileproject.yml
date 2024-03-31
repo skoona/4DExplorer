@@ -51,7 +51,6 @@ jobs:
           path: |
             Compiled Database/
             Project/Contacts_ci-compileproject_results.json
-
           
       - name: "Pass or Fail"
         run: |
@@ -65,7 +64,6 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
     steps:      
-      - uses: actions/checkout@master
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
 
@@ -76,20 +74,19 @@ jobs:
           path: Compile-Results
           filename: 'Contacts-R${{ github.run_number }}.zip'
 
-      # - name: Create Release Notes
-      #   uses: docker://decathlon/release-notes-generator-action:2.0.1        
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     FILENAME: ProvidedFilename
-      #     OUTPUT_FOLDER: temp_release_notes
-      #     USE_MILESTONE_TITLE: "false"
-      #     CONTAINER: ${{ github.container }}
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+
+      - name: Extract release notes
+        uses: ffurrer2/extract-release-notes@v2
+        with:
+          release_notes_file: RELEASE_NOTES.md
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          # body_path: temp_release_notes/ProvidedFilename
+          body_path: RELEASE_NOTES.md
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v${{ github.run_number }}
           name: Release V${{ github.run_number }}
