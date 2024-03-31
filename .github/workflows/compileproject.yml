@@ -79,6 +79,7 @@ jobs:
         uses: docker://decathlon/release-notes-generator-action:2.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILENAME: ProvidedFilename
           OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
 
@@ -86,7 +87,7 @@ jobs:
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          body_path: temp_release_notes
+          body_path: temp_release_notes/ProvidedFilename
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v${{ github.run_number }}
           name: Release V${{ github.run_number }}
