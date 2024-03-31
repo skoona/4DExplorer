@@ -44,6 +44,29 @@ jobs:
         run: |
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
 
+          - name: Build Changelog
+          id: github_release
+          uses: mikepenz/release-changelog-builder-action@v4
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            outputFile: CHANGELOG.md
+            fromTag: "v2.1.0"
+            toTag: "v110"
+    
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
+        with:
+          changelog_file: CHANGELOG.md 
+          release_notes_file: RELEASE_NOTES.md
+  
+      - name: Verify Files
+        run: |
+          ls -la
+          cat CHANGELOG.md
+          cat RELEASE_NOTES.md
+    
       - uses: actions/upload-artifact@v4.3.1
         name: Upload Artifacts
         with:
@@ -51,6 +74,9 @@ jobs:
           path: |
             Compiled Database/
             Project/Contacts_ci-compileproject_results.json
+            CHANGELOG.md
+            RELEASE_NOTES.md
+
           
       - name: "Pass or Fail"
         run: |
@@ -66,31 +92,6 @@ jobs:
     steps:      
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
-
-      - name: Checkout
-        uses: actions/checkout@v4.1.2
-
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          outputFile: CHANGELOG.md
-          fromTag: "v2.1.0"
-          toTag: "v110"
-
-      - name: Verify Files
-        run: |
-          ls -la
-          cat CHANGELOG.md
-  
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: CHANGELOG.md 
-          release_notes_file: RELEASE_NOTES.md
   
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
@@ -99,14 +100,13 @@ jobs:
           filename: 'Contacts-R${{ github.run_number }}.zip'
           path: | 
             Compile-Results
-            CHANGELOG.md
-            RELEASE_NOTES.md
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          body:  ${{steps.extract-release-notes.outputs.release_notes}}
+          # ${{steps.extract-release-notes.outputs.release_notes}}
+          body_path: RELEASE_NOTES.md
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v${{ github.run_number }}
           name: Release V${{ github.run_number }}
