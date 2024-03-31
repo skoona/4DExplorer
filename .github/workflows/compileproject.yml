@@ -89,6 +89,10 @@ jobs:
       #   uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
       #   with:
       #     body: ${{steps.github_release.outputs.changelog}}
+      - name: Verify Files
+        run: |
+          ls -la
+          cat ${{steps.github_release.outputs.changelog}}
 
       - name: Extract release notes
         id: extract-release-notes
