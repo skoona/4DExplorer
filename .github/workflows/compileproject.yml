@@ -44,15 +44,15 @@ jobs:
         run: |
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
 
-          - name: Build Changelog
-          id: github_release
-          uses: mikepenz/release-changelog-builder-action@v4
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            outputFile: CHANGELOG.md
-            fromTag: "v2.1.0"
-            toTag: "v110"
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          outputFile: CHANGELOG.md
+          fromTag: "v2.1.0"
+          toTag: "v110"
     
       - name: Extract release notes
         id: extract-release-notes
@@ -76,7 +76,6 @@ jobs:
             Project/Contacts_ci-compileproject_results.json
             CHANGELOG.md
             RELEASE_NOTES.md
-
           
       - name: "Pass or Fail"
         run: |
