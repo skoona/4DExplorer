@@ -77,9 +77,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.2
 
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          outputFile: CHANGELOG.md
+
+      # - name: Create Release
+      #   uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
+      #   with:
+      #     body: ${{steps.github_release.outputs.changelog}}
+
       - name: Extract release notes
+        id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
         with:
+          changelog_file: CHANGELOG.md # ${{steps.github_release.outputs.changelog}}
           release_notes_file: RELEASE_NOTES.md
 
       - name: 'Create Project Release'
