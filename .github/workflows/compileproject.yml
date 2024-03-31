@@ -100,7 +100,7 @@ jobs:
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
         with:
-          changelog_file: CHANGELOG.md # ${{steps.github_release.outputs.changelog}}
+          changelog_file: CHANGELOG.md 
           release_notes_file: RELEASE_NOTES.md
 
       - name: 'Create Project Release'
