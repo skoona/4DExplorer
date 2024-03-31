@@ -82,7 +82,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FILENAME: ProvidedFilename
           OUTPUT_FOLDER: temp_release_notes
-          USE_MILESTONE_TITLE: "true"
+          USE_MILESTONE_TITLE: "false"
           CONTAINER: ${{ github.container }}
 
       - name: 'Create Project Release'
