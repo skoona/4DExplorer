@@ -85,7 +85,7 @@ jobs:
         with:
           outputFile: CHANGELOG.md
           fromTag: "v101"
-          toTag: "v110"
+          toTag: "v2.1.0"
 
       # - name: Create Release
       #   uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
