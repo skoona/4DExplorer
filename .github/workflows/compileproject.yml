@@ -67,12 +67,11 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
     steps:      
       - name: 'Download Build Artifacts'
-        uses: actions/download-artifact@v2
-        with:
-          name: Compile-Results
+        uses: actions/download-artifact@v4.1.4
+
       - name: 'Create Project Release'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2.0.4
         with:
-          files: ./**
+          files: Compile-Results.*
           tag_name: v${{ github.run_number }}
           name: Release V${{ github.run_number }}
