@@ -119,6 +119,7 @@ There are a couple of classes which when invoked from the command line will perf
 
 ## Project Helpers
 ### Command line helpers
+* [Homebrew - MacOS Software Installer](https://docs.brew.sh/Installation)
 * [How to change MacOS shell type](https://www.howtogeek.com/444596/how-to-change-the-default-shell-to-bash-in-macos-catalina/#:~:text=Apple%20now%20uses%20Zsh%20as,in%20Terminal%20and%20reopen%20it.)
 * [Oh-My-Bash Docs](https://ohmybash.nntoan.com)
 * [Oh-My-Bash Repo](https://github.com/ohmybash/oh-my-bash)
