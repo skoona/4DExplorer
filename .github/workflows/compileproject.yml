@@ -45,11 +45,12 @@ jobs:
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
 
       - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v4
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@{latest-release}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          configuration: "configuration_complex.json"
           outputFile: ${{ github.workspace }}/CHANGELOG.md
           fromTag: "v2.1.0"
           toTag: "v110"
