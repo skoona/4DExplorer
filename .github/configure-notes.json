@@ -5,6 +5,10 @@
         "labels": ["feature"]
       },
       {
+        "title": "## 🚀 Documentation",
+        "labels": ["documentation"]
+      },
+      {
         "title": "## 🐛 Fixes",
         "labels": ["fix"]
       },
@@ -36,7 +40,7 @@
       "order": "ASC",
       "on_property": "mergedAt"
     },
-    "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
+    "template": "#{{CHANGELOG}}\n\n## Skoona Consulting\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
     "pr_template": "- #{{TITLE}}\n   - PR: ##{{NUMBER}}",
     "empty_template": "- no changes",
     "label_extractor": [
