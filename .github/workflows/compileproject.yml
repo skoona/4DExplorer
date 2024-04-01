@@ -89,6 +89,9 @@ jobs:
     steps:      
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
+        with:
+          name: Compile-Results
+          path: Compile-Results
 
       # - name: Extract release notes
       #   id: extract-release-notes
@@ -115,14 +118,13 @@ jobs:
         with:
           type: 'zip'
           filename: 'Contacts-R${{ github.run_number }}.zip'
-          path: | 
-            Compile-Results
+          path: ${{ github.workspace }}/Compile-Results
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          body_path: ${{ github.workspace }}/CHANGELOG.md
+          # body_path: ${{ github.workspace }}/CHANGELOG.md
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v1.${{ github.run_number }}
           name: Release V1.${{ github.run_number }}
