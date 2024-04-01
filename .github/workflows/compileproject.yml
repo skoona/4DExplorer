@@ -91,6 +91,8 @@ jobs:
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
+        env: 
+          ACTIONS_STEP_DEBUG: true
         with:
           changelog_file: ${{ github.workspace }}/Compile-Results/CHANGELOG.md 
           release_notes_file: ${{ github.workspace }}/Compile-Results/RELEASE_NOTES.md
