@@ -118,8 +118,7 @@ jobs:
         with:
           type: 'zip'
           filename: 'Contacts-R${{ github.run_number }}.zip'
-          path: | 
-            Compile-Results
+          path: ${{ github.workspace }}/Compile-Results
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
