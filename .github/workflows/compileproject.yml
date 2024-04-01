@@ -53,20 +53,12 @@ jobs:
           outputFile: ${{ github.workspace }}/CHANGELOG.md
           fromTag: "v2.1.0"
           toTag: "v110"
-    
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: ${{ github.workspace }}/CHANGELOG.md 
-          release_notes_file: ${{ github.workspace }}/RELEASE_NOTES.md
-  
+
       - name: Verify Files
         run: |
           ls -la
           cat CHANGELOG.md
-          cat RELEASE_NOTES.md
-    
+            
       - uses: actions/upload-artifact@v4.3.1
         name: Upload Artifacts
         with:
@@ -75,7 +67,6 @@ jobs:
             Compiled Database/
             Project/Contacts_ci-compileproject_results.json
             CHANGELOG.md
-            RELEASE_NOTES.md
           
       - name: "Pass or Fail"
         run: |
@@ -91,7 +82,20 @@ jobs:
     steps:      
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
+
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
+        with:
+          changelog_file: ${{ github.workspace }}/CHANGELOG.md 
+          release_notes_file: ${{ github.workspace }}/RELEASE_NOTES.md
   
+      - name: Verify Files
+        run: |
+          ls -la
+          cat CHANGELOG.md
+          cat RELEASE_NOTES.md
+          
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
         with:
@@ -104,8 +108,7 @@ jobs:
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          # ${{steps.extract-release-notes.outputs.release_notes}}
-          body_path: ${{ github.workspace }}/RELEASE_NOTES.md
+          body_path: ${{ github.workspace }}-CHANGELOG.md
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v1.${{ github.run_number }}
           name: Release V1.${{ github.run_number }}
