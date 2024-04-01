@@ -21,12 +21,13 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         OUTPUT_FOLDER: temp_release_notes
         USE_MILESTONE_TITLE: "true"
+
     - name: Upload Release Notes to Wiki
       uses: docker://decathlon/wiki-page-creator-action:latest
       env:
         ACTION_MAIL: skoona@gmail.com
         ACTION_NAME: skoona
-        GH_PAT: ${{ secrets.GITHUB_TOKEN }}
+        GH_PAT: ${{ secrets.GH_PAT }}
         MD_FOLDER: temp_release_notes
         REPO_NAME: 4DExplorer
         SKIP_MD: README.md
