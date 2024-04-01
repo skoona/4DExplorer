@@ -57,8 +57,6 @@ jobs:
         with:
           configuration: "${{ github.workspace }}/.github/configure-notes.json"
           outputFile: ${{ github.workspace }}/CHANGELOG.md
-          fromTag: "v2.1.0"
-          toTag: "v110"
 
       - name: Verify Files
         run: |
@@ -90,10 +88,6 @@ jobs:
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
 
-      - name: Verify Files
-        run: |
-          ls -la Compile-Results/
-
       # - name: Extract release notes
       #   id: extract-release-notes
       #   uses: ffurrer2/extract-release-notes@v2
@@ -101,14 +95,14 @@ jobs:
       #     changelog_file: ${{ github.workspace }}/Compile-Results/CHANGELOG.md 
       #     release_notes_file: ${{ github.workspace }}/Compile-Results/RELEASE_NOTES.md
 
-      - name: Create Release Notes
-        id: release-notes
-        uses: docker://decathlon/release-notes-generator-action:2.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OUTPUT_FOLDER: Compile-Results
-          FILENAME: RELEASE_NOTES.md
-          USE_MILESTONE_TITLE: "true"
+      # - name: Create Release Notes
+      #   id: release-notes
+      #   uses: docker://decathlon/release-notes-generator-action:2.0.1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     OUTPUT_FOLDER: Compile-Results
+      #     FILENAME: RELEASE_NOTES.md
+      #     USE_MILESTONE_TITLE: "true"
       
       - name: Verify Files
         run: |
@@ -116,7 +110,6 @@ jobs:
           ls -la Compile-Results/
           cat ${{ steps.release-notes.outputs }}
           cat Compile-Results/CHANGELOG.md
-          cat Compile-Results/RELEASE_NOTES.md
           
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
@@ -130,7 +123,7 @@ jobs:
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          body_path: ${{ github.workspace }}-CHANGELOG.md
+          body_path: ${{ github.workspace }}/CHANGELOG.md
           files: 'Contacts-R${{ github.run_number }}.zip'
           tag_name: v1.${{ github.run_number }}
           name: Release V1.${{ github.run_number }}
