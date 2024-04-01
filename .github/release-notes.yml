@@ -1,0 +1,13 @@
+# config for: decathlon/release-notes-generator-action
+
+changelog:
+  sections:
+  - title: "Enhancements"
+    labels: ["new"]
+  - title: "Documentation"
+    labels: ["docs"]
+  - title: "Feature"
+    labels: ["feature"]
+  - title: "Other"
+    labels: ["*"]
+    
