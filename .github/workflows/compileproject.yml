@@ -1,6 +1,11 @@
 name: Compile Project
 on:
   workflow_dispatch:
+    inputs:
+      milestoneId:
+        description: 'Milestone ID'     
+        required: true
+        default: '1'
   push:
     branches:
       - development
@@ -44,6 +49,22 @@ jobs:
         run: |
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
 
+      - name: Build Changelog
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@v4.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          configuration: "${{ github.workspace }}/.github/configure-notes.json"
+          outputFile: ${{ github.workspace }}/CHANGELOG.md
+          fromTag: "v2.1.0"
+          toTag: "v110"
+
+      - name: Verify Files
+        run: |
+          ls -la
+          cat CHANGELOG.md
+            
       - uses: actions/upload-artifact@v4.3.1
         name: Upload Artifacts
         with:
@@ -51,6 +72,7 @@ jobs:
           path: |
             Compiled Database/
             Project/Contacts_ci-compileproject_results.json
+            CHANGELOG.md
           
       - name: "Pass or Fail"
         run: |
@@ -63,45 +85,52 @@ jobs:
     # if: startsWith(github.ref, 'refs/tags/')
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      ACTIONS_STEP_DEBUG: true
     steps:      
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
 
+      - name: Verify Files
+        run: |
+          ls -la Compile-Results/
+
+      # - name: Extract release notes
+      #   id: extract-release-notes
+      #   uses: ffurrer2/extract-release-notes@v2
+      #   with:
+      #     changelog_file: ${{ github.workspace }}/Compile-Results/CHANGELOG.md 
+      #     release_notes_file: ${{ github.workspace }}/Compile-Results/RELEASE_NOTES.md
+
+      - name: Create Release Notes
+        id: release-notes
+        uses: docker://decathlon/release-notes-generator-action:2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OUTPUT_FOLDER: Compile-Results
+          FILENAME: RELEASE_NOTES.md
+          USE_MILESTONE_TITLE: "true"
+      
+      - name: Verify Files
+        run: |
+          ls -la
+          ls -la Compile-Results/
+          cat ${{ steps.release-notes.outputs }}
+          cat Compile-Results/CHANGELOG.md
+          cat Compile-Results/RELEASE_NOTES.md
+          
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
         with:
           type: 'zip'
-          path: Compile-Results
           filename: 'Contacts-R${{ github.run_number }}.zip'
-
-      - name: Checkout
-        uses: actions/checkout@v4.1.2
-
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          outputFile: CHANGELOG.md
-
-      # - name: Create Release
-      #   uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
-      #   with:
-      #     body: ${{steps.github_release.outputs.changelog}}
-
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: CHANGELOG.md # ${{steps.github_release.outputs.changelog}}
-          release_notes_file: RELEASE_NOTES.md
+          path: | 
+            Compile-Results
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
         with:
           generate_release_notes: true
-          body_path: RELEASE_NOTES.md
+          body_path: ${{ github.workspace }}-CHANGELOG.md
           files: 'Contacts-R${{ github.run_number }}.zip'
-          tag_name: v${{ github.run_number }}
-          name: Release V${{ github.run_number }}
+          tag_name: v1.${{ github.run_number }}
+          name: Release V1.${{ github.run_number }}
