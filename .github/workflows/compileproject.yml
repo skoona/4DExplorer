@@ -58,7 +58,7 @@ jobs:
           configuration: "${{ github.workspace }}/.github/configure-notes.json"
           outputFile: ${{ github.workspace }}/CHANGELOG.md
           token: ${{ secrets.GH_PAT }}
-          # fromTag: "v2.1.0"
+          fromTag: "v2.1.0"
           # toTag: "v2.2.0"
 
       - name: Verify Files
