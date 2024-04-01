@@ -1,6 +1,11 @@
 name: Compile Project
 on:
   workflow_dispatch:
+    inputs:
+      milestoneId:
+        description: 'Milestone ID'     
+        required: true
+        default: '1'
   push:
     branches:
       - development
@@ -89,16 +94,26 @@ jobs:
         run: |
           ls -la Compile-Results/
 
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: ${{ github.workspace }}/Compile-Results/CHANGELOG.md 
-          release_notes_file: ${{ github.workspace }}/Compile-Results/RELEASE_NOTES.md
-  
+      # - name: Extract release notes
+      #   id: extract-release-notes
+      #   uses: ffurrer2/extract-release-notes@v2
+      #   with:
+      #     changelog_file: ${{ github.workspace }}/Compile-Results/CHANGELOG.md 
+      #     release_notes_file: ${{ github.workspace }}/Compile-Results/RELEASE_NOTES.md
+
+      - name: Create Release Notes
+        id: release-notes
+        uses: docker://decathlon/release-notes-generator-action:2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILENAME: RELEASE_NOTES
+          USE_MILESTONE_TITLE: "true"
+      
       - name: Verify Files
         run: |
+          ls -la
           ls -la Compile-Results/
+          cat ${{ steps.release-notes.outputs }}
           cat Compile-Results/CHANGELOG.md
           cat Compile-Results/RELEASE_NOTES.md
           
