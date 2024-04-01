@@ -83,18 +83,22 @@ jobs:
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
 
+      - name: Verify Files
+        run: |
+          ls -la
+
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
         with:
-          changelog_file: ${{ github.workspace }}/CHANGELOG.md 
-          release_notes_file: ${{ github.workspace }}/RELEASE_NOTES.md
+          changelog_file: ${{ github.workspace }}/Compile-Results/CHANGELOG.md 
+          release_notes_file: ${{ github.workspace }}/Compile-Results/RELEASE_NOTES.md
   
       - name: Verify Files
         run: |
           ls -la
-          cat CHANGELOG.md
-          cat RELEASE_NOTES.md
+          cat Compile-Results/CHANGELOG.md
+          cat Compile-Results/RELEASE_NOTES.md
           
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5

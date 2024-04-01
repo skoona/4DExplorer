@@ -1,7 +1,6 @@
 name: Check Syntax
 on:
   workflow_dispatch:
-  push:
 
 concurrency:
   group: ${{ github.ref }}
