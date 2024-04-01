@@ -80,6 +80,7 @@ jobs:
     # if: startsWith(github.ref, 'refs/tags/')
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      ACTIONS_STEP_DEBUG: true
     steps:      
       - name: 'Download Build Artifacts'
         uses: actions/download-artifact@v4.1.4
@@ -91,8 +92,6 @@ jobs:
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
-        env: 
-          ACTIONS_STEP_DEBUG: true
         with:
           changelog_file: ${{ github.workspace }}/Compile-Results/CHANGELOG.md 
           release_notes_file: ${{ github.workspace }}/Compile-Results/RELEASE_NOTES.md
