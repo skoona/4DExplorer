@@ -105,7 +105,7 @@ jobs:
         with:
           generate_release_notes: true
           # ${{steps.extract-release-notes.outputs.release_notes}}
-          body_path: RELEASE_NOTES.md
+          body_path: ${{ github.workspace }}/RELEASE_NOTES.md
           files: 'Contacts-R${{ github.run_number }}.zip'
-          tag_name: v${{ github.run_number }}
-          name: Release V${{ github.run_number }}
+          tag_name: v1.${{ github.run_number }}
+          name: Release V1.${{ github.run_number }}
