@@ -106,14 +106,14 @@ jobs:
         uses: docker://decathlon/release-notes-generator-action:2.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FILENAME: RELEASE_NOTES
           USE_MILESTONE_TITLE: "true"
       
       - name: Verify Files
         run: |
           ls -la
           ls -la Compile-Results/
-          cat ${{ steps.release-notes.outputs }}
+          cat release_file.md
+          cat ${{ steps.release-notes.outputs }}          
           cat Compile-Results/CHANGELOG.md
           cat Compile-Results/RELEASE_NOTES.md
           
