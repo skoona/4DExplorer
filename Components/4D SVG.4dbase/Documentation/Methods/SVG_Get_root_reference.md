@@ -1,1 +1,0 @@
-﻿<!-- Text := SVG_Get_root_reference ( svgObject ) -> svgObject (Text)-->## Description<br/>Retrieves the root SVG element

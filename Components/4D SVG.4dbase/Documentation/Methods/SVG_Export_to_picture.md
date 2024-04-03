@@ -1,1 +1,0 @@
-﻿<!-- Buffer := SVG_Export_to_picture ( svgObject ; exportType ) -> svgObject (Text) -> exportType (Long Integer) <- Buffer (Picture)-->## Description

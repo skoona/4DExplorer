@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_MARKER ( parentReference ; URL ; Type ) -> parentReference (Text) -> URL (Text) -> Type (Text)-->## Description **SVG\_SET\_MARKER** ( svgObject ; url {; position} )

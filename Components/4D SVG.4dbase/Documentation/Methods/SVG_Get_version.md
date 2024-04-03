@@ -1,1 +1,0 @@
-﻿<!-- version := SVG_Get_version <- version (Text)-->## Description **SVG\_Get\_version** -&gt; Function result<br/>

@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_FONT_SIZE ( svgObject ; fontSize ) -> svgObject (Text) -> fontSize (Long Integer)-->## Description

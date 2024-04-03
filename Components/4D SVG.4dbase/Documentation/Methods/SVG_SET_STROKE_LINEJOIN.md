@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_STROKE_LINEJOIN ( objectID ; linejoin ) -> objectID (Text) -> linejoin (Text)-->## Description **SVG\_SET\_STROKE\_LINEJOIN** ( svgObject ; mode )

@@ -1,1 +1,0 @@
-﻿<!-- text := SVG_Get_text ( svgObject ) -> svgObject (Text) <- text (Text)-->## Description

@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_TRANSFORM_FLIP ( svgObject ; vertical ; horizontal ) -> svgObject (Text) -> vertical (Boolean) -> horizontal (Boolean)-->## Description **SVG\_SET\_TRANSFORM\_FLIP** ( svgObject ; horizontal {; vertical} )

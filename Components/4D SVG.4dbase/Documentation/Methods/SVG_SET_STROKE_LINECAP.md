@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_STROKE_LINECAP ( objectID ; linecap ) -> objectID (Text) -> linecap (Text)-->## Description **SVG\_SET\_STROKE\_LINECAP** ( svgObject ; mode )

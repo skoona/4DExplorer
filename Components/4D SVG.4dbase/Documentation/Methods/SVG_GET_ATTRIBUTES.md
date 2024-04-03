@@ -1,1 +1,0 @@
-﻿<!-- SVG_GET_ATTRIBUTES ( nodeReference ; arrayNames ; arrayValues ) -> nodeReference (Text) -> arrayNames (Pointer) -> arrayValues (Pointer)-->## Description **SVG\_GET\_ATTRIBUTES** ( svgObject ; namesArrayPointer ; valuesArrayPointer ) 

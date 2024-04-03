@@ -1,1 +1,0 @@
-﻿<!-- ID := SVG_Get_ID ( nodeReference ) -> nodeReference (Text) <- ID (Text)-->## Description **SVG\_Get\_ID** ( svgObject ) -&gt; Function result 

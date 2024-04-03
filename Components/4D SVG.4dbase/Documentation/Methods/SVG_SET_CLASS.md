@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_CLASS ( element ; class ) -> element (Text) -> class (Text)-->## Description **SVG\_SET\_CLASS** ( svgObject ; class )

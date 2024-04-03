@@ -1,1 +1,0 @@
-﻿<!-- SVG_SCALING_CENTERED ( svgObject ; scale ; X ; Y ) -> svgObject (Text) -> scale (Real) -> X (Real) -  {x} (middle) -> Y (Real) -  {y} (middle)-->## Description

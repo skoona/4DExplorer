@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_ID ( object ; id ) -> object (Text) -> id (Text)-->## Description **SVG\_SET\_ID** ( svgObject ; id ) 

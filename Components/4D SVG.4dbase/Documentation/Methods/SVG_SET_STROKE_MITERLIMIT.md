@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_STROKE_MITERLIMIT ( element ; mitterlimit ) -> element (Text) -> mitterlimit (Long Integer)-->## Description **SVG\_SET\_STROKE\_MITERLIMIT** ( svgObject ; value )
