@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Translation file for 4D products.
+   Copyright (C) 2007-2013 4D SAS.
+   This file is distributed under the same license as the 4D product package.
+-->
+
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN"
+"http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+
+<xliff version="1.0">
+  <file datatype="x-STR#" original="undefined" source-language="en-US" target-language="fr">
+    <header>
+      <note>The character &quot;%&quot; (out of a numerical context) is a meta-character that will be replaced (often by a numeric value) before the string is displayed</note>
+      <note>Text between less than (&lt;) and greater than (&gt;) symbols is a variable&apos;s name and must not be localised</note>
+      <note>\r, \t and \n are meta-characters.</note>
+    </header>
+    <body>
+      <group resname="4D NetKit Messages">
+        <trans-unit resname="ERR_4DNK_1">
+          <source>Undefined or null parameters object.</source>
+          <target>Paramètre Objet null ou indéfini.</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_2">
+          <source>"{attribute}" attribute is not defined or is empty.</source>
+          <target>L'attribut "{attribute}" n'est pas défini ou est vide.</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_3">
+          <source>Unsupported value in "{attribute}" attribute.</source>
+          <target>Valeur non supportée dans l'attribut "{attribute}".</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_4">
+          <source>The authorization code was not received within the time limit (timeout error).</source>
+          <target>Le code d'autorisation n'as pas été reçu dans le temps imparti (erreur de timeout).</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_5">
+          <source>'GetToken' request returned an unexpected status code (received: {received} expected: {expected}).</source>
+          <target>La requête 'GetToken' a retourné un code de statut inattendu (reçu: {received} attendu: {expected}).</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_6">
+          <source>'GetToken' request returned an empty 'authorizationCode'.</source>
+          <target>La requête 'GetToken' a retourné un 'authorizationCode' vide.</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_7">
+          <source>The port {port} is already used.</source>
+          <target>Le port {port} est déjà utilisé.</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_8">
+          <source>Request returned an unexpected response ({status} {explanation}: {message}).</source>
+          <target>La requête a retourné une réponse inattendue ({status} {explanation}: {message}).</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_9">
+          <source>Undefined or empty parameter {which} in function {function}.</source>
+          <target>Le paramètre {which} dans la fonction {function} est vide ou indéfini.</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_10">
+          <source>Unsupported parameter type {which} in function {function}.</source>
+          <target>Le type du paramètre {which} dans la fonction {function} n'est pas supporté.</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_11">
+          <source>You have reached the limit of the number of requests per minute that 4D can serve without a license.</source>
+          <target>Vous avez atteint la limite du nombre de requêtes par minute que 4D peut servir sans licence.</target>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Response_Title">
+          <target>4D NetKit Component</target>
+          <source>Composant 4D NetKit</source>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Response_Message">
+          <source>Verification code received</source>
+          <target>Code de vérification reçu</target>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Error_Message">
+          <source>Undefined error</source>
+          <target>Erreure indéfinie</target>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Response_Details">
+          <source>You may now close this window</source>
+          <target>Vous pouvez maintenant fermer la fenêtre</target>
+        </trans-unit>
+        <trans-unit resname="List_No_Next_Page">
+          <source>No next page.</source>
+          <target>Pas de page suivante.</target>
+        </trans-unit>
+        <trans-unit resname="List_No_Previous_Page">
+          <source>No previous page.</source>
+          <target>Pas de page précédente.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

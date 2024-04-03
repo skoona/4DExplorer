@@ -22,7 +22,7 @@ If ($command#Null)
 	
 	$status.durationMS:=Milliseconds-$startTime
 	
-	Folder("/PROJECT").file($command.getProjectName()+"_ci-"+$userParam+"_results.json").setText(JSON Stringify($status))
+	Folder(fk resources folder).file($command.getProjectName()+"_ci-"+$userParam+"_results.json").setText(JSON Stringify($status))
 End if 
 
 LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Processing Complete for User Param: "+$userParam+"\n"; Information message)

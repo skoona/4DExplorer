@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "type": "object",
+        "required": [
+            "method"
+        ],
+        "properties": {
+            "formula": {
+                "type": "object"
+            },
+            "summary": {
+                "type": "string"
+            },
+            "minParams": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 1.0
+            },
+            "maxParams": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 1.0
+            },
+            "parameters": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": "name",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "number",
+                            "enum": [
+                                -1,
+                                1,
+                                2,
+                                4,
+                                6,
+                                9,
+                                11,
+                                38
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+ {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "4DVP",
+  "description": "4DVP object",
+  "type": "object",
+	"properties": {
+		"version": {"type": "integer"},
+		"spreadJS": {"type": "object"},
+		"meta": {"type": "object"},
+		"dateCreation": {"type": "string"},
+		"dateModified": {"type": "string"}
+	},
+	"required": ["version", "spreadJS"]
+}

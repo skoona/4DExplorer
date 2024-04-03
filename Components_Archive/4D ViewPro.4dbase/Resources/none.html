@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<!--
+ * 
+ * 4DView Pro library 1.0.0
+ * 
+ * Copyright(c) 4D SAS.  All rights reserved.
+ * 
+ * 4D (the "Software") and the corresponding source code remain
+ * the exclusive property of 4D and/or its licensors and are protected by national
+ * and/or international legislations.
+ * 
+ * This file is part of the source code of the Software provided under the relevant
+ * 4D License Agreement available on http://www.4D.com/license whose compliance
+ * constitutes a prerequisite to any use of this file and more generally of the
+ * Software and the corresponding source code.
+ * 
+ -->
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <title>4D View Pro</title>
+    <link rel="stylesheet" href="./SpreadJS/css/gc.spread.sheets.excel2013white.css" />
+    <link rel="stylesheet" href="4dviewpro.css" />
+
+    <script type="application/javascript" src="./scripts/getTimezoneOffset.js"></script>
+
+    <!-- -->
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.all.min.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.charts.min.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.shapes.min.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.slicers.min.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.print.min.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.barcode.min.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.pdf.min.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.pivot.pivottables.min.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.tablesheet.min.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.ganttsheet.min.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.formulapanel.min.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.excelio.min.js"></script>
+  	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.io.min.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.calcengine.languagepackages.min.js"></script>
+    <!-- -->
+
+    <!-- --
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.all.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.charts.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.shapes.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.slicers.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.print.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.barcode.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.pdf.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.pivot.pivottables.js"></script>
+	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.tablesheet.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.excelio.js"></script>
+  	<script type="application/javascript" src="./SpreadJS/scripts/gc.spread.sheets.io.js"></script>
+    <script type="application/javascript" src="./SpreadJS/scripts/gc.spread.calcengine.languagepackages.js"></script>
+    <-- -->
+
+    <script type="application/javascript" src="./___LOCALIZATION___.lproj/gc.spread.sheets.resources.___LOCALIZATION___.min.js"></script>
+    <script type="application/javascript" src="./___LOCALIZATION___.lproj/contextMenu.js"></script>
+</head>
+
+<body>
+    <div id="formulaBar" class="hidden">
+        <input type="text" id="formulaTextBox" />
+    </div>
+    <div id="ss"></div>
+
+     <script>
+        var vp_localizedFolder = '___LOCALIZATION___.lproj';
+        (function () {
+             let lang = vp_localizedFolder.substring(0,2);
+			// call the language package to translate the command names
+			if ((lang != '') && (lang != 'en')) {
+				GC.Spread.CalcEngine.LanguagePackages.languagePackages(lang);
+            }
+            
+        })();
+        //# sourceURL=init_language.js
+    </script>
+
+    <script src="./scripts/init.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/custom-types.js"></script>
+    <script src="./scripts/custom-function-helpers.js"></script>
+    <script src="./scripts/custom-functions.js"></script>
+
+    <script src="./4dviewpro.js"></script>
+
+    <!-- View Pro Commands -->
+    <script src="./scripts/commands/values.js"></script>
+    <script src="./scripts/commands/file.js"></script>
+    <script src="./scripts/commands/print.js"></script>
+    <script src="./scripts/commands/style.js"></script>
+    <script src="./scripts/commands/names.js"></script>
+    <script src="./scripts/commands/sheets.js"></script>
+    <script src="./scripts/commands/events.js"></script>
+    <script src="./scripts/commands/utilities.js"></script>
+    <script src="./scripts/commands/spans.js"></script>
+    <script src="./scripts/commands/rows-and-columns.js"></script>
+    <script src="./scripts/commands/clipboard.js"></script>
+    <script src="./scripts/commands/data-context.js"></script>
+    <script src="./scripts/commands/workbook.js"></script>
+    <script src="./scripts/commands/tables.js"></script>
+</body>
+
+</html>
