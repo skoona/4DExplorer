@@ -18,9 +18,9 @@
 #--------------------------------
 # Runtime Files
 #--------------------------------
+BuildDocs
 Compiled Database/*
 Plugins/*
-Project/*_ci-*.json
 
 #--------------------------------
 # Ignore derived data

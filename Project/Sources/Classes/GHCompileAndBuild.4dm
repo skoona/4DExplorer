@@ -10,11 +10,7 @@ Class constructor($command : Text)
 	
 Function execute()->$status : Object
 	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Compile and Build Project...\n"; Information message)
-	
-	If (Folder(fk resources folder).file(This.getProjectName()+"_ci-compileproject_results.json").exists)
-		Folder(fk resources folder).file(This.getProjectName()+"_ci-compileproject_results.json").delete()
-	End if 
-	
+		
 	$status:=This.compileAndBuild()
 	
 	$status.action:=This.getCommand()
