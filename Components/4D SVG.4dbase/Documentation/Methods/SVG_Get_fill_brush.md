@@ -1,1 +1,0 @@
-﻿<!-- fill := SVG_Get_fill_brush ( svgObject ) -> svgObject (Text) <- fill (Text)-->## Description

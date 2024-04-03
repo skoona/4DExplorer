@@ -1,1 +1,0 @@
-﻿<!-- svgReference := SVG_New_group ( svgObject ; ID ; URL ; Target ) -> svgObject (Text) -> ID (Text) -> URL (Text) -> Target (Text) <- svgReference (Text)-->## Description **SVG\_New\_group** ( parentSVGObject {; id {; url {; target}}} ) -&gt; Function result 

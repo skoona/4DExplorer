@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_TRANSFORM_ROTATE ( target ; angle ; cx ; cy ) -> target (Text) -> angle (Real) -> cx (Real) -> cy (Real)-->## Description **SVG\_SET\_TRANSFORM\_ROTATE** ( svgObject ; angle {; x ; y} ) 

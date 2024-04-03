@@ -1,1 +1,0 @@
-﻿<!-- SVG_SAVE_AS_TEXT ( svgObject ; pathname ) -> svgObject (Text) -> pathname (Text)-->## Description **SVG\_SAVE\_AS\_TEXT** ( svgObject ; document ) 

@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_TEXT_ANCHOR ( svgObject ; fontAlignment ) -> svgObject (Text) -> fontAlignment (Long Integer)-->## Description

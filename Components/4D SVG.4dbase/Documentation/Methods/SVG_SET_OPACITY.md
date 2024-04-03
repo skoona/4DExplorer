@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_OPACITY ( object ; fillOpacity ; strokeOpacity ) -> object (Text) -> fillOpacity (Long Integer) -> strokeOpacity (Long Integer)-->## Description **SVG\_SET\_OPACITY** ( svgObject ; background {; row | level } )

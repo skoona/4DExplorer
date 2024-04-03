@@ -47,6 +47,8 @@ jobs:
         
       - name: Compile and Build 4DZ Package for ${{ github.ref }}
         run: |
+          mkdir -p Components
+          cp -r Components_Archive/* Components/
           ./tool4d.app/Contents/MacOS/tool4d  --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="compileproject" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
 
       # - name: Build Changelog

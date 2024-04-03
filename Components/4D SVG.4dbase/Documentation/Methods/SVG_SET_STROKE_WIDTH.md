@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_STROKE_WIDTH ( objectID ; strokeWidth ; unit ) -> objectID (Text) -> strokeWidth (Real) -> unit (Text)-->## Description **SVG\_SET\_STROKE\_WIDTH** ( svgObject ; strokeWidth {; unit} )

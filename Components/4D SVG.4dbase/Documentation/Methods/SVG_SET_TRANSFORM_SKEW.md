@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_TRANSFORM_SKEW ( objectID ; angleVertical ; angleHorizontal ) -> objectID (Text) -> angleVertical (Real) -> angleHorizontal (Real)-->## Description **SVG\_SET\_TRANSFORM\_SKEW** ( svgObject ; horizontal {; vertical} ) 

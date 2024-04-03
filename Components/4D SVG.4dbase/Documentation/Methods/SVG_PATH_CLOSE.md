@@ -1,1 +1,0 @@
-﻿<!-- SVG_PATH_CLOSE ( parentReference ) -> parentReference (Text)-->## Description **SVG\_PATH\_CLOSE** ( parentSVGObject ) 

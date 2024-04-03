@@ -1,1 +1,0 @@
-﻿<!-- node := SVG_Set_title ( svgObject ; value ) -> svgObject (Text) -> value (Text) <- node (Text)-->## Description **SVG\_Set\_title** ( parentSVGObject ; title ) -&gt; Function result 

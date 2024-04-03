@@ -1,1 +1,0 @@
-﻿<!-- filterReference := SVG_Define_shadow ( svgObject ; ID ; stdDeviation ; dx ; dy ) -> svgObject (Text) -> ID (Text) -> stdDeviation (Long Integer) -> dx (Long Integer) -> dy (Long Integer) <- filterReference (Text)-->## Description **SVG\_Define\_shadow** ( parentSVGObject ; id {; deviation {; offsetX {; offsetY}}} ) -&gt; Function result 

@@ -1,1 +1,0 @@
-﻿<!-- Boolean := SVG_Is_reference_valid ( svgObject ) -> svgObject (Text)-->## Description **SVG\_Is\_reference\_valid** ( svgObject ) -&gt; Function result 

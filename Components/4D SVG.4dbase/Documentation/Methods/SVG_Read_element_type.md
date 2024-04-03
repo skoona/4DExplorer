@@ -1,1 +1,0 @@
-﻿<!-- name := SVG_Read_element_type ( svgObject ) -> svgObject (Text) <- name (Text)-->## Description **SVG\_Read\_element\_type** ( svgObject ) -&gt; Function result

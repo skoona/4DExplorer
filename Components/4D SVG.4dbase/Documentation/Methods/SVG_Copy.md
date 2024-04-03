@@ -1,1 +1,0 @@
-<!-- -->## DescriptionThe **SVG\_Copy** command creates a new SVG document that is a copy of the document referenced by svgObject.

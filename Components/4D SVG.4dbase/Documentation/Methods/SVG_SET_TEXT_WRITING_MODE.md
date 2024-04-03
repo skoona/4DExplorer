@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_TEXT_WRITING_MODE ( svgObject ; writingMode ) -> svgObject (Text) -> writingMode (Text)-->## Description

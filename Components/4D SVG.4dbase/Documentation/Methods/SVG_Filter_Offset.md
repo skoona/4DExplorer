@@ -1,1 +1,0 @@
-﻿<!-- nodeReference := SVG_Filter_Offset ( parentReference ; dx ; dy ; in ; result ) -> parentReference (Text) -> dx (Long Integer) -> dy (Long Integer) -> in (Text) -> result (Text) <- nodeReference (Text)-->## Description **SVG\_Filter\_Offset** ( filterRef ; dx {; dy {; input {; name}}} ) -&gt; Function result 

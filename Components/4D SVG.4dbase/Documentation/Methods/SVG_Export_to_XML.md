@@ -1,1 +1,0 @@
-﻿<!-- buffer := SVG_Export_to_XML ( svgObject ) -> svgObject (Text) <- buffer (Text)-->## Description

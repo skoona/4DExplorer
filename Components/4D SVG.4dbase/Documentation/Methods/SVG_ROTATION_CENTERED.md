@@ -1,1 +1,0 @@
-﻿<!-- SVG_ROTATION_CENTERED ( svgObject ; angle ) -> svgObject (Text) -> angle (Real)-->## Description

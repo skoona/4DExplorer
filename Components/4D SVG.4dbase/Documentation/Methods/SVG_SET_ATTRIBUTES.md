@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_ATTRIBUTES ( objectID ; Param_2 ; … ; N ) -> objectID (Text) -> Param_2 ; … ; N (Text)-->## Description **SVG\_SET\_ATTRIBUTES** ( svgObject ; attributeName ; attributeValue {; attributeName2 ; attributeValue2 ; ... ; attributeNameN ; attributeValueN} ) 

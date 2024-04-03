@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_SHAPE_RENDERING ( object ; rendering ) -> object (Text) -> rendering (Text)-->## Description **SVG\_SET\_SHAPE\_RENDERING** ( svgObject ; value )

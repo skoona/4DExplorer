@@ -1,1 +1,0 @@
-﻿<!-- nodeReference := SVG_Use ( parentReference ; URL ; x ; y ; Width ; Height ) -> parentReference (Text) -> URL (Text) -> x (Real) -> y (Real) -> Width (Real) -> Height (Real) <- nodeReference (Text)-->## Description **SVG\_Use** ( parentSVGObjec ; id {; x ; y ; width ; height {; mode}} ) -&gt; Function result 

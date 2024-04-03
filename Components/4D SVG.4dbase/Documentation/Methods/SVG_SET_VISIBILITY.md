@@ -1,1 +1,0 @@
-﻿<!-- SVG_SET_VISIBILITY ( objectID ; Visible ) -> objectID (Text) -> Visible (Boolean)-->## Description **SVG\_SET\_VISIBILITY** ( svgObject {; hide} ) 

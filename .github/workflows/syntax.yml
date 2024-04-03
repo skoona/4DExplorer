@@ -39,6 +39,8 @@ jobs:
     - name: "Run Project syntax check"
       timeout-minutes: 15
       run: |
+        mkdir -p Components
+        cp -r Components_Archive/* Components/
         ./tool4d.app/Contents/MacOS/tool4d --project=${{ github.workspace }}/Project/Contacts.4DProject --user-param="checksyntax" --skip-onstartup --dataless --startup-method=GHPipeline_EntryPoint_P 
 
     - uses: actions/upload-artifact@v4.3.1
