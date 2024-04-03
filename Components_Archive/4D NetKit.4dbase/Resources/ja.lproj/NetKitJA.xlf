@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Translation file for 4D products.
+   Copyright (C) 2007-2013 4D SAS.
+   This file is distributed under the same license as the 4D product package.
+-->
+
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN"
+"http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+
+<xliff version="1.0">
+  <file datatype="x-STR#" original="undefined" source-language="en-US" target-language="ja" product-version="v14">
+    <header>
+      <note>The character &quot;%&quot; (out of a numerical context) is a meta-character that will be replaced (often by a numeric value) before the string is displayed</note>
+      <note>Text between less than (&lt;) and greater than (&gt;) symbols is a variable&apos;s name and must not be localised</note>
+      <note>\r, \t and \n are meta-characters.</note>
+    </header>
+    <body>
+      <group resname="4D NetKit Messages">
+        <trans-unit resname="ERR_4DNK_1">
+          <source>Undefined or null parameters object.</source>
+          <target>未定義またはnullの引数オブジェクトです。</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_2">
+          <source>"{attribute}" attribute is not defined or is empty.</source>
+          <target>"{attribute}" 属性が定義されていないか空です。</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_3">
+          <source>Unsupported value in "{attribute}" attribute.</source>
+          <target>"{attribute}"属性にサポートされていない値があります</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_4">
+          <source>'GetToken' request returned an empty response.</source>
+          <target>'GetToken'リクエストに空のレスポンスが返ってきました。</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_5">
+          <source>'GetToken' request returned an unexpected status code (received: {received} expected: {expected}).</source>
+          <target>'GetToken' リクエストは想定外のステータスコードを返しました(受信コード: {received} 想定コード: {expected})</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_6">
+          <source>'GetToken' request returned an empty 'authorizationCode'.</source>
+          <target>'GetToken' リクエストは空の'authorizationCode'を返しました。</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_7">
+          <source>The port {port} is already used.</source>
+          <target>{port} のポートは既に使用中です。</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_8">
+          <source>Request returned an unexpected response ({status} {explanation}: {message}).</source>
+          <target>リクエストから想定外のレスポンスが返されました({status} {explanation}: {message})</target>
+        </trans-unit>
+        <trans-unit resname="ERR_4DNK_9">
+          <source>Undefined or empty parameter {which} in function {function}.</source>
+          <target>{function}関数に未定義または空の引数{which}があります。</target>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Response_Title">
+          <source>4D NetKit Component</source>
+          <target>4D NetKit コンポーネント</target>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Response_Message">
+          <source>Verification code received</source>
+          <target>認証コードを受信</target>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Error_Message">
+          <source>Undefined error</source>
+          <target>未定義のエラー</target>
+        </trans-unit>
+        <trans-unit resname="OAuth2_Response_Details">
+          <source>You may now close this window</source>
+          <target>このウィンドウを閉じてもかまいません</target>
+        </trans-unit>
+        <trans-unit resname="List_No_Next_Page">
+          <source>No next page.</source>
+          <target>次のページはありません。</target>
+        </trans-unit>
+        <trans-unit resname="List_No_Previous_Page">
+          <source>No previous page.</source>
+          <target>前のページはありません。</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

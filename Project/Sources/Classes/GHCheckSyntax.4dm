@@ -28,7 +28,7 @@ Function checkSyntax($checkSyntaxOptions : Object)->$status : Object
 	// keys: <ErrorList><Method>[<Error>]
 	$status:=Compile project($checkSyntaxOptions)
 	
-	If (Folder("/LOGS").file(This.getProjectName()+"_errors.xml").exists)
-		$status.artifact:=Folder("/LOGS").file(This.getProjectName()+"_errors.xml").getText()
+	If (Folder(fk logs folder).file(This.getProjectName()+"_errors.xml").exists)
+		$status.artifact:=Folder(fk logs folder).file(This.getProjectName()+"_errors.xml").getText()
 	End if 
 	

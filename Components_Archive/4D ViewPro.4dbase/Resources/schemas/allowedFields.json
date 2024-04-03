@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "type": "object",
+        "required": [
+            "table",
+            "field"
+        ],
+        "properties": {
+            "summary": {
+                "type": "string"
+            },
+            "table": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 1.0
+            },
+            "field": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 1.0
+            }
+        }
+    }
+}

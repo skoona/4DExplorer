@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--Translation file.
+This file is distributed under the same license as the product package.-->
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+
+  <file datatype="x-4DK#" original="undefined" source-language="en-US" target-language="es">
+    <header>
+      			<note>
+				The character "%" (out of a numerical context) is a meta-character that
+				will be replaced (often by a numeric value) before the string is displayed
+			</note>
+			  <note>
+				Text between less than (&lt;) and greater than (&gt;) symbols is a variable's
+				name and must not be localised
+			</note>
+			  <note>
+				\r, \t and \n are meta-characters.
+			</note>
+    </header>
+    <body>
+	    <group resname="ViewProThemes">
+	  	    <trans-unit id="1" resname="ViewProTheme_1">
+		        <source>4D View Pro</source>
+		        <target>4D View Pro</target>
+		</trans-unit>
+	  </group>
+	  
+		
+    <!-- Localized View Pro constant names -->
+		
+    <!-- WARNING : Ensure ID is reserved in 4D_Constants before adding one here -->
+
+	    <group d4:groupID="89" d4:groupName="ViewProTheme_1" restype="x-4DK#">
+				    <trans-unit d4:value=".4vp" id="89_1">
+					    <source>vk 4D View Pro format</source>
+					    <target>vk 4D View Pro format</target>
+				</trans-unit>
+				    <trans-unit d4:value=".xlsx" id="89_2">
+					    <source>vk MS Excel format</source>
+					    <target>vk MS Excel format</target>
+				</trans-unit>
+				    <trans-unit d4:value="-1" id="89_3">
+					    <source>vk current sheet</source>
+					    <target>vk current sheet</target>
+				</trans-unit>
+				    <trans-unit d4:value="-2" id="89_4">
+					    <source>vk workbook</source>
+					    <target>vk workbook</target>
+				</trans-unit>				
+				    <trans-unit d4:value="_fullDateTimePattern_" id="89_5">
+					    <source>vk pattern full date time</source>
+					    <target>vk pattern full date time</target>
+				</trans-unit>
+				    <trans-unit d4:value="_sortableDateTimePattern_" id="89_6">
+					    <source>vk pattern sortable date time</source>
+					    <target>vk pattern sortable date time</target>
+				</trans-unit>
+				    <trans-unit d4:value="_universalSortableDateTimePattern_" id="89_7">
+					    <source>vk pattern universal sortable date time</source>
+					    <target>vk pattern universal sortable date time</target>
+				</trans-unit>
+				    <trans-unit d4:value="_longDatePattern_" id="89_8">
+					    <source>vk pattern long date</source>
+					    <target>vk pattern long date</target>
+				</trans-unit>
+				    <trans-unit d4:value="_monthDayPattern_" id="89_9">
+					    <source>vk pattern month day</source>
+					    <target>vk pattern month day</target>
+				</trans-unit>
+				    <trans-unit d4:value="_shortDatePattern_" id="89_10">
+					    <source>vk pattern short date</source>
+					    <target>vk pattern short date</target>
+				</trans-unit>
+				    <trans-unit d4:value="_yearMonthPattern_" id="89_11">
+					    <source>vk pattern year month</source>
+					    <target>vk pattern year month</target>
+				</trans-unit>				
+				    <trans-unit d4:value="_longTimePattern_" id="89_12">
+					    <source>vk pattern long time</source>
+					    <target>vk pattern long time</target>
+				</trans-unit>
+				    <trans-unit d4:value="_shortTimePattern_" id="89_13">
+					    <source>vk pattern short time</source>
+					    <target>vk pattern short time</target>
+				</trans-unit>				
+				    <trans-unit d4:value="0" id="89_14">
+					    <source>vk position top</source>
+					    <target>vk position top</target>
+				</trans-unit>				
+				    <trans-unit d4:value="1" id="89_15">
+					    <source>vk position center</source>
+					    <target>vk position center</target>
+				</trans-unit>				
+				    <trans-unit d4:value="2" id="89_16">
+					    <source>vk position bottom</source>
+					    <target>vk position bottom</target>
+				</trans-unit>				
+				    <trans-unit d4:value="3" id="89_17">
+					    <source>vk position nearest</source>
+					    <target>vk position nearest</target>
+				</trans-unit>				
+				    <trans-unit d4:value="0" id="89_19">
+					    <source>vk position left</source>
+					    <target>vk position left</target>
+				</trans-unit>				
+				    <trans-unit d4:value="1" id="89_20">
+					    <source>vk position center</source>
+					    <target>vk position center</target>
+				</trans-unit>				
+				    <trans-unit d4:value="2" id="89_21">
+					    <source>vk position right</source>
+					    <target>vk position right</target>
+				</trans-unit>
+				    <trans-unit d4:value=".pdf" id="89_22">
+					    <source>vk pdf format</source>
+					    <target>vk pdf format</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_23">
+					    <source>vk image layout center</source>
+					    <target>vk image layout center</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_24">
+					    <source>vk image layout none</source>
+					    <target>vk image layout none</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_25">
+					    <source>vk image layout stretch</source>
+					    <target>vk image layout stretch</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_26">
+					    <source>vk image layout zoom</source>
+					    <target>vk image layout zoom</target>
+				</trans-unit>
+				    <trans-unit d4:value="9" id="89_27">
+					    <source>vk line style dash dot</source>
+					    <target>vk line style dash dot</target>
+				</trans-unit>
+				    <trans-unit d4:value="11" id="89_28">
+					    <source>vk line style dash dot dot</source>
+					    <target>vk line style dash dot dot</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_29">
+					    <source>vk line style dashed</source>
+					    <target>vk line style dashed</target>
+				</trans-unit>
+				    <trans-unit d4:value="4" id="89_30">
+					    <source>vk line style dotted</source>
+					    <target>vk line style dotted</target>
+				</trans-unit>
+				    <trans-unit d4:value="6" id="89_31">
+					    <source>vk line style double</source>
+					    <target>vk line style double</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_32">
+					    <source>vk line style empty</source>
+					    <target>vk line style empty</target>
+				</trans-unit>
+				    <trans-unit d4:value="7" id="89_33">
+					    <source>vk line style hair</source>
+					    <target>vk line style hair</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_34">
+					    <source>vk line style medium</source>
+					    <target>vk line style medium</target>
+				</trans-unit>
+				    <trans-unit d4:value="10" id="89_35">
+					    <source>vk line style medium dash dot</source>
+					    <target>vk line style medium dash dot</target>
+				</trans-unit>
+				    <trans-unit d4:value="12" id="89_36">
+					    <source>vk line style medium dash dot dot</source>
+					    <target>vk line style medium dash dot dot</target>
+				</trans-unit>
+				    <trans-unit d4:value="8" id="89_37">
+					    <source>vk line style medium dashed</source>
+					    <target>vk line style medium dashed</target>
+				</trans-unit>
+				    <trans-unit d4:value="13" id="89_38">
+					    <source>vk line style slanted dash dot</source>
+					    <target>vk line style slanted dash dot</target>
+				</trans-unit>
+				    <trans-unit d4:value="5" id="89_39">
+					    <source>vk line style thick</source>
+					    <target>vk line style thick</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_40">
+					    <source>vk line style thin</source>
+					    <target>vk line style thin</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_41">
+					    <source>vk horizontal align center</source>
+					    <target>vk horizontal align center</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_42">
+					    <source>vk horizontal align general</source>
+					    <target>vk horizontal align general</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_43">
+					    <source>vk horizontal align left</source>
+					    <target>vk horizontal align left</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_44">
+					    <source>vk horizontal align right</source>
+					    <target>vk horizontal align right</target>
+				</trans-unit>
+				    <trans-unit d4:value="8" id="89_45">
+					    <source>vk text decoration double underline</source>
+					    <target>vk text decoration double underline</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_46">
+					    <source>vk text decoration line through</source>
+					    <target>vk text decoration line through</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_47">
+					    <source>vk text decoration none</source>
+					    <target>vk text decoration none</target>
+				</trans-unit>
+				    <trans-unit d4:value="4" id="89_48">
+					    <source>vk text decoration overline</source>
+					    <target>vk text decoration overline</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_49">
+					    <source>vk text decoration underline</source>
+					    <target>vk text decoration underline</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_50">
+					    <source>vk vertical align bottom</source>
+					    <target>vk vertical align bottom</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_51">
+					    <source>vk vertical align center</source>
+					    <target>vk vertical align center</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_52">
+					    <source>vk vertical align top</source>
+					    <target>vk vertical align top</target>
+				</trans-unit>
+				    <trans-unit d4:value="4" id="89_53">
+					    <source>vk label alignment bottom center</source>
+					    <target>vk label alignment bottom center</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_54">
+					    <source>vk label alignment bottom left</source>
+					    <target>vk label alignment bottom left</target>
+				</trans-unit>
+				    <trans-unit d4:value="5" id="89_55">
+					    <source>vk label alignment bottom right</source>
+					    <target>vk label alignment bottom right</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_56">
+					    <source>vk label alignment top center</source>
+					    <target>vk label alignment top center</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_57">
+					    <source>vk label alignment top left</source>
+					    <target>vk label alignment top left</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_58">
+					    <source>vk label alignment top right</source>
+					    <target>vk label alignment top right</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_59">
+					    <source>vk label visibility auto</source>
+					    <target>vk label visibility auto</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_60">
+					    <source>vk label visibility hidden</source>
+					    <target>vk label visibility hidden</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_61">
+					    <source>vk label visibility visible</source>
+					    <target>vk label visibility visible</target>
+				</trans-unit>
+				    <trans-unit d4:value="italic" id="89_62">
+					    <source>vk font style italic</source>
+					    <target>vk font style italic</target>
+				</trans-unit>
+				    <trans-unit d4:value="oblique" id="89_63">
+					    <source>vk font style oblique</source>
+					    <target>vk font style oblique</target>
+				</trans-unit>
+				    <trans-unit d4:value="small-caps" id="89_64">
+					    <source>vk font variant small caps</source>
+					    <target>vk font variant small caps</target>
+				</trans-unit>
+				    <trans-unit d4:value="bold" id="89_65">
+					    <source>vk font weight bold</source>
+					    <target>vk font weight bold</target>
+				</trans-unit>
+				    <trans-unit d4:value="bolder" id="89_66">
+					    <source>vk font weight bolder</source>
+					    <target>vk font weight bolder</target>
+				</trans-unit>
+				    <trans-unit d4:value="lighter" id="89_67">
+					    <source>vk font weight lighter</source>
+					    <target>vk font weight lighter</target>
+				</trans-unit>
+				    <trans-unit d4:value="100:S" id="89_68">
+					    <source>vk font weight 100</source>
+					    <target>vk font weight 100</target>
+				</trans-unit>
+				    <trans-unit d4:value="200:S" id="89_69">
+					    <source>vk font weight 200</source>
+					    <target>vk font weight 200</target>
+				</trans-unit>
+				    <trans-unit d4:value="300:S" id="89_70">
+					    <source>vk font weight 300</source>
+					    <target>vk font weight 300</target>
+				</trans-unit>
+				    <trans-unit d4:value="400:S" id="89_71">
+					    <source>vk font weight 400</source>
+					    <target>vk font weight 400</target>
+				</trans-unit>
+				    <trans-unit d4:value="500:S" id="89_72">
+					    <source>vk font weight 500</source>
+					    <target>vk font weight 500</target>
+				</trans-unit>
+				    <trans-unit d4:value="600:S" id="89_73">
+					    <source>vk font weight 600</source>
+					    <target>vk font weight 600</target>
+				</trans-unit>
+				    <trans-unit d4:value="700:S" id="89_74">
+					    <source>vk font weight 700</source>
+					    <target>vk font weight 700</target>
+				</trans-unit>
+				    <trans-unit d4:value="800:S" id="89_75">
+					    <source>vk font weight 800</source>
+					    <target>vk font weight 800</target>
+				</trans-unit>
+				    <trans-unit d4:value="900:S" id="89_76">
+					    <source>vk font weight 900</source>
+					    <target>vk font weight 900</target>
+				</trans-unit>
+				    <trans-unit d4:value="medium" id="89_77">
+					    <source>vk font size medium</source>
+					    <target>vk font size medium</target>
+				</trans-unit>
+				    <trans-unit d4:value="xx-small" id="89_78">
+					    <source>vk font size xx small</source>
+					    <target>vk font size xx small</target>
+				</trans-unit>
+				    <trans-unit d4:value="x-small" id="89_79">
+					    <source>vk font size x small</source>
+					    <target>vk font size x small</target>
+				</trans-unit>
+				    <trans-unit d4:value="small" id="89_80">
+					    <source>vk font size small</source>
+					    <target>vk font size small</target>
+				</trans-unit>
+				    <trans-unit d4:value="large" id="89_81">
+					    <source>vk font size large</source>
+					    <target>vk font size large</target>
+				</trans-unit>
+				    <trans-unit d4:value="x-large" id="89_82">
+					    <source>vk font size x large</source>
+					    <target>vk font size x large</target>
+				</trans-unit>
+				    <trans-unit d4:value="xx-large" id="89_83">
+					    <source>vk font size xx large</source>
+					    <target>vk font size xx large</target>
+				</trans-unit>
+				    <trans-unit d4:value="smaller" id="89_84">
+					    <source>vk font size smaller</source>
+					    <target>vk font size smaller</target>
+				</trans-unit>
+				    <trans-unit d4:value="larger" id="89_85">
+					    <source>vk font size larger</source>
+					    <target>vk font size larger</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_86">
+					    <source>vk print centering both</source>
+					    <target>vk print centering both</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_87">
+					    <source>vk print centering horizontal</source>
+					    <target>vk print centering horizontal</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_88">
+					    <source>vk print centering none</source>
+					    <target>vk print centering none</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_89">
+					    <source>vk print centering vertical</source>
+					    <target>vk print centering vertical</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_90">
+					    <source>vk print page orientation landscape</source>
+					    <target>vk print page orientation landscape</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_91">
+					    <source>vk print page orientation portrait</source>
+					    <target>vk print page orientation portrait</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_92">
+					    <source>vk print page order auto</source>
+					    <target>vk print page order auto</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_93">
+					    <source>vk print page order down then over</source>
+					    <target>vk print page order down then over</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_94">
+					    <source>vk print page order over then down</source>
+					    <target>vk print page order over then down</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_95">
+					    <source>vk print visibility hide</source>
+					    <target>vk print visibility hide</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_96">
+					    <source>vk print visibility inherit</source>
+					    <target>vk print visibility inherit</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_98">
+					    <source>vk print visibility show</source>
+					    <target>vk print visibility show</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_99">
+					    <source>vk print visibility show once</source>
+					    <target>vk print visibility show once</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_100">
+					    <source>vk clipboard options all</source>
+					    <target>vk clipboard options all</target>
+				</trans-unit>				
+				    <trans-unit d4:value="2" id="89_101">
+					    <source>vk clipboard options formatting</source>
+					    <target>vk clipboard options formatting</target>
+				</trans-unit>				
+				    <trans-unit d4:value="3" id="89_102">
+					    <source>vk clipboard options formulas</source>
+					    <target>vk clipboard options formulas</target>
+				</trans-unit>				
+				    <trans-unit d4:value="5" id="89_103">
+					    <source>vk clipboard options formulas and formatting</source>
+					    <target>vk clipboard options formulas and formatting</target>
+				</trans-unit>				
+				    <trans-unit d4:value="1" id="89_104">
+					    <source>vk clipboard options values</source>
+					    <target>vk clipboard options values</target>
+				</trans-unit>				
+				    <trans-unit d4:value="4" id="89_105">
+					    <source>vk clipboard options values and formatting</source>
+					    <target>vk clipboard options values and formatting</target>
+				</trans-unit>				
+				    <trans-unit d4:value="0" id="89_106">
+					    <source>vk header auto text blank</source>
+					    <target>vk header auto text blank</target>
+				</trans-unit>				
+				    <trans-unit d4:value="2" id="89_107">
+					    <source>vk header auto text letters</source>
+					    <target>vk header auto text letters</target>
+				</trans-unit>				
+				    <trans-unit d4:value="1" id="89_108">
+					    <source>vk header auto text numbers</source>
+					    <target>vk header auto text numbers</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_109">
+					    <source>vk find flag none</source>
+					    <target>vk find flag none</target>
+				</trans-unit>	
+				    <trans-unit d4:value="1" id="89_110">
+					    <source>vk find flag ignore case</source>
+					    <target>vk find flag ignore case</target>
+				</trans-unit>	
+				    <trans-unit d4:value="2" id="89_111">
+					    <source>vk find flag exact match</source>
+					    <target>vk find flag exact match</target>
+				</trans-unit>	
+				    <trans-unit d4:value="4" id="89_112">
+					    <source>vk find flag use wild cards</source>
+					    <target>vk find flag use wild cards</target>
+				</trans-unit>	
+				    <trans-unit d4:value="0" id="89_113">
+					    <source>vk find order by rows</source>
+					    <target>vk find order by rows</target>
+				</trans-unit>	
+				    <trans-unit d4:value="1" id="89_114">
+					    <source>vk find order by columns</source>
+					    <target>vk find order by columns</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_115">
+					    <source>vk find target text</source>
+					    <target>vk find target text</target>
+				</trans-unit>	
+				    <trans-unit d4:value="4" id="89_116">
+					    <source>vk find target tag</source>
+					    <target>vk find target tag</target>
+				</trans-unit>	
+				    <trans-unit d4:value="8" id="89_117">
+					    <source>vk find target formula</source>
+					    <target>vk find target formula</target>
+				</trans-unit>
+				    <trans-unit d4:value=".csv" id="89_118">
+					    <source>vk csv format</source>
+					    <target>vk csv format</target>
+				</trans-unit>
+
+				    <trans-unit d4:value="5" id="89_119">
+					    <source>vk auto fill type auto</source>
+					    <target>vk auto fill type auto</target>
+				</trans-unit>
+				    <trans-unit d4:value="4" id="89_120">
+					    <source>vk auto fill type clear values</source>
+					    <target>vk auto fill type clear values</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_121">
+					    <source>vk auto fill type copy cells</source>
+					    <target>vk auto fill type copy cells</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_122">
+					    <source>vk auto fill type fill formatting only</source>
+					    <target>vk auto fill type fill formatting only</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_123">
+					    <source>vk auto fill type fill series</source>
+					    <target>vk auto fill type fill series</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_124">
+					    <source>vk auto fill type fill without formatting</source>
+					    <target>vk auto fill type fill without formatting</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_129">
+					    <source>vk show resize tip both</source>
+					    <target>vk show resize tip both</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_130">
+					    <source>vk show resize tip column</source>
+					    <target>vk show resize tip column</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_131">
+					    <source>vk show resize tip none</source>
+					    <target>vk show resize tip none</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_132">
+					    <source>vk show resize tip row</source>
+					    <target>vk show resize tip row</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_133">
+					    <source>vk show scroll tip both</source>
+					    <target>vk show scroll tip both</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_134">
+					    <source>vk show scroll tip horizontal</source>
+					    <target>vk show scroll tip horizontal</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_135">
+					    <source>vk show scroll tip none</source>
+					    <target>vk show scroll tip none</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_136">
+					    <source>vk show scroll tip vertical</source>
+					    <target>vk show scroll tip vertical</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_137">
+					    <source>vk resize zero indicator default</source>
+					    <target>vk resize zero indicator default</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_138">
+					    <source>vk resize zero indicator enhanced</source>
+					    <target>vk resize zero indicator enhanced</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_139">
+					    <source>vk auto fit type cell</source>
+					    <target>vk auto fit type cell</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_140">
+					    <source>vk auto fit type cell with header</source>
+					    <target>vk auto fit type cell with header</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_141">
+					    <source>vk reference style a1</source>
+					    <target>vk reference style a1</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_142">
+					    <source>vk reference style r1c1</source>
+					    <target>vk reference style r1c1</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_143">
+					    <source>vk copy paste header options all headers</source>
+					    <target>vk copy paste header options all headers</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_144">
+					    <source>vk copy paste header options column headers</source>
+					    <target>vk copy paste header options column headers</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_145">
+					    <source>vk copy paste header options no headers</source>
+					    <target>vk copy paste header options no headers</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_146">
+					    <source>vk copy paste header options row headers</source>
+					    <target>vk copy paste header options row headers</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_147">
+					    <source>vk resize mode normal</source>
+					    <target>vk resize mode normal</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_148">
+					    <source>vk resize mode split</source>
+					    <target>vk resize mode split</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_149">
+					    <source>vk scrollbar appearance mobile</source>
+					    <target>vk scrollbar appearance mobile</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_150">
+					    <source>vk scrollbar appearance skin</source>
+					    <target>vk scrollbar appearance skin</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_151">
+					    <source>vk tab strip position bottom</source>
+					    <target>vk tab strip position bottom</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_152">
+					    <source>vk tab strip position left</source>
+					    <target>vk tab strip position left</target>
+				</trans-unit>
+				    <trans-unit d4:value="3" id="89_153">
+					    <source>vk tab strip position right</source>
+					    <target>vk tab strip position right</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_154">
+					    <source>vk tab strip position top</source>
+					    <target>vk tab strip position top</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_155">
+					    <source>vk numbers fit mode mask</source>
+					    <target>vk numbers fit mode mask</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_156">
+					    <source>vk numbers fit mode overflow</source>
+					    <target>vk numbers fit mode overflow</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_157">
+					    <source>vk table remove all</source>
+					    <target>vk table remove all</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_158">
+					    <source>vk table remove style</source>
+					    <target>vk table remove style</target>
+				</trans-unit>
+				    <trans-unit d4:value="2" id="89_159">
+					    <source>vk table remove data</source>
+					    <target>vk table remove data</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_160">
+					    <source>vk table insert before</source>
+					    <target>vk table insert before</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_161">
+					    <source>vk table insert after</source>
+					    <target>vk table insert after</target>
+				</trans-unit>
+				    <trans-unit d4:value="0" id="89_162">
+					    <source>vk table full range</source>
+					    <target>vk table full range</target>
+				</trans-unit>
+				    <trans-unit d4:value="1" id="89_163">
+					    <source>vk table data range</source>
+					    <target>vk table data range</target>
+				</trans-unit>
+	  </group>
+    </body>
+  </file>
+
+
+</xliff>

@@ -1,0 +1,4374 @@
+ {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Spread",
+  "description": "Represents a spreadsheet.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "sheets": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "$ref": "#/definitions/Sheet"
+        }
+      }
+    },
+    "namedStyles": {
+      "type": "array",
+      "description": "The name property of the Style in namedStyles. The name cannot be null, undefined, or ''; it must be set a value.",
+      "items": {
+        "$ref": "#/definitions/Style"
+      }
+    },
+    "names": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/NameInfo"
+      }
+    },
+    "activeSheetIndex": {
+      "type": "integer"
+    },
+    "sheetCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "startSheetIndex": {
+      "type": "integer",
+      "default": 0
+    },
+    "sparklineExs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SparklineEx"
+      }
+    },
+    "customFunctions": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "$ref": "#/definitions/Function"
+        }
+      }
+    },
+    "canUserDragDrop": {
+      "type": "boolean",
+      "default": true
+    },
+    "canUserDragFill": {
+      "type": "boolean",
+      "default": true
+    },
+    "allowUserZoom": {
+      "type": "boolean",
+      "default": true
+    },
+    "allowUserResize": {
+      "type": "boolean",
+      "default": true
+    },
+    "allowUndo": {
+      "type": "boolean",
+      "default": true
+    },
+    "allowSheetReorder": {
+      "type": "boolean",
+      "default": true
+    },
+    "defaultDragFillType": {
+      "$ref": "#/definitions/AutoFillType",
+      "default": 5
+    },
+    "showDragFillSmartTag": {
+      "type": "boolean",
+      "default": true
+    },
+    "showHorizontalScrollbar": {
+      "type": "boolean",
+      "default": true
+    },
+    "showVerticalScrollbar": {
+      "type": "boolean",
+      "default": true
+    },
+    "scrollbarShowMax": {
+      "type": "boolean",
+      "default": true
+    },
+    "scrollbarMaxAlign": {
+      "type": "boolean",
+      "default": false
+    },
+    "tabStripVisible": {
+      "type": "boolean",
+      "default": true
+    },
+    "tabStripRatio": {
+      "type": "number",
+      "default": 0.5
+    },
+    "tabEditable": {
+      "type": "boolean",
+      "default": true
+    },
+    "newTabVisible": {
+      "type": "boolean",
+      "default": true
+    },
+    "cutCopyIndicatorVisible": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "cutCopyIndicatorBorderColor": {
+      "type": "string",
+      "default": "#217346"
+    },
+    "tabNavigationVisible": {
+      "type": "boolean",
+      "default": true
+    },
+    "backColor": {
+      "type": "string",
+      "default": "white"
+    },
+    "backgroundImage": {
+      "type": "string"
+    },
+    "backgroundImageLayout": {
+      "$ref": "#/definitions/ImageLayout",
+      "default": 0
+    },
+    "showResizeTip": {
+      "$ref": "#/definitions/ShowResizeTip",
+      "default": 0
+    },
+    "showDragDropTip": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDragFillTip": {
+      "type": "boolean",
+      "default": true
+    },
+    "scrollIgnoreHidden": {
+      "type": "boolean",
+      "default": false
+    },
+    "highlightInvalidData": {
+      "type": "boolean",
+      "default": false
+    },
+    "showScrollTip": {
+      "$ref": "#/definitions/ShowScrollTip",
+      "default": 0
+    },
+    "grayAreaBackColor": {
+      "type": "string"
+    },
+    "useTouchLayout": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideSelection": {
+      "type": "boolean",
+      "default": false
+    },
+    "resizeZeroIndicator": {
+      "$ref": "#/definitions/ResizeZeroIndicator",
+      "default": 1
+    },
+    "canUserEditFormula": {
+      "type": "boolean",
+      "default": true
+    },
+    "enableFormulaTextbox": {
+      "type": "boolean",
+      "default": true
+    },
+    "referenceStyle": {
+      "$ref": "#/definitions/ReferenceStyle",
+      "default": 0
+    },
+    "autoFitType": {
+      "$ref": "#/definitions/AutoFitType",
+      "default": 0
+    },
+    "font": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "NameInfo": {
+      "title": "NameInfo",
+      "description": "Represents a custom named expression that can be used by formulas.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "row": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "col": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "formula": {
+          "type": "string"
+        }
+      }
+    },
+    "Style": {
+      "title": "Style",
+      "description": " Represents the style for a cell, row, or column.",
+      "type": "object",
+      "properties": {
+        "backColor": {
+          "type": "string"
+        },
+        "foreColor": {
+          "type": "string"
+        },
+        "hAlign": {
+          "$ref": "#/definitions/HorizontalAlign"
+        },
+        "vAlign": {
+          "$ref": "#/definitions/VerticalAlign"
+        },
+        "font": {
+          "type": "string"
+        },
+        "themeFont": {
+          "type": "string"
+        },
+        "formatter": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/GeneralFormatter"
+            },
+            {
+              "$ref": "#/definitions/CustomFormatter"
+            }
+          ]
+        },
+        "borderLeft": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderTop": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderRight": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderBottom": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "textIndent": {
+          "type": "number"
+        },
+        "wordWrap": {
+          "type": "boolean"
+        },
+        "shrinkToFit": {
+          "type": "boolean"
+        },
+        "backgroundImage": {
+          "type": "string"
+        },
+        "backgroundImageLayout": {
+          "$ref": "#/definitions/ImageLayout"
+        },
+        "cellType": {
+          "$ref": "#/definitions/CellType"
+        },
+        "tabStop": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentName": {
+          "type": "string"
+        },
+        "textDecoration": {
+          "$ref": "#/definitions/TextDecorationType",
+          "default": 0
+        },
+        "imeMode": {
+          "$ref": "#/definitions/ImeMode"
+        },
+        "watermark": {
+          "type": "string"
+        },
+        "validator": {
+          "$ref": "#/definitions/DefaultDataValidator"
+        }
+      }
+    },
+    "CellType": {
+      "title": "CellType",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/CornerCellType"
+        },
+        {
+          "$ref": "#/definitions/RowHeaderCellType"
+        },
+        {
+          "$ref": "#/definitions/ColumnHeaderCellType"
+        },
+        {
+          "$ref": "#/definitions/TextCellType"
+        },
+        {
+          "$ref": "#/definitions/ButtonCellType"
+        },
+        {
+          "$ref": "#/definitions/CheckBoxCellType"
+        },
+        {
+          "$ref": "#/definitions/ComboBoxCellType"
+        },
+        {
+          "$ref": "#/definitions/HyperLinkCellType"
+        },
+        {
+          "$ref": "#/definitions/BaseCellType"
+        }
+      ]
+    },
+    "BaseCellType": {
+      "title": "BaseCellType",
+      "description": "Represents the base class for the other cell type classes.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '0'.",
+          "type": "string"
+        }
+      }
+    },
+    "CornerCellType": {
+      "title": "CornerCellType",
+      "description": "Represents the painter of the corner cell.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '4'.",
+          "type": "string"
+        }
+      }
+    },
+    "RowHeaderCellType": {
+      "title": "RowHeaderCellType",
+      "description": "Represents the painter of the row header cells.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '3'.",
+          "type": "string"
+        }
+      }
+    },
+    "ColumnHeaderCellType": {
+      "title": "ColumnHeaderCellType",
+      "description": "Represents the painter of the column header cells.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '2'.",
+          "type": "string"
+        }
+      }
+    },
+    "TextCellType": {
+      "title": "TextCellType",
+      "description": "Represents a text cell type.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '1'.",
+          "type": "string"
+        }
+      }
+    },
+    "ButtonCellType": {
+      "title": "ButtonCellType",
+      "description": " Represents a button cell.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '6'.",
+          "type": "string"
+        },
+        "marginTop": {
+          "type": "number",
+          "default": 2
+        },
+        "marginRight": {
+          "type": "number",
+          "default": 2
+        },
+        "marginBottom": {
+          "type": "number",
+          "default": 2
+        },
+        "marginLeft": {
+          "type": "number",
+          "default": 2
+        },
+        "text": {
+          "type": "string",
+          "default": ""
+        },
+        "buttonBackColor": {
+          "type": "string"
+        }
+      }
+    },
+    "CheckBoxCellType": {
+      "title": "CheckBoxCellType",
+      "description": "Represents a check box cell.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '5'.",
+          "type": "string"
+        },
+        "caption": {
+          "type": "string",
+          "default": ""
+        },
+        "textTrue": {
+          "type": "string",
+          "default": ""
+        },
+        "textIndeterminate": {
+          "type": "string",
+          "default": ""
+        },
+        "textFalse": {
+          "type": "string",
+          "default": ""
+        },
+        "textAlign": {
+          "$ref": "#/definitions/CheckBoxAlign",
+          "default": 3
+        },
+        "isThreeState": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "ComboBoxCellType": {
+      "title": "ComboBoxCellType",
+      "description": "Represents an ordinary combo box cell.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '7'.",
+          "type": "string"
+        },
+        "editorValueType": {
+          "$ref": "#/definitions/EditorValueType",
+          "default": 0
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": [
+              "array",
+              "boolean",
+              "number",
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "itemHeight": {
+          "type": "integer",
+          "default": 22
+        },
+        "editable": {
+          "type": "boolean",
+          "default": false
+        },
+        "maxDropDownItems": {
+          "type": "integer",
+          "default": 20
+        }
+      }
+    },
+    "HyperLinkCellType": {
+      "title": "HyperLinkCellType",
+      "description": "Represents the hyperlink cell.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "description": "The value is a fixed value '8'.",
+          "type": "string"
+        },
+        "linkColor": {
+          "type": "string",
+          "default": "#0066cc"
+        },
+        "visitedLinkColor": {
+          "type": "string",
+          "default": "#3399ff"
+        },
+        "text": {
+          "type": "string",
+          "default": ""
+        },
+        "linkToolTip": {
+          "type": "string",
+          "default": ""
+        },
+        "target": {
+          "$ref": "#/definitions/HyperLinkTargetType",
+          "default": 0
+        },
+        "link": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "CheckBoxAlign": {
+      "title": "CheckBoxAlign",
+      "description": "Specifies the text alignment for check box cells. top:0, bottom:1, left:2, right:3.",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "EditorValueType": {
+      "title": "EditorValueType",
+      "description": "Specifies what is written out to the data model for a selected item from certain cell types that offer a selection of multiple values. text:0, index:1, value:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "HyperLinkTargetType": {
+      "title": "HyperLinkTargetType",
+      "description": "Specifies the hyperlink's target type. blank:0, self:1, parent:2, top:3.",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "GeneralFormatter": {
+      "title": "GeneralFormatter",
+      "description": "Represents a formatter with the specified format mode and format string.",
+      "type": "object",
+      "properties": {
+        "formatCached": {
+          "type": "string",
+          "default": "General"
+        },
+        "customerCultureName": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomFormatter": {
+      "title": "CustomFormatter",
+      "description": "Represents a custom formatter with the specified format string.",
+      "type": "object",
+      "properties": {
+        "formatCached": {
+          "type": "string"
+        },
+        "cultureName": {
+          "type": "string"
+        },
+        "typeName": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "HorizontalAlign": {
+      "title": "HorizontalAlign",
+      "description": "Indicates the horizontal alignment. left:0, center:1, right:2, general:3.",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "VerticalAlign": {
+      "title": "VerticalAlign",
+      "description": "Indicates the vertical alignment. top:0, center:1, bottom:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "DefaultDataValidator": {
+      "title": "DefaultDataValidator",
+      "description": "Represents a data validator.",
+      "type": "object",
+      "properties": {
+        "errorStyle": {
+          "$ref": "#/definitions/ErrorStyle",
+          "default": 0
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": true
+        },
+        "inCellDropdown": {
+          "type": "boolean",
+          "default": true
+        },
+        "showInputMessage": {
+          "type": "boolean",
+          "default": true
+        },
+        "showErrorMessage": {
+          "type": "boolean",
+          "default": true
+        },
+        "inputTitle": {
+          "type": "string",
+          "default": ""
+        },
+        "errorTitle": {
+          "type": "string",
+          "default": ""
+        },
+        "inputMessage": {
+          "type": "string",
+          "default": ""
+        },
+        "errorMessage": {
+          "type": "string",
+          "default": ""
+        },
+        "comparisonOperator": {
+          "$ref": "#/definitions/ComparisonOperator",
+          "default": 6
+        },
+        "type": {
+          "$ref": "#/definitions/CriteriaType",
+          "default": 7
+        },
+        "condition": {
+          "$ref": "#/definitions/Condition"
+        }
+      }
+    },
+    "ErrorStyle": {
+      "title": "ErrorStyle",
+      "description": "Indicates the data validation error style. stop:0, warning:1, information:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "CriteriaType": {
+      "title": "CriteriaType",
+      "description": "Indicates the data validator criteria type. anyValue:0, wholeNumber:1, decimalValues:2,list:3,date:4,time:5,textLength:6,custom:7.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "Condition": {
+      "title": "Condition",
+      "description": "Represents a condition.",
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/RelationCondition"
+        },
+        {
+          "$ref": "#/definitions/NumberCondition"
+        },
+        {
+          "$ref": "#/definitions/TextCondition"
+        },
+        {
+          "$ref": "#/definitions/ColorCondition"
+        },
+        {
+          "$ref": "#/definitions/FormulaCondition"
+        },
+        {
+          "$ref": "#/definitions/DateCondition"
+        },
+        {
+          "$ref": "#/definitions/DateExCondition"
+        },
+        {
+          "$ref": "#/definitions/TextLengthCondition"
+        },
+        {
+          "$ref": "#/definitions/Top10Condition"
+        },
+        {
+          "$ref": "#/definitions/UniqueCondition"
+        },
+        {
+          "$ref": "#/definitions/AverageCondition"
+        },
+        {
+          "$ref": "#/definitions/CellValueCondition"
+        },
+        {
+          "$ref": "#/definitions/AreaCondition"
+        }
+      ]
+    },
+    "RelationCondition": {
+      "title": "RelationCondition",
+      "description": "Represents a relation condition with a specified relation type.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "relationCondition:0.",
+          "enum": [
+            0
+          ]
+        },
+        "compareType": {
+          "$ref": "#/definitions/LogicalOperators"
+        },
+        "item1": {
+          "$ref": "#/definitions/Condition"
+        },
+        "item2": {
+          "$ref": "#/definitions/Condition"
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "NumberCondition": {
+      "title": "NumberCondition",
+      "description": "Represents a number condition of the specified type with the specified expected value.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "numberCondition:1.",
+          "enum": [
+            1
+          ]
+        },
+        "compareType": {
+          "$ref": "#/definitions/GeneralComparisonOperators"
+        },
+        "integerValue": {
+          "type": "boolean",
+          "default": false
+        },
+        "expected": {
+          "type": "number"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "TextCondition": {
+      "title": "TextCondition",
+      "description": "Represents a text condition with the specified text comparison type based on the specified cell.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "textCondition:2.",
+          "enum": [
+            2
+          ]
+        },
+        "compareType": {
+          "$ref": "#/definitions/TextCompareType"
+        },
+        "ignoreCase": {
+          "type": "boolean",
+          "default": false
+        },
+        "useWildCards": {
+          "type": "boolean",
+          "default": true
+        },
+        "forceValue2Text": {
+          "type": "boolean",
+          "default": false
+        },
+        "expected": {
+          "type": "string"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "regex": {
+          "$ref": "#/definitions/RegExp"
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "ColorCondition": {
+      "title": "ColorCondition",
+      "description": "Represents a style condition with the specified comparison type and expected color.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "colorCondition:3.",
+          "enum": [
+            3
+          ]
+        },
+        "compareType": {
+          "$ref": "#/definitions/ColorCompareType"
+        },
+        "expected": {
+          "type": "string"
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "FormulaCondition": {
+      "title": "FormulaCondition",
+      "description": "Represents a custom condition with a specified formula or expression.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "formulaCondition:4.",
+          "enum": [
+            4
+          ]
+        },
+        "customValueType": {
+          "$ref": "#/definitions/CustomValueType"
+        },
+        "expected": {
+          "type": "string"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "DateCondition": {
+      "title": "DateCondition",
+      "description": "Represents a date condition with the specified comparison type, expected date condition, and formula.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "dateCondition:5.",
+          "enum": [
+            5
+          ]
+        },
+        "compareType": {
+          "$ref": "#/definitions/DateCompareType"
+        },
+        "expected": {
+          "type": "string"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "DateExCondition": {
+      "title": "DateExCondition",
+      "description": "Represents a date condition with the specified comparison type, expected date condition, and formula.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "dateExCondition:6.",
+          "enum": [
+            6
+          ]
+        },
+        "expectTypeId": {
+          "type": "integer",
+          "default": 0
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expected": {
+          "$ref": "#/definitions/DateOccurringType"
+        }
+      }
+    },
+    "TextLengthCondition": {
+      "title": "TextLengthCondition",
+      "description": "Represents a text length condition with the specified comparison type, expected number, and formula.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "textLengthCondition:7.",
+          "enum": [
+            7
+          ]
+        },
+        "compareType": {
+          "$ref": "#/definitions/GeneralComparisonOperators"
+        },
+        "expected": {
+          "type": "string"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "Top10Condition": {
+      "title": "Top10Condition",
+      "description": "Represents a top 10 condition with the specified type and rank, for the specified cell ranges.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "top10Condition:8.",
+          "enum": [
+            8
+          ]
+        },
+        "type": {
+          "$ref": "#/definitions/Top10ConditionType"
+        },
+        "isPercent": {
+          "type": "boolean",
+          "default": false
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "expected": {
+          "type": "number"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "UniqueCondition": {
+      "title": "UniqueCondition",
+      "description": " Represents a unique condition and sets whether to check for duplicate data.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "uniqueCondition:9.",
+          "enum": [
+            9
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "expected": {
+          "type": "boolean"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "AverageCondition": {
+      "title": "AverageCondition",
+      "description": "Represents a new average condition of the specified type for the specified cell ranges.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "averageCondition:10.",
+          "enum": [
+            10
+          ]
+        },
+        "type": {
+          "$ref": "#/definitions/AverageConditionType"
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "CellValueCondition": {
+      "title": "CellValueCondition",
+      "description": "Represents a cell value condition with a specified compare type, expected value, and formula.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "cellValueCondition:11.",
+          "enum": [
+            11
+          ]
+        },
+        "compareType": {
+          "$ref": "#/definitions/GeneralComparisonOperators"
+        },
+        "treatNullValueAsZero": {
+          "type": "boolean",
+          "default": false
+        },
+        "expected": {
+          "type": "string"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "AreaCondition": {
+      "title": "AreaCondition",
+      "description": "Represents an area condition using the expected source or formula.",
+      "type": "object",
+      "properties": {
+        "conType": {
+          "description": "areaConditon:12.",
+          "enum": [
+            12
+          ]
+        },
+        "expected": {
+          "type": "string"
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ignoreBlank": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "GeneralComparisonOperators": {
+      "title": "GeneralComparisonOperators",
+      "description": "Specifies the general operator. equalsTo:0, notEqualsTo:1, greaterThan:2, greaterThanOrEqualsTo:3, lessThan:4, lessThanOrEqualsTo:5.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "LogicalOperators": {
+      "title": "LogicalOperators",
+      "description": "Specifies the relation operator. or:0, and:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "ComparisonOperator": {
+      "title": "ComparisonOperator",
+      "description": "Specifies the comparison operator. equalsTo:0, notEqualsTo:1, greaterThan:2, greaterThanOrEqualsTo:3, lessThan:4, lessThanOrEqualsTo:5, between:6, notBetween:7.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "TextComparisonOperator": {
+      "title": "TextComparisonOperator",
+      "description": "Specifies the text comparison operator. contains:0, doesNotContain:1, beginsWith:2, endsWith:3.",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "TextCompareType": {
+      "title": "TextCompareType",
+      "description": "Specifies the text compare type. 0:equalsTo, 1:notEqualsTo, 2:beginsWith, 3:doesNotBeginWith, 4:endsWith, 5:doesNotEndWith, 6:contains, 7:doesNotContain.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "ColorCompareType": {
+      "title": "ColorCompareType",
+      "description": "Specifies the color compare type. backgroundColor:0, foregroundColor:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "CustomValueType": {
+      "title": "CustomValueType",
+      "description": "Specifies the custom value type. empty:0, nonEmpty:1, error:2, nonError:3, formula:4.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "DateCompareType": {
+      "title": "DateCompareType",
+      "description": "Specifies the date compare type. equalsTo:0, notEqualsTo:1, before:2, beforeEqualsTo:3, after:4, afterEqualsTo:5.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "DateOccurringType": {
+      "title": "DateOccurringType",
+      "description": "Specifies the date occurring type. today:0, yesterday:1, tomorrow:2, last7Days:3, thisMonth:4, lastMonth:5, nextMonth:6, thisWeek:7, lastWeek:8, nextWeek:9.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "Top10ConditionType": {
+      "title": "Top10ConditionType",
+      "description": "Specifies the top 10 condition type. top:0, bottom:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "AverageConditionType": {
+      "title": "AverageConditionType",
+      "description": "Specifies the average condition type. above:0, below:1, equalOrAbove:2, equalOrBelow:3, above1StdDev:4, below1StdDev:5, above2StdDev:6, below2StdDev:7, above3StdDev:8, below3StdDev:9.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "Rule": {
+      "title": "Rule",
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/CellValueRule"
+        },
+        {
+          "$ref": "#/definitions/SpecificTextRule"
+        },
+        {
+          "$ref": "#/definitions/FormulaRule"
+        },
+        {
+          "$ref": "#/definitions/DateOccurringRule"
+        },
+        {
+          "$ref": "#/definitions/Top10Rule"
+        },
+        {
+          "$ref": "#/definitions/UniqueRule"
+        },
+        {
+          "$ref": "#/definitions/DuplicateRule"
+        },
+        {
+          "$ref": "#/definitions/AverageRule"
+        },
+        {
+          "$ref": "#/definitions/TwoScaleRule"
+        },
+        {
+          "$ref": "#/definitions/ThreeScaleRule"
+        },
+        {
+          "$ref": "#/definitions/DataBarRule"
+        },
+        {
+          "$ref": "#/definitions/IconSetRule"
+        }
+      ]
+    },
+    "CellValueRule": {
+      "title": "CellValueRule",
+      "description": "Represents a cell value conditional rule.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "cellValueRule:1.",
+          "enum": [
+            1
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "operator": {
+          "$ref": "#/definitions/ComparisonOperator"
+        },
+        "value1": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "value2": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        }
+      }
+    },
+    "SpecificTextRule": {
+      "title": "SpecificTextRule",
+      "description": "Represents a specific text rule based on the specified cell.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "specificTextRule:2.",
+          "enum": [
+            2
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "operator": {
+          "$ref": "#/definitions/TextComparisonOperator"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "FormulaRule": {
+      "title": "FormulaRule",
+      "description": "Represents a formula rule with the specified formula and style.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "formulaRule:3.",
+          "enum": [
+            3
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "DateOccurringRule": {
+      "title": "DateOccurringRule",
+      "description": "Represents a DateOccurringRule with the specified type and style.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "dateOccurringRule:4.",
+          "enum": [
+            4
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "type": {
+          "$ref": "#/definitions/DateOccurringType"
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "Top10Rule": {
+      "title": "Top10Rule",
+      "description": "Represents a formula rule with the specified formula and style.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "top10Rule:5.",
+          "enum": [
+            5
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "type": {
+          "$ref": "#/definitions/Top10ConditionType"
+        },
+        "rank": {
+          "type": "integer"
+        }
+      }
+    },
+    "UniqueRule": {
+      "title": "UniqueRule",
+      "description": "",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "uniqueRule:6.",
+          "enum": [
+            6
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        }
+      }
+    },
+    "DuplicateRule": {
+      "title": "DuplicateRule",
+      "description": "Represents a duplicate conditional rule.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "duplicateRule:7.",
+          "enum": [
+            7
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        }
+      }
+    },
+    "AverageRule": {
+      "title": "AverageRule",
+      "description": "Represents an average conditional rule.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "averageRule:8.",
+          "enum": [
+            8
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "stopIfTrue": {
+          "type": "boolean",
+          "default": false
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "type": {
+          "$ref": "#/definitions/AverageConditionType"
+        }
+      }
+    },
+    "TwoScaleRule": {
+      "title": "TwoScaleRule",
+      "description": " Represents a two-color conditional scale rule with the specified parameters.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "twoScaleRule:10.",
+          "enum": [
+            10
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "minType": {
+          "$ref": "#/definitions/ScaleValueType"
+        },
+        "minValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "minColor": {
+          "type": "string"
+        },
+        "maxType": {
+          "$ref": "#/definitions/ScaleValueType"
+        },
+        "maxValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "maxColor": {
+          "type": "string"
+        }
+      }
+    },
+    "ThreeScaleRule": {
+      "title": "ThreeScaleRule",
+      "description": "Represents a three-color scale conditional rule with the specified parameters.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "threeScaleRule:11.",
+          "enum": [
+            11
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "minType": {
+          "$ref": "#/definitions/ScaleValueType"
+        },
+        "minValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "minColor": {
+          "type": "string"
+        },
+        "midType": {
+          "$ref": "#/definitions/ScaleValueType"
+        },
+        "midValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "midColor": {
+          "type": "string"
+        },
+        "maxType": {
+          "$ref": "#/definitions/ScaleValueType"
+        },
+        "maxValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "maxColor": {
+          "type": "string"
+        }
+      }
+    },
+    "DataBarRule": {
+      "title": "DataBarRule",
+      "description": " Represents a data bar conditional rule with the specified parameters.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "dataBarRule:12.",
+          "enum": [
+            12
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "minType": {
+          "$ref": "#/definitions/ScaleValueType"
+        },
+        "minValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "maxType": {
+          "$ref": "#/definitions/ScaleValueType"
+        },
+        "maxValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "gradient": {
+          "type": "boolean",
+          "default": true
+        },
+        "color": {
+          "type": "string"
+        },
+        "showBorder": {
+          "type": "boolean",
+          "default": false
+        },
+        "borderColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "dataBarDirection": {
+          "$ref": "#/definitions/BarDirection",
+          "default": 0
+        },
+        "negativeFillColor": {
+          "type": "string",
+          "default": "red"
+        },
+        "useNegativeFillColor": {
+          "type": "boolean",
+          "default": true
+        },
+        "negativeBorderColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "useNegativeBorderColor": {
+          "type": "boolean",
+          "default": false
+        },
+        "axisPosition": {
+          "$ref": "#/definitions/DataBarAxisPosition",
+          "default": 0
+        },
+        "axisColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "showBarOnly": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "IconSetRule": {
+      "title": "IconSetRule",
+      "description": "Represents an icon set rule with the specified parameters.",
+      "type": "object",
+      "properties": {
+        "ruleType": {
+          "description": "iconSetRule:13.",
+          "enum": [
+            13
+          ]
+        },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Range"
+          }
+        },
+        "priority": {
+          "type": "integer",
+          "default": 1
+        },
+        "iconSetType": {
+          "$ref": "#/definitions/IconSetType"
+        },
+        "iconCriteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IconCriterion"
+          }
+        },
+        "showIconOnly": {
+          "type": "boolean",
+          "default": false
+        },
+        "reverseIconOrder": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "IconCriterion": {
+      "title": "IconCriterion",
+      "description": "Represents an icon criteria with the specified parameters.",
+      "type": "object",
+      "properties": {
+        "isGreaterThanOrEqualTo": {
+          "type": "boolean"
+        },
+        "iconValueType": {
+          "$ref": "#/definitions/IconValueType"
+        },
+        "iconValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        }
+      }
+    },
+    "IconValueType": {
+      "title": "IconValueType",
+      "description": "Indicates whether to return a specified number directly. number:1, percent:4, percentile:5, formula:7.",
+      "enum": [
+        1,
+        4,
+        5,
+        7
+      ]
+    },
+    "ScaleValueType": {
+      "title": "ScaleValueType",
+      "description": "Specifies the scale value type. number:0, lowestValue:1, highestValue:2, percent:3, percentile:4, automin:5, formula:6, automax:7.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "BarDirection": {
+      "title": "BarDirection",
+      "description": "Specifies the data bar direction. leftToRight:0, rightToLeft:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "DataBarAxisPosition": {
+      "title": "DataBarAxisPosition",
+      "description": "Specifies the position of the data bar's axis. automatic:0, cellMidPoint:1, none:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "IconSetType": {
+      "title": "IconSetType",
+      "description": "Specifies the icon set. threeArrowsColored:0, threeArrowGray:1, threeTriangles:2, threeStars:3, threeFlags:4, threeTrafficLightsUnrimmed:5, threeTrafficLightsRimmed:6, threeSigns:7, threeSymbolsCircled:8, threeSymbolsUncircled:9, fourArrowsColored:10, fourArrowGray:11, fourRedToBlack:12, fourRatings:13, fourTrafficLights:14, fiveArrowsColored:15, fiveArrowsGray:16, fiveRatings:17, fiveQuarters:18, fiveBoxes:19.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "RegExp": {
+      "title": "RegExp",
+      "description": "A built-in JavaScript object, represents a RegExp",
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "global": {
+          "type": "boolean",
+          "default": false
+        },
+        "ignoreCase": {
+          "type": "boolean",
+          "default": false
+        },
+        "multiline": {
+          "type": "boolean",
+          "default": false
+        },
+        "lastIndex": {
+          "type": "integer"
+        }
+      }
+    },
+    "LineBorder": {
+      "title": "LineBorder",
+      "description": "Indicates the color of the border line. Use a known color name or HEX style color value. The default value is black.",
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string",
+          "default": "black"
+        },
+        "style": {
+          "$ref": "#/definitions/LineStyle",
+          "default": 0
+        }
+      }
+    },
+    "LineStyle": {
+      "title": "LineStyle",
+      "description": "Specifies the line drawing style for the border. empty:0, thin:1, medium:2, dashed:3, dotted:4, thick:5, double:6, hair:7, mediumDashed:8, dashDot:9, mediumDashDot:10, dashDotDot:11, mediumDashDotDot:12, slantedDashDot:13.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "TextDecorationType": {
+      "title": "TextDecorationType",
+      "description": "Defines the type of the text decoration. none:0, underline:1, lineThrough:2, overline:4.",
+      "enum": [
+        0,
+        1,
+        2,
+        4
+      ]
+    },
+    "ImeMode": {
+      "title": "ImeMode",
+      "description": "Defines the IME mode to control the state of the Input Method Editor (IME). disabled:0, auto:1, active:2, inactive:4.",
+      "enum": [
+        0,
+        1,
+        2,
+        4
+      ]
+    },
+    "ReferenceStyle": {
+      "title": "ReferenceStyle",
+      "description": "Specifies the formula reference style. a1:0, r1c1:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "AutoFillType": {
+      "title": "AutoFillType",
+      "description": "Represents the type of drag fill. copyCells:0, fillSeries:1, fillFormattingOnly:2, fillWithoutFormatting:3, flearValues:4, auto:5.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "AutoFitType": {
+      "title": "AutoFitType",
+      "description": "Represents whether the component autofits cells or headers. cell:0, cellWithHeader:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "ShowScrollTip": {
+      "title": "ShowScrollTip",
+      "description": "Specifies how the scroll tip is displayed. none:0, horizontal:1, vertical:2, both:3",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "ShowResizeTip": {
+      "title": "ShowResizeTip",
+      "description": "Defines how the resize tip is displayed. none:0, column:1, row:2, both:3",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "ImageLayout": {
+      "title": "ImageLayout",
+      "description": "Defines the background image layout. stretch:0, center:1, zoom:2, none:3.",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "Sheet": {
+      "title": "Sheet",
+      "description": "Represents a sheet",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "defaults": {
+          "$ref": "#/definitions/SheetDefaultOption"
+        },
+        "frozenRowCount": {
+          "type": "integer",
+          "default": 0
+        },
+        "frozenColCount": {
+          "type": "integer",
+          "default": 0
+        },
+        "frozenTrailingRowCount": {
+          "type": "integer",
+          "default": 0
+        },
+        "frozenTrailingColCount": {
+          "type": "integer",
+          "default": 0
+        },
+        "rowCount": {
+          "type": "integer"
+        },
+        "columnCount": {
+          "type": "integer"
+        },
+        "activeRow": {
+          "type": "integer",
+          "default": 0
+        },
+        "activeCol": {
+          "type": "integer",
+          "default": 0
+        },
+        "zoomFactor": {
+          "type": "number",
+          "minimum": 0.25,
+          "maximum": 4.0,
+          "default": 1.0
+        },
+        "rowHeaderColCount": {
+          "type": "integer",
+          "default": 1
+        },
+        "colHeaderRowCount": {
+          "type": "integer",
+          "default": 1
+        },
+        "visible": {
+          "type": "boolean",
+          "default": true
+        },
+        "tag": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        },
+        "spans": {
+          "$ref": "#/definitions/SpanModel"
+        },
+        "rowHeaderSpan": {
+          "$ref": "#/definitions/SpanModel"
+        },
+        "colHeaderSpan": {
+          "$ref": "#/definitions/SpanModel"
+        },
+        "data": {
+          "$ref": "#/definitions/SheetModel"
+        },
+        "rowHeaderData": {
+          "$ref": "#/definitions/SheetModel"
+        },
+        "colHeaderData": {
+          "$ref": "#/definitions/SheetModel"
+        },
+        "selections": {
+          "$ref": "#/definitions/SelectionModel"
+        },
+        "theme": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/SpreadTheme"
+            }
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/RowColInfo"
+              }
+            ]
+          }
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/RowColInfo"
+              }
+            ]
+          }
+        },
+        "rowHeaderColInfos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RowColInfo"
+          }
+        },
+        "colHeaderRowInfos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RowColInfo"
+          }
+        },
+        "namedStyles": {
+          "type": "array",
+          "description": "The name property of the Style in namedStyles cannot be null, undefined, or ''; it must be set to a value.",
+          "items": {
+            "$ref": "#/definitions/Style"
+          }
+        },
+        "names": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NameInfo"
+          }
+        },
+        "rowFilter": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/HideRowFilter"
+            },
+            {
+              "$ref": "#/definitions/RowFilterBase"
+            }
+          ]
+        },
+        "autoGenerateColumns": {
+          "type": "boolean",
+          "default": true
+        },
+        "sparklineGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SparklineGroup"
+          }
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "showRowOutline": {
+          "type": "boolean",
+          "default": true
+        },
+        "showColumnOutline": {
+          "type": "boolean",
+          "default": true
+        },
+        "rowOutlines": {
+          "$ref": "#/definitions/Outline"
+        },
+        "columnOutlines": {
+          "$ref": "#/definitions/Outline"
+        },
+        "conditionalFormats": {
+          "type": "object",
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Rule"
+              }
+            }
+          }
+        },
+        "tables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SheetTable"
+          }
+        },
+        "floatingObjects": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/FloatingObject"
+              },
+              {
+                "$ref": "#/definitions/Picture"
+              }
+            ]
+          }
+        },
+        "customFunctions": {
+          "type": "object",
+          "patternProperties": {
+            ".+": {
+              "$ref": "#/definitions/Function"
+            }
+          }
+        },
+        "printInfo": {
+          "$ref": "#/definitions/PrintInfo"
+        },
+        "slicers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Slicer"
+          }
+        },
+        "allowCellOverflow": {
+          "type": "boolean",
+          "default": false
+        },
+        "sheetTabColor": {
+          "type": "string"
+        },
+        "frozenlineColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "clipBoardOptions": {
+          "$ref": "#/definitions/ClipboardPasteOptions",
+          "default": 0
+        },
+        "gridline": {
+          "$ref": "#/definitions/SheetGridlineOption"
+        },
+        "rowHeaderVisible": {
+          "type": "boolean",
+          "default": true
+        },
+        "colHeaderVisible": {
+          "type": "boolean",
+          "default": true
+        },
+        "rowHeaderAutoText": {
+          "$ref": "#/definitions/HeaderAutoText",
+          "default": 1
+        },
+        "colHeaderAutoText": {
+          "$ref": "#/definitions/HeaderAutoText",
+          "default": 2
+        },
+        "rowHeaderAutoTextIndex": {
+          "type": "integer",
+          "default": -1
+        },
+        "colHeaderAutoTextIndex": {
+          "type": "integer",
+          "default": -1
+        },
+        "isProtected": {
+          "type": "boolean",
+          "default": false
+        },
+        "protectionOptions": {
+          "$ref": "#/definitions/ProtectionOption"
+        },
+        "selectionBackColor": {
+          "type": "string",
+          "default": "rgba(180,180,200,0.2)"
+        },
+        "selectionBorderColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "borderColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "borderWidth": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        }
+      }
+    },
+    "SelectionModel": {
+      "title": "SelectionModel",
+      "description": "Represent a data model for cell selection.",
+      "type": "object",
+      "properties": {
+        "selectionPolicy": {
+          "$ref": "#/definitions/SelectionPolicy",
+          "default": 2
+        },
+        "selectionUnit": {
+          "$ref": "#/definitions/SelectionUnit",
+          "default": 0
+        },
+        "activeSelectedRangeIndex": {
+          "type": "integer"
+        },
+        "length": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "patternProperties": {
+        "[0-9]+": {
+          "$ref": "#/definitions/Range"
+        }
+      }
+    },
+    "SelectionPolicy": {
+      "title": "SelectionPolicy",
+      "description": "Specifies how users can select items in the control. single:0, range:1, multiRange:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "SelectionUnit": {
+      "title": "SelectionUnit",
+      "description": "Specifies the smallest unit users or the application can select. cell:0, row:1, column:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "SheetModel": {
+      "title": "SheetModel",
+      "description": "Represents a data model for the worksheet.",
+      "type": "object",
+      "properties": {
+        "dataTable": {
+          "type": "object",
+          "patternProperties": {
+            "[0-9]+": {
+              "type": "object",
+              "patternProperties": {
+                "[0-9]+": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                      ]
+                    },
+                    "style": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "$ref": "#/definitions/Style"
+                        }
+                      ]
+                    },
+                    "tag": {
+                      "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                      ]
+                    },
+                    "formula": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "bindingPath": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "rowDataArray": {
+          "type": "array",
+          "items": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "style": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/Style"
+                  }
+                ]
+              },
+              "tag": {
+                "type": [
+                  "array",
+                  "boolean",
+                  "number",
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "columnDataArray": {
+          "type": "array",
+          "items": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "style": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/Style"
+                  }
+                ]
+              },
+              "tag": {
+                "type": [
+                  "array",
+                  "boolean",
+                  "number",
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "defaultDataNode": {
+          "type": "object",
+          "properties": {
+            "style": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/Style"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "SheetGridlineOption": {
+      "title": "SheetGridlineOption",
+      "description": "Represents a sheet gridline option.",
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "showVerticalGridline": {
+          "type": "boolean"
+        },
+        "showHorizontalGridline": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SpreadTheme": {
+      "title": "SpreadTheme",
+      "description": "Represents an expression with a named variable as the expression.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "themeColor": {
+          "$ref": "#/definitions/ThemeColor"
+        },
+        "headingFont": {
+          "type": "string"
+        },
+        "bodyFont": {
+          "type": "string"
+        }
+      }
+    },
+    "ThemeColor": {
+      "title": "ThemeColor",
+      "description": " Creates a ThemeColor instance.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "text1": {
+          "$ref": "#/definitions/Color"
+        },
+        "text2": {
+          "$ref": "#/definitions/Color"
+        },
+        "background1": {
+          "$ref": "#/definitions/Color"
+        },
+        "background2": {
+          "$ref": "#/definitions/Color"
+        },
+        "accent1": {
+          "$ref": "#/definitions/Color"
+        },
+        "accent2": {
+          "$ref": "#/definitions/Color"
+        },
+        "accent3": {
+          "$ref": "#/definitions/Color"
+        },
+        "accent4": {
+          "$ref": "#/definitions/Color"
+        },
+        "accent5": {
+          "$ref": "#/definitions/Color"
+        },
+        "accent6": {
+          "$ref": "#/definitions/Color"
+        },
+        "hyperlink": {
+          "$ref": "#/definitions/Color"
+        },
+        "followedHyperlink": {
+          "$ref": "#/definitions/Color"
+        }
+      }
+    },
+    "Color": {
+      "title": "Color",
+      "description": "Represents an argb(alpha,red, green, blue) color.",
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "r": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "g": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "b": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 255
+        }
+      }
+    },
+    "Function": {
+      "title": "Function",
+      "description": "Represents an abstract base class for defining functions.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "minArgs": {
+          "type": "number"
+        },
+        "maxArgs": {
+          "type": "number"
+        },
+        "typeName": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "Range": {
+      "title": "Range",
+      "description": "Represents a range, which is described by the row index, column index, row count, and column count.",
+      "type": "object",
+      "properties": {
+        "row": {
+          "type": "integer"
+        },
+        "col": {
+          "type": "integer"
+        },
+        "rowCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "colCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "RowFilterBase": {
+      "title": "RowFilterBase",
+      "description": "Represents a row filter base that supports row filters for filtering rows in a sheet.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "type": "string",
+          "default": ""
+        },
+        "range": {
+          "$ref": "#/definitions/Range"
+        },
+        "filterItemMap": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "conditions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Condition"
+                }
+              }
+            }
+          }
+        },
+        "filteredColumns": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "sortInfo": {
+          "$ref": "#/definitions/SortInfo"
+        },
+        "showFilterButton": {
+          "type": "boolean"
+        },
+        "filterButtonVisibleInfo": {
+          "type": "object",
+          "patternProperties": {
+            "[0-9]+": {
+              "description": "The property name is the column's index that is relative to the sheet.",
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "HideRowFilter": {
+      "title": "HideRowFilter",
+      "description": "Represents a default row filter.",
+      "type": "object",
+      "properties": {
+        "range": {
+          "$ref": "#/definitions/Range"
+        },
+        "filterItemMap": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "conditions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Condition"
+                }
+              }
+            }
+          }
+        },
+        "filteredColumns": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "sortInfo": {
+          "$ref": "#/definitions/SortInfo"
+        },
+        "showFilterButton": {
+          "type": "boolean"
+        },
+        "filterButtonVisibleInfo": {
+          "type": "object",
+          "patternProperties": {
+            "[0-9]+": {
+              "description": "The property name is the column index that is relative to the sheet.",
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "TableFilter": {
+      "title": "TableFilter",
+      "description": "Represents a table filter.",
+      "type": "object",
+      "properties": {
+        "range": {
+          "$ref": "#/definitions/Range"
+        },
+        "filterItemMap": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "conditions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Condition"
+                }
+              }
+            }
+          }
+        },
+        "filteredColumns": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "sortInfo": {
+          "$ref": "#/definitions/SortInfo"
+        },
+        "showFilterButton": {
+          "type": "boolean"
+        },
+        "filterButtonVisibleInfo": {
+          "type": "object",
+          "patternProperties": {
+            "[0-9]+": {
+              "description": "The property name is the column index that is relative to the table.",
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "SortInfo": {
+      "title": "SortInfo",
+      "description": "",
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "ascending": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SheetDefaultOption": {
+      "title": "SheetDefaultOption",
+      "description": "",
+      "type": "object",
+      "properties": {
+        "rowHeight": {
+          "type": "number",
+          "minimum": 0,
+          "default": 20
+        },
+        "colHeaderRowHeight": {
+          "type": "number",
+          "minimum": 0,
+          "default": 20
+        },
+        "colWidth": {
+          "type": "number",
+          "minimum": 0,
+          "default": 62
+        },
+        "rowHeaderColWidth": {
+          "type": "number",
+          "minimum": 0,
+          "default": 40
+        }
+      }
+    },
+    "RowColInfo": {
+      "title": "RowColInfo",
+      "description": "Represents a row or column.",
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "number",
+          "minimum": 0
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "resizable": {
+          "type": "boolean"
+        },
+        "pageBreak": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SparklineGroup": {
+      "title": "SparklineGroup",
+      "description": "Represents a sparkline group.",
+      "type": "object",
+      "properties": {
+        "setting": {
+          "$ref": "#/definitions/SparklineSetting",
+          "default": null
+        },
+        "displayDateAxis": {
+          "type": "boolean",
+          "default": false
+        },
+        "sparklineType": {
+          "$ref": "#/definitions/SparklineType"
+        },
+        "axisReference": {
+          "$ref": "#/definitions/Range",
+          "default": null
+        },
+        "axisOrientation": {
+          "$ref": "#/definitions/DataOrientation",
+          "default": 1
+        },
+        "sparklines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sparkline"
+          }
+        }
+      }
+    },
+    "SparklineSetting": {
+      "title": "SparklineSetting",
+      "description": "Represents the sparkline settings.",
+      "type": "object",
+      "properties": {
+        "axisColor": {
+          "type": "string",
+          "default": "Black"
+        },
+        "firstMarkerColor": {
+          "type": "string",
+          "default": "rgba(149,179,215,255)"
+        },
+        "highMarkerColor": {
+          "type": "string",
+          "default": "Blue"
+        },
+        "lastMarkerColor": {
+          "type": "string",
+          "default": "rgba(149,179,215,255)"
+        },
+        "lowMarkerColor": {
+          "type": "string",
+          "default": "Blue"
+        },
+        "markersColor": {
+          "type": "string",
+          "default": "rgba(36,64,98,255)"
+        },
+        "negativeColor": {
+          "type": "string",
+          "default": "Brown"
+        },
+        "seriesColor": {
+          "type": "string",
+          "default": "rgba(36,64,98,255)"
+        },
+        "displayEmptyCellsAs": {
+          "$ref": "#/definitions/EmptyValueStyle",
+          "default": 0
+        },
+        "rightToLeft": {
+          "type": "boolean",
+          "default": false
+        },
+        "displayHidden": {
+          "type": "boolean",
+          "default": false
+        },
+        "displayXAxis": {
+          "type": "boolean",
+          "default": false
+        },
+        "showFirst": {
+          "type": "boolean",
+          "default": false
+        },
+        "showHigh": {
+          "type": "boolean",
+          "default": false
+        },
+        "showLast": {
+          "type": "boolean",
+          "default": false
+        },
+        "showLow": {
+          "type": "boolean",
+          "default": false
+        },
+        "showNegative": {
+          "type": "boolean",
+          "default": false
+        },
+        "showMarkers": {
+          "type": "boolean",
+          "default": false
+        },
+        "manualMax": {
+          "type": "number",
+          "default": 0.0
+        },
+        "manualMin": {
+          "type": "number",
+          "default": 0.0
+        },
+        "maxAxisType": {
+          "$ref": "#/definitions/SparklineAxisMinMax",
+          "default": 0
+        },
+        "minAxisType": {
+          "$ref": "#/definitions/SparklineAxisMinMax",
+          "default": 0
+        },
+        "lineWeight": {
+          "type": "number",
+          "default": 1
+        }
+      }
+    },
+    "Sparkline": {
+      "title": "Sparkline",
+      "description": "Represents a Sparkline.",
+      "type": "object",
+      "properties": {
+        "row": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "col": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "orientation": {
+          "$ref": "#/definitions/DataOrientation"
+        },
+        "data": {
+          "$ref": "#/definitions/Range"
+        }
+      }
+    },
+    "SparklineType": {
+      "title": "SparklineType",
+      "description": "Represents the sparkline type. line:0, column:1, winloss:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "SparklineAxisMinMax": {
+      "title": "SparklineAxisMinMax",
+      "description": "An enumeration that specifies information about how the vertical axis minimum or maximum is computed for this sparkline group. individual:0, group:1, custom:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "EmptyValueStyle": {
+      "title": "EmptyValueStyle",
+      "description": "Specifies how to show an empty value from a data series in the chart. gaps:0, zero:1, connect:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "DataOrientation": {
+      "title": "DataOrientation",
+      "description": "Represents the orientation of the range. vertical:0, horizontal:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "Represents a comment.",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "default": ""
+        },
+        "location": {
+          "$ref": "#/definitions/Point"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true,
+          "default": 160
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true,
+          "default": 100
+        },
+        "fontFamily": {
+          "type": "string",
+          "default": "Arial"
+        },
+        "fontStyle": {
+          "type": "string",
+          "default": "normal"
+        },
+        "fontSize": {
+          "type": "string",
+          "default": "9pt"
+        },
+        "fontWeight": {
+          "type": "string",
+          "default": "normal"
+        },
+        "textDecoration": {
+          "$ref": "#/definitions/TextDecorationType",
+          "default": 0
+        },
+        "foreColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "backColor": {
+          "type": "string",
+          "default": "#FFFFE1"
+        },
+        "locked": {
+          "type": "boolean",
+          "default": true
+        },
+        "lockText": {
+          "type": "boolean",
+          "default": true
+        },
+        "horizontalAlign": {
+          "$ref": "#/definitions/HorizontalAlign",
+          "default": 0
+        },
+        "autoSize": {
+          "type": "boolean",
+          "default": false
+        },
+        "dynamicMove": {
+          "type": "boolean",
+          "default": true
+        },
+        "dynamicSize": {
+          "type": "boolean",
+          "default": true
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1
+        },
+        "borderWidth": {
+          "type": "number",
+          "default": 1
+        },
+        "borderStyle": {
+          "type": "string",
+          "default": "solid"
+        },
+        "borderColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "padding": {
+          "$ref": "#/definitions/Padding"
+        },
+        "showShadow": {
+          "type": "boolean",
+          "default": false
+        },
+        "displayMode": {
+          "$ref": "#/definitions/DisplayMode",
+          "default": 2
+        },
+        "commentState": {
+          "$ref": "#/definitions/CommentState",
+          "default": 3
+        },
+        "zIndex": {
+          "type": "integer",
+          "default": -1
+        },
+        "ignoreDefaultLocation": {
+          "type": "boolean",
+          "default": false
+        },
+        "rowIndex": {
+          "type": "integer",
+          "default": -1
+        },
+        "colIndex": {
+          "type": "integer",
+          "default": -1
+        }
+      }
+    },
+    "Padding": {
+      "title": "Padding",
+      "description": "Represents the padding.",
+      "type": "object",
+      "properties": {
+        "left": {
+          "type": "number",
+          "default": 0
+        },
+        "top": {
+          "type": "number",
+          "default": 0
+        },
+        "right": {
+          "type": "number",
+          "default": 0
+        },
+        "bottom": {
+          "type": "number",
+          "default": 0
+        }
+      }
+    },
+    "Point": {
+      "title": "Point",
+      "description": "Represents an x and y coordinate pair in two-dimensional space.",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      }
+    },
+    "CommentState": {
+      "title": "CommentState",
+      "description": "Defines the comment state. active:1, edit:2, normal:3",
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "DisplayMode": {
+      "title": "DisplayMode",
+      "description": "Defines when the comment is displayed. alwaysShown:1, hoverShown:2.",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "SheetTable": {
+      "title": "SheetTable",
+      "description": "Represents a table that can be added in a sheet.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "row": {
+          "type": "integer",
+          "default": -1
+        },
+        "col": {
+          "type": "integer",
+          "default": -1
+        },
+        "rowCount": {
+          "type": "integer",
+          "default": -1
+        },
+        "colCount": {
+          "type": "integer",
+          "default": -1
+        },
+        "showHeader": {
+          "type": "boolean",
+          "default": true
+        },
+        "showFooter": {
+          "type": "boolean",
+          "default": false
+        },
+        "highlightFirstColumn": {
+          "type": "boolean",
+          "default": false
+        },
+        "highlightLastColumn": {
+          "type": "boolean",
+          "default": false
+        },
+        "bandRows": {
+          "type": "boolean",
+          "default": true
+        },
+        "bandColumns": {
+          "type": "boolean",
+          "default": false
+        },
+        "style": {
+          "$ref": "#/definitions/TableTheme"
+        },
+        "autoGenerateColumns": {
+          "type": "boolean",
+          "default": true
+        },
+        "bindingPath": {
+          "type": "string"
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableColumnInfo"
+          }
+        },
+        "rowFilter": {
+          "$ref": "#/definitions/TableFilter"
+        }
+      }
+    },
+    "TableColumnInfo": {
+      "title": "TableColumnInfo",
+      "description": "Represents the table column.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "dataField": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "footerFormula": {
+          "type": "string"
+        },
+        "dataAreaFormula": {
+          "type": "string"
+        },
+        "footerValue": {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "null",
+            "object",
+            "string"
+          ]
+        }
+      }
+    },
+    "TableTheme": {
+      "title": "TableTheme",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/BuildInTableTheme"
+        },
+        {
+          "$ref": "#/definitions/CustomTableTheme"
+        }
+      ]
+    },
+    "BuildInTableTheme": {
+      "title": "BuildInTableTheme",
+      "description": "Represents a built-in table style setting.",
+      "type": "object",
+      "properties": {
+        "buildInName": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomTableTheme": {
+      "title": "CustomTableTheme",
+      "description": "Represents a custom table style setting.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "wholeTableStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "headerRowStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "footerRowStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "firstRowStripStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "secondRowStripStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "firstRowStripSize": {
+          "type": "number",
+          "default": 1
+        },
+        "secondRowStripSize": {
+          "type": "number",
+          "default": 1
+        },
+        "firstColumnStripStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "secondColumnStripStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "firstColumnStripSize": {
+          "type": "number",
+          "default": 1
+        },
+        "secondColumnStripSize": {
+          "type": "number",
+          "default": 1
+        },
+        "highlightFirstColumnStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "highlightLastColumnStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "firstHeaderCellStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "lastHeaderCellStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "firstFooterCellStyle": {
+          "$ref": "#/definitions/TableStyle"
+        },
+        "lastFooterCellStyle": {
+          "$ref": "#/definitions/TableStyle"
+        }
+      }
+    },
+    "TableStyle": {
+      "title": "TableStyle",
+      "description": "Represents table style information.",
+      "type": "object",
+      "properties": {
+        "backColor": {
+          "type": "string"
+        },
+        "foreColor": {
+          "type": "string"
+        },
+        "font": {
+          "type": "string"
+        },
+        "borderLeft": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderTop": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderRight": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderBottom": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderHorizontal": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "borderVertical": {
+          "$ref": "#/definitions/LineBorder"
+        },
+        "textDecoration": {
+          "$ref": "#/definitions/TextDecorationType",
+          "default": 0
+        }
+      }
+    },
+    "FloatingObject": {
+      "title": "FloatingObject",
+      "description": "Represents a custom floating object.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "default": 0
+        },
+        "y": {
+          "type": "number",
+          "default": 0
+        },
+        "width": {
+          "type": "number",
+          "default": 0
+        },
+        "height": {
+          "type": "number",
+          "default": 0
+        },
+        "canPrint": {
+          "type": "boolean",
+          "default": true
+        },
+        "isSelected": {
+          "type": "boolean",
+          "default": false
+        },
+        "isLocked": {
+          "type": "boolean",
+          "default": true
+        },
+        "isVisible": {
+          "type": "boolean",
+          "default": true
+        },
+        "dynamicMove": {
+          "type": "boolean",
+          "default": true
+        },
+        "dynamicSize": {
+          "type": "boolean",
+          "default": true
+        },
+        "fixedPosition": {
+          "type": "boolean"
+        },
+        "allowResize": {
+          "type": "boolean",
+          "default": true
+        },
+        "allowMove": {
+          "type": "boolean",
+          "default": true
+        },
+        "typeName": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    },
+    "Picture": {
+      "title": "Picture",
+      "description": "Represents a picture.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "default": 0
+        },
+        "y": {
+          "type": "number",
+          "default": 0
+        },
+        "width": {
+          "type": "number",
+          "default": 0
+        },
+        "height": {
+          "type": "number",
+          "default": 0
+        },
+        "canPrint": {
+          "type": "boolean",
+          "default": true
+        },
+        "isSelected": {
+          "type": "boolean",
+          "default": false
+        },
+        "isLocked": {
+          "type": "boolean",
+          "default": true
+        },
+        "isVisible": {
+          "type": "boolean",
+          "default": true
+        },
+        "dynamicMove": {
+          "type": "boolean",
+          "default": true
+        },
+        "dynamicSize": {
+          "type": "boolean",
+          "default": true
+        },
+        "fixedPosition": {
+          "type": "boolean"
+        },
+        "allowResize": {
+          "type": "boolean",
+          "default": true
+        },
+        "allowMove": {
+          "type": "boolean",
+          "default": true
+        },
+        "typeName": {
+          "type": "string"
+        },
+        "src": {
+          "type": "string"
+        },
+        "backColor": {
+          "type": "string"
+        },
+        "borderRadius": {
+          "type": "number",
+          "default": -1
+        },
+        "borderWidth": {
+          "type": "number",
+          "default": 1
+        },
+        "borderStyle": {
+          "type": "string",
+          "default": "none"
+        },
+        "borderColor": {
+          "type": "string"
+        },
+        "pictureStretch": {
+          "$ref": "#/definitions/ImageLayout",
+          "default": 0
+        }
+      }
+    },
+    "SpanModel": {
+      "title": "SpanModel",
+      "description": "Represents a data model for cell spans.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Range"
+      }
+    },
+    "HeaderAutoText": {
+      "title": "HeaderAutoText",
+      "description": "Specifies which default labels are displayed in headers. blank:0, numbers:1, letters:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "ClipboardPasteOptions": {
+      "title": "ClipboardPasteOptions",
+      "description": "Specifies what data is pasted from the Clipboard. all:0, values:1, formatting:2, formulas:3.",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "ProtectionOption": {
+      "title": "ProtectionOption",
+      "description": "Specifies the elements that you want users to be able to change.",
+      "type": "object",
+      "properties": {
+        "allowSelectLockedCells": {
+          "type": "boolean"
+        },
+        "allowSelectUnlockedCells": {
+          "type": "boolean"
+        },
+        "allowSort": {
+          "type": "boolean"
+        },
+        "allowFilter": {
+          "type": "boolean"
+        },
+        "allowEditObjects": {
+          "type": "boolean"
+        },
+        "allowResizeRows": {
+          "type": "boolean"
+        },
+        "allowResizeColumns": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Outline": {
+      "title": "Outline",
+      "description": "Represents an outline for the worksheet.",
+      "type": "object",
+      "properties": {
+        "head": {
+          "$ref": "#/definitions/OutlineItemInfo"
+        },
+        "tail": {
+          "$ref": "#/definitions/OutlineItemInfo"
+        },
+        "direction": {
+          "$ref": "#/definitions/OutlineDirection",
+          "default": 1
+        },
+        "itemsData": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "info": {
+                "$ref": "#/definitions/OutlineItemInfo"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OutlineItemInfo": {
+      "title": "OutlineItemInfo",
+      "description": "Represents an outline item information.",
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "integer",
+          "default": 0
+        },
+        "collapsed": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "OutlineDirection": {
+      "title": "OutlineDirection",
+      "description": "Specifies the status of an outline summary row or column position. backward:0, forward:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "SparklineEx": {
+      "title": "SparklineEx",
+      "description": "Represents the base class for the other SparklineEx classes.",
+      "type": "object",
+      "properties": {
+        "typeName": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "ResizeZeroIndicator": {
+      "title": "ResizeZeroIndicator",
+      "description": "Specifies the drawing policy of the row or column when it is resized to zero. default:0, enhanced:1.",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "PrintInfo": {
+      "title": "PrintInfo",
+      "description": "Represents the information to use when printing a sheet.",
+      "type": "object",
+      "properties": {
+        "bestFitRows": {
+          "type": "boolean",
+          "default": false
+        },
+        "bestFitColumns": {
+          "type": "boolean",
+          "default": false
+        },
+        "columnStart": {
+          "type": "number",
+          "default": -1
+        },
+        "columnEnd": {
+          "type": "number",
+          "default": -1
+        },
+        "rowStart": {
+          "type": "number",
+          "default": -1
+        },
+        "rowEnd": {
+          "type": "number",
+          "default": -1
+        },
+        "repeatColumnStart": {
+          "type": "number",
+          "default": -1
+        },
+        "repeatColumnEnd": {
+          "type": "number",
+          "default": -1
+        },
+        "repeatRowStart": {
+          "type": "number",
+          "default": -1
+        },
+        "repeatRowEnd": {
+          "type": "number",
+          "default": -1
+        },
+        "showBorder": {
+          "type": "boolean",
+          "default": true
+        },
+        "showGridLine": {
+          "type": "boolean",
+          "default": false
+        },
+        "showColumnHeader": {
+          "$ref": "#/definitions/PrintVisibilityType",
+          "default": 0
+        },
+        "showRowHeader": {
+          "$ref": "#/definitions/PrintVisibilityType",
+          "default": 0
+        },
+        "useMax": {
+          "type": "boolean",
+          "default": true
+        },
+        "centering": {
+          "$ref": "#/definitions/PrintCentering",
+          "default": 0
+        },
+        "firstPageNumber": {
+          "type": "number",
+          "default": 1
+        },
+        "headerLeft": {
+          "type": "string"
+        },
+        "headerCenter": {
+          "type": "string"
+        },
+        "headerRight": {
+          "type": "string"
+        },
+        "footerLeft": {
+          "type": "string"
+        },
+        "footerCenter": {
+          "type": "string"
+        },
+        "footerRight": {
+          "type": "string"
+        },
+        "headerLeftImage": {
+          "type": "string"
+        },
+        "headerCenterImage": {
+          "type": "string"
+        },
+        "headerRightImage": {
+          "type": "string"
+        },
+        "footerLeftImage": {
+          "type": "string"
+        },
+        "footerCenterImage": {
+          "type": "string"
+        },
+        "footerRightImage": {
+          "type": "string"
+        },
+        "margin": {
+          "$ref": "#/definitions/PrintMargins"
+        },
+        "orientation": {
+          "$ref": "#/definitions/PrintPageOrientation",
+          "default": 1
+        },
+        "pageRange": {
+          "type": "string"
+        },
+        "pageOrder": {
+          "$ref": "#/definitions/PrintPageOrder",
+          "default": 0
+        },
+        "blackAndWhite": {
+          "type": "boolean",
+          "default": false
+        },
+        "zoomFactor": {
+          "type": "number",
+          "default": 1
+        },
+        "fitPagesTall": {
+          "type": "number",
+          "default": -1
+        },
+        "fitPagesWide": {
+          "type": "number",
+          "default": -1
+        },
+        "paperSize": {
+          "$ref": "#/definitions/PaperSize"
+        }
+      }
+    },
+    "PrintVisibilityType": {
+      "title": "PrintVisibilityType",
+      "description": "Specifies whether the area is visible. inherit:0, hide:1, show:2, showOnce:3",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "PrintCentering": {
+      "title": "PrintCentering",
+      "description": "Specifies the type of centering for the printed page. none:0, horizontal:1, vertical:2, both:3",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "PrintPageOrientation": {
+      "title": "PrintPageOrientation",
+      "description": "Specifies the page orientation used for printing. portrait:1, landscape:2",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "PrintPageOrder": {
+      "title": "PrintPageOrder",
+      "description": "Specifies the order in which pages are printed. auto:0, downThenOver:1, overThenDown:2",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "PaperKind": {
+      "title": "PaperKind",
+      "description": "Specifies the paper kind for the printed page. 0 : custom, 1 : letter, 2 : letterSmall, 3 : tabloid, 4 : ledger, 5 : legal, 6 : statement, 7 : executive, 8 : a3, 9 : a4, 10 : a4Small, 11 : a5, 12 : b4, 13 : b5, 14 : folio, 15 : quarto, 16 : standard10x14, 17 : standard11x17, 18 : note, 19 : number9Envelope, 20 : number10Envelope, 21 : number11Envelope, 22 : number12Envelope, 23 : number14Envelope, 24 : cSheet, 25 : dSheet, 26 : eSheet, 27 : dLEnvelope, 28 : c5Envelope, 29 : c3Envelope, 30 : c4Envelope, 31 : c6Envelope, 32 : c65Envelope, 33 : b4Envelope, 34 : b5Envelope, 35 : b6Envelope, 36 : italyEnvelope, 37 : monarchEnvelope, 38 : personalEnvelope, 39 : uSStandardFanfold, 40 : germanStandardFanfold, 41 : germanLegalFanfold, 42 : isoB4, 43 : japanesePostcard, 44 : standard9x11, 45 : standard10x11, 46 : standard15x11, 47 : inviteEnvelope, 50 : letterExtra, 51 : legalExtra, 52 : tabloidExtra, 53 : a4Extra, 54 : letterTransverse, 55 : a4Transverse, 56 : letterExtraTransverse, 57 : aPlus, 58 : bPlus, 59 : letterPlus, 60 : a4Plus, 61 : a5Transverse, 62 : b5Transverse, 63 : a3Extra, 64 : a5Extra, 65 : b5Extra, 66 : a2, 67 : a3Transverse, 68 : a3ExtraTransverse, 69 : japaneseDoublePostcard, 70 : a6, 71 : japaneseEnvelopeKakuNumber2, 72 : japaneseEnvelopeKakuNumber3, 73 : japaneseEnvelopeChouNumber3, 74 : japaneseEnvelopeChouNumber4, 75 : letterRotated, 76 : a3Rotated, 77 : a4Rotated, 78 : a5Rotated, 79 : b4JisRotated, 80 : b5JisRotated, 81 : japanesePostcardRotated, 82 : japaneseDoublePostcardRotated, 83 : a6Rotated, 84 : japaneseEnvelopeKakuNumber2Rotated, 85 : japaneseEnvelopeKakuNumber3Rotated, 86 : japaneseEnvelopeChouNumber3Rotated, 87 : japaneseEnvelopeChouNumber4Rotated, 88 : b6Jis, 89 : b6JisRotated, 90 : standard12x11, 91 : japaneseEnvelopeYouNumber4, 92 : japaneseEnvelopeYouNumber4Rotated, 93 : prc16K, 94 : prc32K, 95 : prc32KBig, 96 : prcEnvelopeNumber1, 97 : prcEnvelopeNumber2, 98 : prcEnvelopeNumber3, 99 : prcEnvelopeNumber4, 100 : prcEnvelopeNumber5, 101 : prcEnvelopeNumber6,102 : prcEnvelopeNumber7,103 : prcEnvelopeNumber8,104 : prcEnvelopeNumber9,105 : prcEnvelopeNumber10,106: prc16KRotated,107: prc32KRotated,108: prc32KBigRotated,109: prcEnvelopeNumber1Rotated,110: prcEnvelopeNumber2Rotated,111: prcEnvelopeNumber3Rotated,112: prcEnvelopeNumber4Rotated,113: prcEnvelopeNumber5Rotated,114: prcEnvelopeNumber6Rotated,115: prcEnvelopeNumber7Rotated,116: prcEnvelopeNumber8Rotated,117: prcEnvelopeNumber9Rotated,118: prcEnvelopeNumber10Rotated",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118
+      ]
+    },
+    "PrintMargins": {
+      "title": "PrintMargins",
+      "description": "Specifies the dimensions of the printed page margins.",
+      "type": "object",
+      "properties": {
+        "top": {
+          "type": "number",
+          "default": 75
+        },
+        "bottom": {
+          "type": "number",
+          "default": 75
+        },
+        "left": {
+          "type": "number",
+          "default": 70
+        },
+        "right": {
+          "type": "number",
+          "default": 70
+        },
+        "header": {
+          "type": "number",
+          "default": 30
+        },
+        "footer": {
+          "type": "number",
+          "default": 30
+        }
+      }
+    },
+    "PaperSize": {
+      "title": "PaperSize",
+      "description": "Specifies the paper size.",
+      "properties": {
+        "height": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "kind": {
+          "$ref": "#/definitions/PaperKind"
+        }
+      }
+    },
+    "Slicer": {
+      "title": "Slicer",
+      "description": "Represents a slicer.",
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "default": 100
+        },
+        "y": {
+          "type": "number",
+          "default": 100
+        },
+        "width": {
+          "type": "number",
+          "default": 192
+        },
+        "height": {
+          "type": "number",
+          "default": 250
+        },
+        "dynamicMove": {
+          "type": "boolean",
+          "default": false
+        },
+        "dynamicSize": {
+          "type": "boolean",
+          "default": false
+        },
+        "isLocked": {
+          "type": "boolean",
+          "default": true
+        },
+        "fixedPosition": {
+          "type": "boolean",
+          "default": false
+        },
+        "sourceName": {
+          "type": "string"
+        },
+        "tableName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "captionName": {
+          "type": "string"
+        },
+        "columnCount": {
+          "type": "number",
+          "default": 1
+        },
+        "itemHeight": {
+          "type": "number",
+          "default": 21
+        },
+        "showHeader": {
+          "type": "boolean",
+          "default": true
+        },
+        "sortState": {
+          "$ref": "#/definitions/SortState",
+          "default": 1
+        },
+        "disableResizingAndMoving": {
+          "type": "boolean",
+          "default": false
+        },
+        "showNoDataItems": {
+          "type": "boolean",
+          "default": true
+        },
+        "showNoDataItemsInLast": {
+          "type": "boolean",
+          "default": true
+        },
+        "visuallyNoDataItems": {
+          "type": "boolean",
+          "default": true
+        },
+        "style": {
+          "$ref": "#/definitions/SlicerStyle"
+        },
+        "columnName": {
+          "type": "string"
+        },
+        "nameInFormula": {
+          "type": "string"
+        }
+      }
+    },
+    "SlicerStyle": {
+      "title": "SlicerStyle",
+      "description": "Represents the slicer style settings.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": ""
+        },
+        "wholeSlicerStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "headerStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "selectedItemWithDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "selectedItemWithNoDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "unSelectedItemWithDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "unSelectedItemWithNoDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "hoveredSelectedItemWithDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "hoveredSelectedItemWithNoDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "hoveredUnSelectedItemWithDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        },
+        "hoveredUnSelectedItemWithNoDataStyle": {
+          "$ref": "#/definitions/SlicerStyleInfo"
+        }
+      }
+    },
+    "SlicerStyleInfo": {
+      "title": "SlicerStyleInfo",
+      "description": "Represents slicer style information.",
+      "type": "object",
+      "properties": {
+        "backColor": {
+          "type": "string",
+          "default": "white"
+        },
+        "foreColor": {
+          "type": "string",
+          "default": "black"
+        },
+        "font": {
+          "type": "string",
+          "default": "normal 11pt calibri"
+        },
+        "borderLeft": {
+          "$ref": "#/definitions/SlicerBorder"
+        },
+        "borderTop": {
+          "$ref": "#/definitions/SlicerBorder"
+        },
+        "borderRight": {
+          "$ref": "#/definitions/SlicerBorder"
+        },
+        "borderBottom": {
+          "$ref": "#/definitions/SlicerBorder"
+        },
+        "textDecoration": {
+          "$ref": "#/definitions/TextDecorationType",
+          "default": 0
+        }
+      }
+    },
+    "SlicerBorder": {
+      "title": "SlicerBorder",
+      "description": "Represents the slicer border.",
+      "type": "object",
+      "properties": {
+        "borderWidth": {
+          "type": "number",
+          "default": 0
+        },
+        "borderStyle": {
+          "type": "number",
+          "default": ""
+        },
+        "borderColor": {
+          "type": "number",
+          "default": ""
+        }
+      }
+    },
+    "SortState": {
+      "title": "SortState",
+      "description": "Specifies the type of sorting to perform. none:0, ascending:1, descending:2.",
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    }
+  }
+}

@@ -11,8 +11,8 @@ Class constructor($command : Text)
 Function execute()->$status : Object
 	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Compile and Build Project...\n"; Information message)
 	
-	If (Folder("/PROJECT").file(This.getProjectName()+"_ci-compileproject_results.json").exists)
-		Folder("/PROJECT").file(This.getProjectName()+"_ci-compileproject_results.json").delete()
+	If (Folder(fk resources folder).file(This.getProjectName()+"_ci-compileproject_results.json").exists)
+		Folder(fk resources folder).file(This.getProjectName()+"_ci-compileproject_results.json").delete()
 	End if 
 	
 	$status:=This.compileAndBuild()
@@ -50,7 +50,7 @@ Function package()->$status : Object
 	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - Begin Packaging Project...\n"; Information message)
 	
 	// Package for 4DZ
-	$packageDir:=Folder(Folder("/PACKAGE").platformPath; fk platform path)
+	$packageDir:=Folder(Folder(fk database folder).platformPath; fk platform path)
 	$buildDir:=$packageDir.folder("Compiled Database/")
 	If ($buildDir.exists)
 		$buildDir.delete(Delete with contents)
