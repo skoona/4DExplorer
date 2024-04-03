@@ -71,12 +71,12 @@ jobs:
           name: Compile-Results
           path: |
             Compiled Database/
-            Project/Contacts_ci-compileproject_results.json
+            BuildDocs
         # CHANGELOG.md
           
       - name: "Pass or Fail"
         run: |
-          [[ $(jq .command.success Project/Contacts_ci-compileproject_results.json) == true ]] || { exit 1; }
+          [[ $(jq .command.success BuildDocs/Contacts_ci-compileproject_results.json) == true ]] || { exit 1; }
         
   release-content:
     name: 'Create Project Release'
