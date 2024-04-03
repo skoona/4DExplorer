@@ -93,7 +93,7 @@ Function package()->$status : Object
 	
 	If ($status.success)
 		$structureFolder.folder("Project").delete(Delete with contents)
-		$status.package:=$structureFolder.path
+		$status.package:=$structureFolder.file(This.getProjectName()+".4DZ").path
 	End if 
 	
 	LOG EVENT(Into system standard outputs; "::notice "+Timestamp+" - End packaging, status: "+JSON Stringify($status)+"\n"; Information message)
