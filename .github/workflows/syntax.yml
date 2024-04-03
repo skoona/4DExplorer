@@ -49,6 +49,6 @@ jobs:
         
     - name: "Pass or Fail"
       run: |
-        [[ $(jq .command.success Project/Contacts_ci-checksyntax_results.json) == true ]] || { exit 1; }
+        [[ $(jq .command.success BuildDocs/Contacts_ci-checksyntax_results.json) == true ]] || { exit 1; }
 
           
