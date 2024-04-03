@@ -45,7 +45,7 @@ jobs:
       name: Upload Artifacts
       with:
         name: Syntax Results
-        path: Project/Contacts_ci-checksyntax_results.json
+        path: BuildDocs
         
     - name: "Pass or Fail"
       run: |
