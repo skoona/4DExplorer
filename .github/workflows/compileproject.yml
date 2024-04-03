@@ -120,7 +120,7 @@ jobs:
         with:
           type: 'zip'
           filename: 'Contacts-R${{ github.run_number }}.zip'
-          path: ${{ github.workspace }}/Compile-Results
+          path: ./Compile-Results
 
       - name: 'Create Project Release'
         uses: softprops/action-gh-release@v2.0.4
