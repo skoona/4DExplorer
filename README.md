@@ -23,6 +23,21 @@ There are a couple of classes which when invoked from the command line will perf
 - Automation on creation of pull_request to Development from feature branch.
 
 ### Workflow
+
+> CAUTION:
+> 
+> I recommend using `git rebase` in your daily workflow cycle when working on a local feature branch before pushing your branch to the remote.
+> After the very first push to the remote and another rebase, all your branch commits will have been recreated, effectively re-writing the git history (BAD)
+> Pushing to the remote after a second rebase locally will likely fail and suggest you 'git pull` to merge the changes: DON'T DO THE PULL; you would end up with duplicate commits having the same content but different hash IDs (NOT FATAL BUT BAD).
+> You have two choices: given a second local rebase and desire to push to remote
+> * `git push --force origin <feature-branch>` to force the remote update to current state
+> * `git push origin -d <feature-branch>` to delete the remote
+> * `git push origin <feature-branch>` to push the changed local to the remote after deleting the remote
+>
+> COMMON-BRANCH (checkout)-> FEATURE-BRANCH (rebase-common-branch) -> (merge squash) COMMON-BRANCH
+> 
+> RELEASE-BRANCH <- (merge-ff) COMMON-BRANCH
+
 1. Start with an updated and current local repo! (UPDATE LOCAL)
     - cd &lt;application-dir&gt;
     - git fetch origin -u --prune
@@ -41,7 +56,7 @@ There are a couple of classes which when invoked from the command line will perf
     - ** Make changes and Commit **
     - ** Make changes and Commit **
     - ** Feature is now complete - or your done for now
-    - git push origin &lt;new-feature-branch&gt;
+    - (see note) git push origin &lt;new-feature-branch&gt;
 
 3. Add more to &lt;new-feature-branch&gt;
     - do UPDATE LOCAL
@@ -51,24 +66,29 @@ There are a couple of classes which when invoked from the command line will perf
     - ** Make changes and Commit **
     - ** Make changes and Commit **
     - ** Feature is now complete
-    - git push origin &lt;new-feature-branch&gt;
+    - (see note) git push origin &lt;new-feature-branch&gt;
 
 4. Merge &lt;new-feature-branch&gt; into development
     - do UPDATE LOCAL
     - git checkout development
-        - git rebase --squash &lt;new-feature-branch&gt;
-        * or 
         - git merge --squash &lt;new-feature-branch&gt;
 	- git commit       // save the opened commit message
-    - git branch -D &lt;new-feature=branch&gt;
-    - git push origin :&lt;new-feature=branch&gt;
+    - git branch -d &lt;new-feature=branch&gt;
+    - git push origin -d &lt;new-feature=branch&gt;
     - git push origin development
+
+5. Merge development into main (attempt fast-forward)
+    - do UPDATE LOCAL
+    - git checkout main
+    - git merge --ff development
+    - git push origin main
+    - git checkout development
 
 - In the future
     - git push origin \<feature-branch> will just sit there until YOU create a `pull request (PR)`
     - Each (git push origin \<feature-branch>) to a PR will cause a pipeline SyntaxCheck
-    - A PR will set there until a code-review (CR) is OK'ed and the SyntaxCheck passes.
-    - Once the CR is approved, then a merge-squash-delete (see #4 above) will be performed (by GitHub) and the PR will be closed.
+    - A PR will sit there until a code-review (CR) is OK'ed and the SyntaxCheck passes.
+    - Once the CR is approved, a merge-squash-delete (see #4 above) will be performed (by GitHub), and the PR will be closed.
 
 #### Extra Gits
     - Cancel a rebase and go back to before
@@ -131,7 +151,6 @@ There are a couple of classes which when invoked from the command line will perf
 ### Aliases
 ```bash
 alias gs='git status '
-alias gbr='git branch -a'
 alias gcd='git checkout development '
 alias gcm='git checkout main '
 alias gdp='git pull origin development '
@@ -142,7 +161,11 @@ alias gdpp='git push origin development --tags '
 alias gmpp='git push origin main --tags '
 alias gfp='git fetch origin -u --prune '
 alias gupdate="gfp && gcm && gmp && gcd && gdp "
-
+alias gbr='git branch -avv'
+alias grestore="git restore  Project/Sources/catalog.4DCatalog"
+alias gl1="git log --oneline --graph"
+alias gclean="git gc --prune=now"
+alias gmaint="git fsck --no-reflogs"
 ```
 
 ## Project Layout
