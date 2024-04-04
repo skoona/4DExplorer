@@ -71,7 +71,7 @@ There are a couple of classes which when invoked from the command line will perf
 4. Merge &lt;new-feature-branch&gt; into development
     - do UPDATE LOCAL
     - git checkout development
-        - git merge --squash &lt;new-feature-branch&gt;
+    - git merge --squash &lt;new-feature-branch&gt;
 	- git commit       // save the opened commit message
     - git branch -d &lt;new-feature=branch&gt;
     - git push origin -d &lt;new-feature=branch&gt;
