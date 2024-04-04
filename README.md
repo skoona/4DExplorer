@@ -25,6 +25,7 @@ There are a couple of classes which when invoked from the command line will perf
 ### Workflow
 
 > CAUTION:
+> 
 > I recommend using `git rebase` in your daily workflow cycle when working on a local feature branch before pushing your branch to the remote.
 > After the very first push to the remote and another rebase, all your branch commits will have been recreated, effectively re-writing the git history (BAD)
 > Pushing to the remote after a second rebase locally will likely fail and suggest you 'git pull` to merge the changes: DON'T DO THE PULL; you would end up with duplicate commits having the same content but different hash IDs (NOT FATAL BUT BAD).
@@ -34,6 +35,7 @@ There are a couple of classes which when invoked from the command line will perf
 > * `git push origin \<feature-branch>` to push the changed local to the remote after deleting the remote
 >
 > COMMON-BRANCH (checkout)-> FEATURE-BRANCH (rebase-common-branch) -> (merge squash) COMMON-BRANCH
+> 
 > RELEASE-BRANCH \<- (merge-ff) COMMON-BRANCH
 
 1. Start with an updated and current local repo! (UPDATE LOCAL)
