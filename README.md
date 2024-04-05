@@ -32,7 +32,7 @@ There are a couple of classes which when invoked from the command line will perf
 > You have two choices: given a second local rebase and desire to push to remote
 > * `git push --force origin <feature-branch>` to force the remote update to current state
 > * `git push origin -d <feature-branch>` to delete the remote
-> * `git push origin <feature-branch>` to push the changed local to the remote after deleting the remote
+>> * `git push origin <feature-branch>` to push the changed local to the remote after deleting the remote
 >
 > COMMON-BRANCH (checkout)-> FEATURE-BRANCH (rebase-common-branch) -> (merge squash) COMMON-BRANCH
 > 
